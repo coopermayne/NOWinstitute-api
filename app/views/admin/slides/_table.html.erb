@@ -42,15 +42,13 @@
 
   </table>
 
-  <% if @morph_section %>
+  <% if @about_section %>
     
-	<%= simple_fields_for @morph_section do |builder| %>
+	<%= simple_fields_for @about_section do |builder| %>
 		<%= builder.input :id, as: :hidden %>
 
-		<%= builder.input :contact %>
 		<%= builder.input :about %>
-		<%= builder.input :employment %>
-		<%= builder.input :media %>
+		<%= builder.input :contact %>
 
 	<% end %>
 
