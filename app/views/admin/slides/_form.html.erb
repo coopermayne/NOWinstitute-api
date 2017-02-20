@@ -46,56 +46,6 @@
         </div>
       </div> <%# end body %>
   </div> <%# end panel %>
-<div class="panel panel-default upload-slideshow-videos">
-  <div class="panel-heading">
-    <h3 class="panel-title">Videos (only for home page section)</h3>
-  </div>
-  <div class='panel-body'>
-
-    <% if f.object.video_slides_valid? %>
-      <video width="320" height="240" controls>
-        <source src="<%= f.object.mp4.name_url %>" type="video/mp4">
-        <source src="<%= f.object.webm.name_url %>" type="video/mp4">
-      </video>
-    <% end %>
-
-
-    <%= f.simple_fields_for :mp4, f.object.mp4 || f.object.build_mp4  do |builder| %>
-      <%= builder.input :name, label: false, :input_html => { 
-        :class => 'filestyle', 
-        data: {
-          buttonText: builder.object.name_url ? "Change mp4" : "Choose mp4",
-          placeholder: builder.object.name_url ? File.basename(builder.object.name_url) :  ""
-        } 
-      }
-    %>
-<% end %>
-
-
-<%= f.simple_fields_for :webm, f.object.webm || f.object.build_webm  do |builder| %>
-  <%= builder.input :name, label: false, :input_html => { 
-    :class => 'filestyle', 
-    data: {
-      buttonText: builder.object.name_url ? "Change webm" : "Choose webm",
-      placeholder: builder.object.name_url ? File.basename(builder.object.name_url) :  ""
-    } 
-  }
-%>
-
-<% end %>
-
-<%= f.simple_fields_for :gif, f.object.gif || f.object.build_gif  do |builder| %>
-  <%= builder.input :name, label: false, :input_html => { 
-    :class => 'filestyle', 
-    data: {
-      buttonText: builder.object.name_url ? "Change gif" : "Choose gif",
-      placeholder: builder.object.name_url ? File.basename(builder.object.name_url) :  ""
-    } 
-  }
-%>
-        <% end %>
-  </div>
-</div> <%# end panel %>
 
 </div> <%# end col %>
 </div> <%# end row %> 

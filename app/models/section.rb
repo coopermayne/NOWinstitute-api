@@ -50,9 +50,6 @@ class Section < ActiveRecord::Base
         rank: slide.rank,
         project_title:  has_title ? slide.title : nil,
         image: slide.image && slide.image.name,
-        mp4: slide.mp4 && slide.mp4.name,
-        webm: slide.webm && slide.webm.name,
-        gif: slide.gif && slide.gif.name
       }
     end
   end

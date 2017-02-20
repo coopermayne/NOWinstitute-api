@@ -91,26 +91,11 @@ class Admin::SlidesController < AdminController
       :title,
       :section_id,
       :project_id,
-      mp4_attributes: [
-        :id,
-        :title,
-        :name
-      ],
       image_attributes: [
         :id,
         :title,
         :name
       ],
-      webm_attributes: [
-        :id,
-        :title,
-        :name
-      ],
-      gif_attributes: [
-        :id,
-        :title,
-        :name
-      ]
     )
   end
 
