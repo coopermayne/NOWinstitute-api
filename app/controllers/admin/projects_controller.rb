@@ -125,6 +125,7 @@ class Admin::ProjectsController < AdminController
 				:id,
 				:_destroy,
 				:title,
+				:is_visible,
 				:rank,
 				:content,
 			],
