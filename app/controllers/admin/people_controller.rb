@@ -2,7 +2,7 @@ class Admin::PeopleController < AdminController
   def index
     @title = "People"
     @people = Person.where(nil)
-    @types = ["is_morphosis", "is_employed", "is_collaborator", "is_consultant"]
+    @types = ["is_ucla_team", "is_leadership", "is_collaborator", "is_consultant"]
 
     if @types.include? params[:type]
       @type = params[:type]
@@ -67,9 +67,8 @@ class Admin::PeopleController < AdminController
       :birthday,
       :description,
       :email,
-      :is_morphosis,
+      :is_ucla_team,
       :is_leadership,
-      :is_employed,
       :is_collaborator, 
       :is_consultant, 
       :start_date,

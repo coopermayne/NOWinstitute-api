@@ -18,10 +18,10 @@ json.result do |json|
 
   json.documents @project.getDocuments
 
-  morphosites = @project.roles.select{|r| r.person.is_morphosis}
-  contractors = @project.roles.select{|r| !r.person.is_morphosis}
+  ucla_people = @project.roles.select{|r| r.person.is_ucla_team}
+  contractors = @project.roles.select{|r| !r.person.is_ucla_team}
 
-  gr_morph = morphosites.group_by{|n| n.position}.sort_by{|k,v| k.rank}
+  gr_morph = ucla_people.group_by{|n| n.position}.sort_by{|k,v| k.rank}
 
   json.morph_team gr_morph do |gr|
     json.role_title gr.first.title

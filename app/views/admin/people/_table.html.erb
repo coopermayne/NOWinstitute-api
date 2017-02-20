@@ -2,8 +2,7 @@
 	<thead>
 		<tr>
 			<th>name</th>
-			<th>morphosis</th>
-			<th>employed</th>
+			<th>is ucla</th>
 			<th>collaborator</th>
 			<th>consultant</th>
 			<th>has image</th>
@@ -17,8 +16,7 @@
 	<% people.each do |person| %>
 		<tr>
 			<td><%= link_to person.name, admin_person_path(person) %></td>
-			<td><%= person.is_morphosis  %></td>
-			<td><%= person.is_employed  %></td>
+			<td><%= person.is_ucla_team  %></td>
 			<td><%= person.is_collaborator %></td>
 			<td><%= person.is_consultant  %></td>
       <td><%= person.primary_image ? fa_icon("check", class: "pull-right", style: "color:green") : fa_icon("close", class: "pull-right", style: "color: red") %>

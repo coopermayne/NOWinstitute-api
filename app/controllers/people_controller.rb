@@ -24,7 +24,7 @@
 
 class PeopleController < ApplicationController
   def index
-    @people = Person.includes(:primary_image).where(is_employed: true)
+    @people = Person.includes(:primary_image).where(is_ucla_team: true)
   end
 
   def show

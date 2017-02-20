@@ -12,7 +12,7 @@ json.result do |json|
   end
 
   json.people @project.roles do |role|
-    json.person role.person, :id, :name, :last_name, :is_morphosis, :is_collaborator, :is_consultant
+    json.person role.person, :id, :name, :last_name, :is_ucla_team, :is_collaborator, :is_consultant
   end
 
   json.awards @project.awards, :id, :title, :year
