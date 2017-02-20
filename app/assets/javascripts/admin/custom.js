@@ -208,6 +208,8 @@ var applyTextBox = function(jquery_el){
   jquery_el.each(function() {
     var simplemde = new SimpleMDE({
       element: this,
+      toolbar: [ "heading-1", "heading-2", "bold", "italic", "|", "unordered-list", "link", "horizontal-rule", "|", "preview"],
+      insertTexts: { link: ["[", "](mailto:)"] }
     });
     simplemde.render(); 
   })
