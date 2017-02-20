@@ -8,8 +8,8 @@ class Admin::SlidesController < AdminController
     @slides = @slides.with_section(@section_id) if @section_id
     @slides = @slides.sort_by{|sl|sl.rank || 999}
 
-    if Section.find_by_title("Morphosis").id == params[:type].to_i
-      @morph_section = Section.find_by_title("Morphosis")
+    if Section.find_by_title("Home Page").id == params[:type].to_i
+      @morph_section = Section.find_by_title("Home Page")
     end
   end
 
