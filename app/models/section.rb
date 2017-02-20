@@ -17,38 +17,13 @@ class Section < ActiveRecord::Base
 
   accepts_nested_attributes_for :project_types
 
-  def pmedia
-    if self.media
-      self.media.gsub(/\b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}\b/) {|w| "<a href='mailto:" + w +"' target='_blank'>"+ w +"</a>"}
-    end
-  end
-
-  def pcontact
-    if self.contact
-      self.contact.gsub(/\b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}\b/) {|w| "<a href='mailto:" + w +"' target='_blank'>"+ w +"</a>"}
-    end
-  end
-
-  def pemployment
-    if self.employment
-      self.employment.gsub(/\b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}\b/) {|w| "<a href='mailto:" + w +"' target='_blank'>"+ w +"</a>"}
-    end
-  end
-
-  def pabout
-    if self.about
-      self.about.gsub(/\b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}\b/) {|w| "<a href='mailto:" + w +"' target='_blank'>"+ w +"</a>"}
-    end
-  end
-
   def get_slides
-		has_title = !(["Home Page", "Morphosis"].include? self.title)
 
     self.slides.select(&:visible).sort_by(&:rank).map do |slide|
       {
         project_id: slide.project_id,
         rank: slide.rank,
-        project_title:  has_title ? slide.title : nil,
+        project_title:  slide.title,
         image: slide.image && slide.image.name,
       }
     end
