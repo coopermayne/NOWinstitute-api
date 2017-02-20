@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161206220117) do
+ActiveRecord::Schema.define(version: 20170220175814) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -209,33 +209,19 @@ ActiveRecord::Schema.define(version: 20161206220117) do
     t.string   "title"
     t.text     "overview"
     t.text     "description"
-    t.text     "program"
-    t.string   "client"
-    t.integer  "size"
-    t.decimal  "site_area"
     t.decimal  "lat"
     t.decimal  "lon"
     t.string   "street_address"
     t.integer  "zip"
-    t.date     "design_sdate"
-    t.date     "design_edate"
-    t.date     "constr_sdate"
-    t.date     "constr_edate"
-    t.date     "open_date"
-    t.date     "close_date"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.integer  "section_id"
-    t.integer  "height"
-    t.integer  "hit"
     t.string   "city"
     t.string   "state"
     t.string   "country"
     t.integer  "primary_id"
-    t.integer  "old_id"
     t.integer  "index_image_id"
     t.string   "address"
-    t.text     "sustainability"
   end
 
   add_index "projects", ["section_id"], name: "index_projects_on_section_id", using: :btree
