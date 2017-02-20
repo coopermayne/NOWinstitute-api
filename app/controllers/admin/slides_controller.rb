@@ -66,13 +66,15 @@ class Admin::SlidesController < AdminController
 
       s.contact = about_params[:contact]
       s.about = about_params[:about]
-      s.employment = about_params[:employment]
-      s.media = about_params[:media]
 
       res1 = s.save
     end
 
-		res2 = Slide.update(slides_params.keys, slides_params.values)
+    if slides_params
+      res2 = Slide.update(slides_params.keys, slides_params.values)
+    else
+      res2 = true
+    end
 
     if res1 && res2
       flash[:notice] = 'Type items have been updated'
