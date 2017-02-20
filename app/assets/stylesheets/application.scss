@@ -1,16 +1,8 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
- @import 'trumbowyg/trumbowyg';
  @import 'chosen';
+ @import 'simplemde.min';
  @import "font-awesome";
-
-
-.trumbowyg-box{
-  img {
-    width: 250px;
-  }
-}
-
 
 .container {
   width: 90%;

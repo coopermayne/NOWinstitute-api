@@ -12,6 +12,7 @@ json.result do |json|
   end
 
   json.merge! @project.attributes
+
   json.types @project.project_types.map{|t| t.title }
   json.primary_image @project.primary_image
 

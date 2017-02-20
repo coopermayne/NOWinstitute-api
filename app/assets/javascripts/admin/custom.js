@@ -83,7 +83,7 @@ $(document).ready(function(){
 
   });
 
-  // apply trumbowyg
+  // apply markdown editor
   applyTextBox($('textarea'))
 
 	// apply chosen
@@ -107,7 +107,7 @@ $(document).ready(function(){
     time = new Date().getTime();
     regexp = new RegExp($(this).data('id'), 'g');
     $(this).before($(this).data('fields').replace(regexp, time));
-    //add trumbowyg
+    //add markdown editor
 
 		//apply javascript stuff
 		applyJsStuff()
@@ -205,18 +205,11 @@ var applyChosen = function(){
 
 
 var applyTextBox = function(jquery_el){
-  jquery_el.trumbowyg({
-    autogrow: false,
-    fullscreenable: false,
-    semantic: true,
-    btns:[
-      'viewHTML',
-      '|', 'formatting',
-      '|', 'btnGrp-design',
-      '|', 'link',
-      '|', 'btnGrp-lists',
-      '|', 'horizontalRule'
-    ]
+  jquery_el.each(function() {
+    var simplemde = new SimpleMDE({
+      element: this,
+    });
+    simplemde.render(); 
   })
 }
 
