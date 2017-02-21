@@ -9,23 +9,18 @@ class MenuController < ApplicationController
 
 
 
-    morph_slides = all_slides["Morphosis"]
-    arch_slides = all_slides["Architecture"]
-    research_slides = all_slides["Research"]
-    planning_slides = all_slides["Planning"]
-    tan_slides = all_slides["Tangents"]
+    about_slides = all_slides["About"]
+    home_slides = all_slides["Home Page"]
 
     res = {}
     morph_section = Section.find_by_title( "Morphosis" )
     res[:sections] = [
       {
-      title: 'Morphosis',
-      slides: morph_slides,
+      title: 'Now',
+      slides: about_slides,
       url: "about",
-      contact: morph_section.pcontact,
-      about: morph_section.pabout,
-      employment: morph_section.pemployment,
-      media: morph_section.pmedia,
+      contact: morph_section,
+      about: morph_section,
       sorting: [ {
         title: 'Contact',
         items: ''
@@ -40,9 +35,8 @@ class MenuController < ApplicationController
     },
 
     {
-      title: 'Architecture',
-      slides: arch_slides,
-      url: "architecture",
+      title: 'Projects',
+      url: "projects",
       sorting: [ {
         title: 'A-Z',
         items: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
@@ -51,52 +45,26 @@ class MenuController < ApplicationController
         items: [ '1970-1979', '1980-1989', '1990-1999', '2000-2009', '2010-2019' ].reverse
       }, {
         title: 'Type',
-        items: Section.find_by_title("Architecture").get_types
-      }, {
-        title: 'Location',
-        items: []
+        items: Section.find_by_title("Projects").get_types
       } ]
     }, 
-    
+
     {
-      title: 'Planning',
-      slides: planning_slides,
-      url: "planning",
-      sorting: [ {
-        title: 'A-Z',
-        items: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-      }, {
-        title: 'Year',
-        items: [ '1970-1979', '1980-1989', '1990-1999', '2000-2009', '2010-2019' ].reverse
-      }, {
-        title: 'Location',
-        items: []
-      } ]
-    }, 
-    
-    {
-      title: 'Tangents',
-      slides: tan_slides,
-      url: "tangents",
-      sorting: [ {
-        title: 'A-Z',
-        items: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-      }, {
-        title: 'Year',
-        items: [ '1970-1979', '1980-1989', '1990-1999', '2000-2009', '2010-2019' ].reverse
-      }, {
-        title: 'Type',
-        items: Section.find_by_title("Tangents").get_types
-      } ]
-    }, {
       title: 'Research',
-      slides: research_slides,
-      url: 'research',
-      sorting: [{
-          title: "Now Institute",
-          items: []
-      }]
-    }, {
+      url: "projects",
+      sorting: [ {
+        title: 'A-Z',
+        items: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+      }, {
+        title: 'Year',
+        items: [ '1970-1979', '1980-1989', '1990-1999', '2000-2009', '2010-2019' ].reverse
+      }, {
+        title: 'Type',
+        items: Section.find_by_title("Research").get_types
+      } ]
+    }, 
+
+    {
       title: 'News',
       url: 'news',
       items: news
