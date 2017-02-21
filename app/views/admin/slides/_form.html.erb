@@ -8,7 +8,7 @@
           </div>
           <div class='panel-body'>
             <%= f.input :title, placeholder: 'custom slide title' %>
-            <%= f.association :section, collection: Section.all.select{|s| s.title == "Home Page" || s.title == "About"}, prompt: 'required' %>
+            <%= f.association :section, collection: Section.all.select{|s| s.title == "Home Page" || s.title == "Now Institute"}, prompt: 'required' %>
 						<%= f.association :project, collection: Project.order(title: :asc), include_blank: true, input_html: {class: 'chosen-select assoc'} %>
           </div>
         </div>

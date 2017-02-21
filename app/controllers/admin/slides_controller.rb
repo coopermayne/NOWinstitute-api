@@ -2,14 +2,14 @@ class Admin::SlidesController < AdminController
   def index
     @title = "Slides and About Text"
     @section_id = params[:type] || Section.find_by_title("Home Page").id.to_s
-    @sections = Section.all.select{|s| s.title == "Home Page" || s.title == "About" }
+    @sections = Section.all.select{|s| s.title == "Home Page" || s.title == "Now Institute" }
 
     @slides = Slide.includes(:section).where(nil)
     @slides = @slides.with_section(@section_id) if @section_id
     @slides = @slides.sort_by{|sl|sl.rank || 999}
 
-    if Section.find_by_title("About").id == params[:type].to_i
-      @about_section = Section.find_by_title("About")
+    if Section.find_by_title("Now Institute").id == params[:type].to_i
+      @about_section = Section.find_by_title("Now Institute")
     end
   end
 

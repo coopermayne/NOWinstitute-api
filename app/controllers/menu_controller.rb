@@ -9,18 +9,18 @@ class MenuController < ApplicationController
 
 
 
-    about_slides = all_slides["About"]
+    now_slides = all_slides["Now Institute"]
     home_slides = all_slides["Home Page"]
 
     res = {}
-    morph_section = Section.find_by_title( "Morphosis" )
+    now_section = Section.find_by_title("Now Institute")
     res[:sections] = [
       {
       title: 'Now',
-      slides: about_slides,
+      slides: now_slides,
       url: "about",
-      contact: morph_section,
-      about: morph_section,
+      contact: now_section.contact,
+      about: now_section.about,
       sorting: [ {
         title: 'Contact',
         items: ''
