@@ -35,15 +35,13 @@ class Admin::PeopleController < AdminController
   end
 
   def update
-    @title = 'Update person'
-
     @person = Person.find params[:id]
 
     if @person.update_attributes person_params
       flash[:notice] = 'Person has been updated'
-      redirect_to admin_person_path(@person)
+      redirect_to :back
     else
-      flash.now[:warning] = 'There were problems when trying to update this person'
+      flash.now[:warning] = @person.errors.full_messages.to_sentence
       render :action => :show
     end
   end
@@ -60,6 +58,7 @@ class Admin::PeopleController < AdminController
 
   def person_params
     params.require(:person).permit(
+      :is_published,
       :name,
       :last_name,
       :make_primary,

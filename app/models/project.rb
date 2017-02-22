@@ -34,6 +34,7 @@
 class Project < ActiveRecord::Base
   include Searchable
   include Primaryable
+  include Publishable
 
   has_many :components
   has_many :roles, dependent: :destroy
@@ -47,18 +48,6 @@ class Project < ActiveRecord::Base
   accepts_nested_attributes_for :awards, allow_destroy: true
   accepts_nested_attributes_for :bibliography_items, allow_destroy: true
   accepts_nested_attributes_for :components, allow_destroy: true
-
-  def descriptionHTML
-    "# hello hello"
-  end
-
-  #def select_parents_of_selected_kids
-    #self.project_types.each do |pt|
-      #pt.ancestors.each do |ancestor|
-        #self.project_types << ancestor
-      #end
-    #end
-  #end
 
   scope :with_section, -> (section_id) { where section_id: section_id }
 

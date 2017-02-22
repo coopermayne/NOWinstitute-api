@@ -33,14 +33,11 @@ class Admin::ProjectsController < AdminController
 
   def update
     @project = Project.find params[:id]
-
     if @project.update_attributes project_params
       flash[:notice] = 'Project has been updated'
       redirect_to :back
-        #redirect_to admin_project_path(@project)
     else
-      @project = Project.find params[:id]
-      flash.now[:warning] = 'There were problems when trying to update this project'
+      flash.now[:warning] = @project.errors.full_messages.to_sentence
       render :action => :show
     end
   end
@@ -77,12 +74,6 @@ class Admin::ProjectsController < AdminController
       :state,
       :country,
       :zip,
-      :design_sdate,
-      :design_edate,
-      :constr_sdate,
-      :constr_edate,
-      :open_date,
-      :close_date,
       :height,
       :section_id,
       project_type_ids: [],
@@ -118,7 +109,6 @@ class Admin::ProjectsController < AdminController
         :publication,  
         :publisher,    
         :date, 
-        :pub_date,
         :link,
         primary_image_attributes: [
           :id,

@@ -30,14 +30,12 @@ class Admin::NewsItemsController < AdminController
   end
 
   def update
-
     @news_item = NewsItem.find params[:id]
-
     if @news_item.update_attributes news_item_params
-      flash[:notice] = 'News item has been updated'
-      redirect_to admin_news_item_path(@news_item)
+      flash[:notice] = 'News has been updated'
+      redirect_to :back
     else
-      flash.now[:warning] = 'There were problems when trying to update this news item'
+      flash.now[:warning] = @news_item.errors.full_messages.to_sentence
       render :action => :show
     end
   end
@@ -54,6 +52,7 @@ class Admin::NewsItemsController < AdminController
 
   def news_item_params
     params.require(:news_item).permit(
+      :is_published,
       :title,
       :description,
       :link,

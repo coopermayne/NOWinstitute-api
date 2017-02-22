@@ -3,9 +3,24 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.1/js/bootstrap-datepicker.js"></script>
 <% end %>
 
-<h2><%= @title %></h2>
-
 <%= simple_form_for @person, :url => admin_person_path(@person) do |f| %>
+  <div class='row' id="anchor-image-preview">
+    <div class='col-md-12'>
+
+      <div class='col-md-10'>
+        <h2><%= @title %></h2>
+      </div>
+      <div class='col-md-2 align-bottom'>
+        <%= f.check_box :is_published, class: 'fancy-checkbox', data: 
+          {
+          "on-color": "success",
+          "on-text": "Publish",
+          "off-text": "Draft"
+          } 
+        %>
+    </div>
+    </div>
+  </div>
 
   <%= render :partial => 'admin/people/form', :locals => { :f => f } %>
 

@@ -25,8 +25,7 @@
 class Person < ActiveRecord::Base
   include Searchable
   include Primaryable
-
-  validates :name, presence: true
+  include Publishable
 
   has_many :roles, dependent: :destroy
   has_many :educations, dependent: :destroy

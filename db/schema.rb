@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170222185322) do
+ActiveRecord::Schema.define(version: 20170222212003) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -152,6 +152,7 @@ ActiveRecord::Schema.define(version: 20170222185322) do
     t.string   "address"
     t.integer  "rank"
     t.string   "link"
+    t.boolean  "is_published",   default: false
   end
 
   add_index "news_items", ["news_type_id"], name: "index_news_items_on_news_type_id", using: :btree
@@ -182,6 +183,7 @@ ActiveRecord::Schema.define(version: 20170222185322) do
     t.integer  "index_image_id"
     t.boolean  "is_leadership",   default: false
     t.boolean  "is_ucla_team"
+    t.boolean  "is_published",    default: false
   end
 
   create_table "positions", force: :cascade do |t|
