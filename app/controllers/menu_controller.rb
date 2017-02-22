@@ -18,6 +18,7 @@ class MenuController < ApplicationController
       {
       title: 'Now',
       slides: now_slides,
+      state: 'root.section-state',
       url: "about",
       contact: now_section.contact,
       about: now_section.about,
@@ -37,6 +38,7 @@ class MenuController < ApplicationController
     {
       title: 'Projects',
       url: "projects",
+      state: 'root.section-state.sorting-state',
       sorting: [ {
         title: 'A-Z',
         items: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
@@ -51,7 +53,8 @@ class MenuController < ApplicationController
 
     {
       title: 'Research',
-      url: "projects",
+      url: "research",
+      state: 'root.section-state.sorting-state',
       sorting: [ {
         title: 'A-Z',
         items: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
@@ -67,6 +70,7 @@ class MenuController < ApplicationController
     {
       title: 'News',
       url: 'news',
+      state: 'root.section-state',
       items: news
     }
     ]

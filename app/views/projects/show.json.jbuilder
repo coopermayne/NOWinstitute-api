@@ -13,6 +13,9 @@ json.result do |json|
 
   json.merge! @project.attributes
 
+  json.overview markdown( @project.overview )
+  json.description markdown( @project.description )
+
   json.types @project.project_types.map{|t| t.title }
   json.primary_image @project.primary_image
 
