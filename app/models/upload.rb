@@ -18,7 +18,7 @@
 #
 class Upload < ActiveRecord::Base
 
-  attr_accessor :make_primary, :make_index
+  attr_accessor :make_primary, :make_index, :content_type, :file_size, :color
 
   before_save :set_some_defaults
 
