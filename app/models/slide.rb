@@ -18,6 +18,7 @@
 #
 
 class Slide < ActiveRecord::Base
+
   belongs_to :section
   belongs_to :project
 
@@ -32,7 +33,8 @@ class Slide < ActiveRecord::Base
   #validates :image, presence: {message: "must be present"}
 
   #hooks
-  before_save :set_uploads
+  before_save [:set_uploads, :set_some_defaults]
+
 
 
   #methods
@@ -69,6 +71,10 @@ class Slide < ActiveRecord::Base
     if self.image && !self.uploads.include?(self.image)
       self.uploads << self.image
     end
+  end
+  
+  def set_some_defaults
+    self.rank ||= 999
   end
 
   scope :with_section, -> (section_id) { where section_id: section_id }
