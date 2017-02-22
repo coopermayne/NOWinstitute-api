@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170222184707) do
+ActiveRecord::Schema.define(version: 20170222185322) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -210,8 +210,8 @@ ActiveRecord::Schema.define(version: 20170222184707) do
     t.decimal  "lon"
     t.string   "street_address"
     t.integer  "zip"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.integer  "section_id"
     t.string   "city"
     t.string   "state"
@@ -222,6 +222,7 @@ ActiveRecord::Schema.define(version: 20170222184707) do
     t.date     "date"
     t.date     "start"
     t.date     "end"
+    t.boolean  "is_published",   default: false
   end
 
   add_index "projects", ["section_id"], name: "index_projects_on_section_id", using: :btree

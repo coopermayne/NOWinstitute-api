@@ -57,6 +57,7 @@ class Admin::ProjectsController < AdminController
 
   def project_params
     params.require(:project).permit(
+      :is_published,
       :title,
       :overview,
       :description,
@@ -64,6 +65,9 @@ class Admin::ProjectsController < AdminController
       :program,
       :client,
       :size,
+      :date,
+      :start,
+      :end,
       :site_area,
       :lat,
       :lon,
