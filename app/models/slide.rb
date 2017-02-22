@@ -33,7 +33,7 @@ class Slide < ActiveRecord::Base
   #validates :image, presence: {message: "must be present"}
 
   #hooks
-  before_save [:set_uploads, :set_some_defaults]
+  before_save :set_uploads, :set_some_defaults
 
 
 
