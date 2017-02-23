@@ -1,7 +1,6 @@
 json.merge! @person.attributes 
 json.primary_image @person.primary_image
 
-json.overview markdown( @project.overview )
 json.description markdown( @project.description )
 
 json.educations @person.educations do |education|
