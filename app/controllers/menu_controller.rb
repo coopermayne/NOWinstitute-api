@@ -1,6 +1,6 @@
 class MenuController < ApplicationController
   def index
-    render :json => Rails.cache.fetch("menu-json", :expires_in => 1.days) { build_response}
+    render :json => Rails.cache.fetch("menu-json", :expires_in => 3.hours) { build_response}
   end
 
 	def videos

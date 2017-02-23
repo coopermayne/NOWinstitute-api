@@ -18,6 +18,7 @@
 #
 
 class Slide < ActiveRecord::Base
+  include Clearcache
 
   belongs_to :section
   belongs_to :project

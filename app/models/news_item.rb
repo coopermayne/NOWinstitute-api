@@ -26,6 +26,8 @@ class NewsItem < ActiveRecord::Base
   include Searchable
   include Primaryable
   include Publishable
+  include Clearcache
+
 
   attr_accessor :address
 

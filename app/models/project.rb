@@ -35,6 +35,7 @@ class Project < ActiveRecord::Base
   include Searchable
   include Primaryable
   include Publishable
+  include Clearcache
 
   has_many :components
   has_many :roles, dependent: :destroy
