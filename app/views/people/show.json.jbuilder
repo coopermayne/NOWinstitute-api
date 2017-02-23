@@ -9,10 +9,9 @@ end
 
 json.roles_sorted @person.getRoles do |pos, roles|
   json.position_title pos
-  json.roles roles.sort_by{|i| i.project.getSuperDate  }.reverse do |role|
+  json.roles roles.reverse do |role|
     json.id role.project_id
     json.title role.project.title
-    json.year role.project.getSuperDate
     json.section role.project.section.title
   end
 end
