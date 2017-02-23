@@ -1,22 +1,12 @@
 class MenuController < ApplicationController
   def index
-
-    loc = 'menu-cache-location1'
-    in_cache = Rails.cache.read(loc)
-
-    if in_cache
-      res = in_cache
-      message = "hit"
-    else
-      res = build_response
-      message = "miss"
-
-      Rails.cache.write(loc, res)
-    end
-
-    render :json => res
-    
+    render :json => Rails.cache.fetch("menu-json", :expires_in => 1.days) { build_response}
   end
+
+	def videos
+    vid_slides = Section.find_by_title("Home Page").get_slides
+		render json: vid_slides
+	end
 
   def build_response
     all_slides = Slide.get_all_slides
@@ -86,12 +76,9 @@ class MenuController < ApplicationController
       items: news
     }
     ]
-  end
 
-	def videos
-    vid_slides = Section.find_by_title("Home Page").get_slides
-		render json: vid_slides
-	end
+    res
+  end
 
 end
 
