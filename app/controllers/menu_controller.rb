@@ -22,8 +22,8 @@ class MenuController < ApplicationController
       slides: now_slides,
       state: 'root.section-state',
       url: "about",
-      contact: now_section.contact,
-      about: now_section.about,
+      contact: markdown( now_section.contact),
+      about: markdown( now_section.about ), 
       sorting: [ {
         title: 'Contact',
         items: ''
