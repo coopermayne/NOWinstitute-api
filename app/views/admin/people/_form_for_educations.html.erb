@@ -1,9 +1,15 @@
 <tr>
   <td>
-    <%= f.object.title %>
+    <%= f.input :title %>
   </td>
   <td>
-    <%= f.hidden_field :_destroy %>
-    <%= link_to("#{fa_icon "trash"}".html_safe, '#',  :data => { :confirm => "Are you sure you want to delete this?" }) %>
+    <%= f.check_box :_destroy, class: 'fancy-checkbox', data: 
+      {
+      "on-color": "danger",
+      "on-text": "#{fa_icon "trash-o"}",
+      "off-text": "#{fa_icon "trash-o"}"
+    }
+  %>
+											
   </td>
 </tr>
