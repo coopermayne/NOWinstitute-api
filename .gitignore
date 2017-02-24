@@ -18,3 +18,5 @@
 /public/uploads/
 
 app/views/admin/projects/.DS_Store
+
+.DS_Store
