@@ -34,7 +34,7 @@
 class Project < ActiveRecord::Base
   include Searchable
   include Primaryable
-  include Publishable
+  #include Publishable
   include Clearcache
 
   has_many :components
