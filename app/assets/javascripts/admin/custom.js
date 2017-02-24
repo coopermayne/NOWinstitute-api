@@ -110,7 +110,6 @@ $(document).ready(function(){
     //add markdown editor
 
 		//apply javascript stuff
-		applyJsStuff()
     event.preventDefault();
   });
 
