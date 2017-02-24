@@ -3,12 +3,9 @@ class MenuController < ApplicationController
     render :json => Rails.cache.fetch("menu-json", :expires_in => 3.hours) { build_response }
   end
 
-	def videos
-    vid_slides = Section.find_by_title("Home Page").get_slides
-		render json: vid_slides
-	end
-
   def build_response
+    vid_slides = Section.find_by_title("Home Page").get_slides
+
     all_slides = Slide.get_all_slides
     news = NewsItem.news_box_items     
     now_slides = all_slides["Now Institute"]
@@ -16,6 +13,9 @@ class MenuController < ApplicationController
 
     res = {}
     now_section = Section.find_by_title("Now Institute")
+
+    res[:homeSlides] = home_slides
+
     res[:sections] = [
       {
       title: 'Now',

@@ -41,7 +41,7 @@ Rails.application.routes.draw do
 
 
   get 'menu' => 'menu#index'
-  get 'video_slides' => 'menu#videos'
+
   root to: redirect('admin/projects')
 
 
