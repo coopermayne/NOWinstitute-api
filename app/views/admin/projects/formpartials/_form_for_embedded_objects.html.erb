@@ -1,0 +1,56 @@
+<div class='row' id="anchor-embedded-objects">
+  <div class='col-sm-12'>
+    <div class='panel panel-default'>
+      <div class="panel-heading">
+        <h3 class="panel-title">Embeds</h3>
+      </div>
+      <div class='panel-body'>
+
+        <div class="row">
+          <table class='table'>
+            <%= f.fields_for :embedded_objects do |builder| %>
+
+							<div class='row'>
+								<div class='col-sm-12'>
+
+									<div class='panel panel-default'>
+										<div class="panel-heading">
+											<h3 class="panel-title">Embed</h3>
+										</div>
+
+										<div class='panel-body'>
+											<div class='row'>
+                        <div class="col-sm-5">
+                          <%= builder.input :url %>
+                        </div>
+                        <div class="col-sm-5">
+                          <%= builder.input :uid %>
+                        </div>
+                        <div class="col-sm-5">
+                          <%= builder.input :type %>
+                        </div>
+												<div class="col-sm-2">
+                          <%= builder.check_box :_destroy, class: 'pull-right fancy-checkbox', data: 
+                            {
+                              "on-color": "danger",
+                              "on-text": "#{fa_icon "trash-o"}",
+                              "off-text": "#{fa_icon "trash-o"}"
+                            }
+                          %>
+                        </div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+            <% end %>
+          </table>
+        </div>
+
+				<%= link_to_add_fields "Add embed", f, :embedded_objects %>
+
+      </div>
+    </div>
+  </div>
+</div>

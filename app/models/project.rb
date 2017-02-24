@@ -50,6 +50,7 @@ class Project < ActiveRecord::Base
   accepts_nested_attributes_for :awards, allow_destroy: true
   accepts_nested_attributes_for :bibliography_items, allow_destroy: true
   accepts_nested_attributes_for :components, allow_destroy: true
+  accepts_nested_attributes_for :embedded_objects, allow_destroy: true
 
   scope :with_section, -> (section_id) { where section_id: section_id }
 

@@ -115,6 +115,11 @@ class Admin::ProjectsController < AdminController
           :name
         ],
       ],
+			embedded_objects_attributes: [
+				:id,
+				:_destroy,
+				:title,
+			],
 			components_attributes: [
 				:id,
 				:_destroy,
