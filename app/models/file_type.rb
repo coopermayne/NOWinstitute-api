@@ -12,4 +12,5 @@
 
 class FileType < ActiveRecord::Base
   has_many :uploads
+  validates_presence_of :rank, :title
 end
