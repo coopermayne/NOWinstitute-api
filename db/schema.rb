@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170222212003) do
+ActiveRecord::Schema.define(version: 20170224173523) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -110,6 +110,21 @@ ActiveRecord::Schema.define(version: 20170222212003) do
   end
 
   add_index "educations", ["person_id"], name: "index_educations_on_person_id", using: :btree
+
+  create_table "embedded_objects", force: :cascade do |t|
+    t.string   "title"
+    t.string   "url"
+    t.string   "uid"
+    t.string   "type"
+    t.integer  "rank"
+    t.integer  "project_id"
+    t.integer  "person_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "embedded_objects", ["person_id"], name: "index_embedded_objects_on_person_id", using: :btree
+  add_index "embedded_objects", ["project_id"], name: "index_embedded_objects_on_project_id", using: :btree
 
   create_table "file_types", force: :cascade do |t|
     t.string   "title"
@@ -344,6 +359,8 @@ ActiveRecord::Schema.define(version: 20170222212003) do
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
 
   add_foreign_key "educations", "people"
+  add_foreign_key "embedded_objects", "people"
+  add_foreign_key "embedded_objects", "projects"
   add_foreign_key "project_types", "sections"
   add_foreign_key "projects", "sections"
   add_foreign_key "roles", "people"

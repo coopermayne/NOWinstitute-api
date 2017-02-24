@@ -29,6 +29,8 @@ class Person < ActiveRecord::Base
 
   has_many :roles, dependent: :destroy
   has_many :educations, dependent: :destroy
+  has_many :embedded_objects
+
   has_and_belongs_to_many :bibliography_items
 
   accepts_nested_attributes_for :roles, allow_destroy: true

@@ -38,6 +38,7 @@ class Project < ActiveRecord::Base
   include Clearcache
 
   has_many :components
+  has_many :embedded_objects
   has_many :roles, dependent: :destroy
 
   belongs_to :section
