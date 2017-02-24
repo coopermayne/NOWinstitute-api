@@ -30,10 +30,6 @@ class MenuController < ApplicationController
       }, {
         title: 'People',
         items: ['Leadership']
-      }, {
-        title: 'Media',
-        items: ['Books', 'Bibliography', 'Awards']
-        #items: ['Books', 'Bibliography', 'Videos', 'Awards', 'Exhibitions']
       } ]
     },
 
