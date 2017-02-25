@@ -38,15 +38,11 @@ class MenuController < ApplicationController
       url: "projects",
       state: 'root.section-state.sorting-state',
       sorting: [ {
-        title: 'A-Z',
-        items: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        title: 'A-Z'
       }, {
-        title: 'Year',
-        items: [ '1970-1979', '1980-1989', '1990-1999', '2000-2009', '2010-2019' ].reverse
-      }, {
-        title: 'Type',
-        items: Section.find_by_title("Projects").get_types
-      } ]
+        title: 'Year'
+      }
+      ]
     }, 
 
     {
@@ -54,15 +50,11 @@ class MenuController < ApplicationController
       url: "research",
       state: 'root.section-state.sorting-state',
       sorting: [ {
-        title: 'A-Z',
-        items: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        title: 'A-Z'
       }, {
-        title: 'Year',
-        items: [ '1970-1979', '1980-1989', '1990-1999', '2000-2009', '2010-2019' ].reverse
-      }, {
-        title: 'Type',
-        items: Section.find_by_title("Research").get_types
-      } ]
+        title: 'Year'
+      }
+      ]
     }, 
 
     {
