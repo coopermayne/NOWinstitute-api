@@ -1,6 +1,6 @@
 json.array! @projects do |project|
 
-  json.(project, :id, :title, :lat, :lon, :date )
+  json.(project, :id, :title, :lat, :lon, :start )
   json.image project.primary_image && project.primary_image.name
 
   if project.section
