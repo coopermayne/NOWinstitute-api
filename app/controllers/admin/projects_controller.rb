@@ -119,6 +119,8 @@ class Admin::ProjectsController < AdminController
 				:id,
 				:_destroy,
 				:title,
+				:uid,
+				:obj_type
 			],
 			components_attributes: [
 				:id,

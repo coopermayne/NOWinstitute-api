@@ -9,9 +9,17 @@
 
         <div class='panel-body'>
           <div class='row'>
-            <div class="col-md-12">
+
+            <div class="col-md-4">
+              <%= f.input :uid %>
+            </div>
+            <div class="col-md-4">
+              <%= f.input :obj_type, input_html: {value: "YouTube"} %>
+            </div>
+            <div class="col-md-4">
               <%= f.input :title %>
             </div>
+
           </div>
         </div>
       </div>
