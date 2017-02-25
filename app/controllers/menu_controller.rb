@@ -41,6 +41,10 @@ class MenuController < ApplicationController
         title: 'A-Z'
       }, {
         title: 'Year'
+      },
+      {
+        title: 'Type',
+        items: Section.find_by_title("Projects").get_types
       }
       ]
     }, 
@@ -53,6 +57,10 @@ class MenuController < ApplicationController
         title: 'A-Z'
       }, {
         title: 'Year'
+      },
+      {
+        title: 'Type',
+        items: Section.find_by_title("Research").get_types
       }
       ]
     }, 
