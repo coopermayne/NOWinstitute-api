@@ -16,4 +16,4 @@
 //= require bootstrap-filestyle.min
 //= require simplemde.min
 //= require chosen-jquery
-//= require_tree .
+//= require_tree ./admin

@@ -1,0 +1,3 @@
+- @slides.each_with_index do |slide, i|
+  .slideshow-wrapper
+    %img.slideshow-image{ class: ('show' if i==0), src: slide.image.name.url }

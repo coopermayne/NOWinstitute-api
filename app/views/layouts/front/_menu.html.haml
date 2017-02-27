@@ -1,0 +1,6 @@
+.menu-container{ class: ('white' if @menu_white)}
+  %a{ href: '/'}
+    %h1 home
+  - @menu[:sections].each do |section|
+    %a{ href: section[:url]}
+      %h1= section[:title]

@@ -40,17 +40,11 @@ Rails.application.routes.draw do
   end
 
 
-  get 'menu' => 'menu#index'
-
-  root to: redirect('admin/projects')
-
+  root 'pages#main'
 
   # Example of regular route:
-  resources :projects, only: [:index, :show]
-  resources :awards, only: [:index, :show]
-  resources :bibliography_items, only: [:index, :show]
+  resources :projects, path: "projects", only: [:index, :show]
+  resources :projects, path: "research", only: [:index, :show]
   resources :news_items, path: "news", only: [:index, :show]
-  resources :people, only: [:index, :show]
-  resources :media, only: [:index, :show]
-
+  resources :people, path: "about/people", only: [:index, :show]
 end
