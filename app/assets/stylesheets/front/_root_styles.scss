@@ -1,0 +1,104 @@
+.html-inline-fix p
+{
+	display: block;
+
+	*:not(p):not(hr)
+	{
+		display: inline;
+	}
+}
+
+.root-view
+{
+	flex-flow: column;
+
+	height: 100%;
+}
+
+.freeze-body-scroll
+{
+	@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)
+	{
+		overflow: hidden;
+	}
+}
+
+.mobile-scroll-freeze
+{
+	overflow: hidden;
+	height: 100vh;
+}
+
+.menu-and-index-wrapper
+{
+	@include respond-to( 'small' )
+	{
+		justify-content: center;
+
+		padding: 1rem;
+	}
+
+	flex-flow: row;
+
+	padding: $page-margin;
+
+	@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)
+	{
+		overflow-x: hidden;
+	}
+}
+
+.desktop-min-width
+{
+	&.menu-and-index-wrapper-wrapper
+	{
+		overflow-x: hidden;
+	}
+
+	.menu-and-index-wrapper
+	{
+		min-width: 950px;
+	}
+
+	menu-directive
+	{
+		width: 300px !important;
+	}
+
+	.menu-directive-wrapper
+	{
+		width: 310px !important;
+		background-color: transparent !important;
+	}
+
+	.index-project-wrapper
+	{
+		align-self: flex-start !important;
+		justify-content: flex-start !important;
+	}
+
+	.index-project
+	{
+		width: 250px;
+		height: 280px;
+	}
+
+	.sub-sort-wrapper
+	{
+		@media ( max-width: 935px )
+		{
+			display: none;
+		}
+	}
+}
+
+.black-background
+{
+	height: 100%;
+	background-color: $black;
+
+	@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)
+	{
+		background-color: transparent;
+	}
+}

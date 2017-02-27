@@ -1,0 +1,50 @@
+html,
+body
+{
+	height: 100%;
+
+	font-family: 'Executive';
+
+	-webkit-tap-highlight-color: rgba( 0,0,0,0 );
+	-webkit-font-smoothing: antialiased;
+}
+
+title
+{
+	position: absolute;
+
+	color: transparent;
+}
+
+
+.no-scroll
+{
+	overflow: hidden;
+}
+
+a
+{
+	margin-left: 3px;
+
+	color: $black;
+}
+
+input
+{
+	margin-left: 0;
+	padding-left: 0;
+	border-radius: 0;
+}
+
+
+@keyframes fadeIn
+{
+	from
+	{
+		opacity: 0;
+	}
+	to
+	{
+		opacity: 1;
+	}
+}

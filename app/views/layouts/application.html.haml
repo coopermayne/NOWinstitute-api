@@ -2,7 +2,8 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Now Institute
+    = metamagic site: "Now Institute", title: [:title, :site], separator: " — "
+
     = stylesheet_link_tag    'front', media: 'all'
     = javascript_include_tag 'front'
     = csrf_meta_tags

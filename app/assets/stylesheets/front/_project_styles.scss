@@ -1,0 +1,672 @@
+::-webkit-scrollbar
+{
+	display: none;
+}
+.project-close-button
+{
+	@include respond-to( 'small' )
+	{
+		width: 40px;
+		height: 40px;
+	}
+
+	position: fixed;
+	cursor: pointer;
+	width: 50px;
+	height: 50px;
+	top: $page-margin;
+	right: $page-margin;
+	z-index: 20;
+	background: url('images/trigger_black.svg') no-repeat center center;
+}
+
+.project-page-wrapper
+{
+	overflow-x: hidden;
+	overflow-y: scroll;
+	position: fixed;
+	width: 100vw;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	background: $white;
+
+	-webkit-overflow-scrolling: touch;
+}
+
+.project-page-header-image
+{
+	@include respond-to( 'small' )
+	{
+		position: relative;
+		height: auto;
+		height: 40vh;
+	}
+	@include respond-to( 'medium' )
+	{
+		height: 45vh;
+	}
+
+	align-items: center;
+	align-content: center;
+	justify-content: center;
+
+	overflow: hidden;
+	height: 85vh;
+	margin-left: 0;
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+
+	&img
+	{
+		@include respond-to( 'small' )
+		{
+			object-fit: cover;
+
+			&.project-image
+			{
+				position: absolute;
+				top: 0;
+
+				object-fit: cover;
+			}
+		}
+
+		width: 100vw;
+
+		object-fit: cover;
+
+		@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)
+		{
+			display: none;
+		}
+	}
+
+	&.people-header-image
+	{
+		background-size: contain;
+	}
+}
+
+.people-header-image
+{
+	object-fit: contain !important;
+}
+
+.project-page-content-wrapper
+{
+	@include respond-to( 'small' )
+	{
+		margin: 1rem 1rem 1rem $page-margin;
+	}
+
+	margin: 2rem;
+}
+
+.project-page-header-text
+{
+	@include respond-to( 'small' )
+	{
+		font-size: $mobile-menu-text;
+	}
+
+	flex-flow: row wrap;
+
+	font-size: 3.5rem;
+}
+
+.project-page-text-wrapper
+{
+	@include respond-to( 'small' )
+	{
+		flex-flow: column wrap;
+
+		padding: 0;
+
+		&.people-page
+		{
+			padding: 1rem 0;
+		}
+	}
+
+	flex-flow: row;
+
+	padding: 2rem 0;
+}
+
+.project-page-sidebar
+{
+	@include respond-to( 'small' )
+	{
+		flex: auto;
+	}
+
+	flex: 1 0 0%;
+
+	padding-right: 5rem;
+}
+
+.wm
+{
+	margin-top: 2rem !important;
+}
+.wmone
+{
+	margin-top: 1rem !important;
+}
+
+.project-page-sidebar-section
+{
+	margin-top: 2rem;
+
+	&:first-child
+	{
+		margin-top: 0;
+	}
+}
+
+.project-page-main-text
+{
+	@include respond-to('small')
+	{
+		flex: auto;
+	}
+	// @include respond-to( 'small' )
+	// {
+	// 	order: 2;
+	// 	flex: auto;
+	// 	padding-right: 0;
+	// }
+
+	flex: 3 0 0%;
+
+	padding-right: 1rem;
+}
+
+.project-overview
+{
+	@include respond-to('small')
+	{
+		max-width: 90%;
+		margin-right: 0;
+		padding: 1.5rem 0 !important;
+	}
+
+	flex: initial;
+
+	display: block;
+	margin-right: 60px;
+	padding-bottom: 1rem;
+
+	font-size: $subheader-text;
+
+	& *
+	{
+		display: inline;
+	}
+
+	& p
+	{
+		display: block;
+		margin-bottom: 1.0rem;
+
+		&:last-child
+		{
+			margin-bottom: 0;
+		}
+	}
+}
+
+.component .project-description-body
+{
+	margin-bottom: 2rem;
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6
+	{
+		display: block;
+	}
+	img
+	{
+		float: left;
+		width: 200px;
+	}
+}
+
+.project-description-header
+{
+	padding-bottom: 1rem;
+
+	font-style: italic;
+}
+
+.project-description-header.people
+{
+	padding-top: 1rem;
+}
+
+.project-description-body
+{
+	@include respond-to( 'small' )
+	{
+		margin-right: 0px;
+
+		column-count: auto;
+	}
+
+	flex-flow: row;
+
+	display: block;
+	margin-right: 60px;
+
+	em
+	{
+		flex-flow: row;
+	}
+
+	& *
+	{
+		display: inline;
+	}
+
+	& p
+	{
+		display: block;
+		margin-bottom: 1.0rem;
+	}
+}
+
+.project-page-sidebar-header
+{
+	margin-bottom: 1rem;
+	padding-top: 2rem;
+
+	font-style: italic;
+
+	&:first-child
+	{
+		padding-top: 0;
+	}
+}
+
+.project-detail-wrapper
+{
+	@include respond-to( 'small' )
+	{
+		flex-flow: row wrap;
+	}
+
+	flex-flow: column wrap;
+
+	display: inline;
+	padding: 0.5rem 0;
+
+	&.bibliography-item
+	{
+		display: flex;
+	}
+
+	span,
+	.project-detail-text,
+	.project-detail-label
+	{
+		@include respond-to( 'small' )
+		{
+			vertical-align: middle;
+			margin-right: 2px;
+
+			a
+			{
+				margin-left: 0;
+			}
+
+			*
+			{
+				max-width: 100%;
+			}
+		}
+
+		display: block;
+		max-width: 100%;
+
+		// HTML inline fix
+		*:not(p):not(hr)
+		{
+			display: inline;
+			max-width: 100%;
+
+			text-decoration: none;
+
+			&:hover
+			{
+				text-decoration: underline;
+			}
+		}
+
+		p
+		{
+			max-width: 100%;
+		}
+	}
+}
+
+.project-detail-label
+{
+	margin-right: 5px;
+
+	font-size: 0.7rem;
+	text-transform: uppercase;
+}
+
+.project-detail-text
+{
+	// @include respond-to( 'small' )
+	// {
+	// 	&:after
+	// 	{
+	// 		content: ',';
+	// 		display: inline-block;
+	// 		margin-right: 3px;
+	// 	}
+	// 	&:last-child:after
+	// 	{
+	// 		content: '';
+	// 	}
+	// }
+	flex-flow: row nowrap;
+}
+
+.details-clickable
+{
+	cursor: pointer;
+
+	&:hover
+	{
+		text-decoration: underline;
+	}
+}
+
+.image-gallery-wrapper
+{
+	@include respond-to('small')
+	{
+		margin-top: 0;
+		margin-bottom: 1em;
+	}
+
+	margin: 2em 0;
+}
+
+.image-gallery-section-wrapper
+{
+	flex-flow: column;
+
+	position: relative;
+	height: 200px;
+	margin-bottom: 1em;
+
+	&:last-child
+	{
+		margin-bottom: 0;
+	}
+
+	h1
+	{
+		margin-bottom: 20px;
+
+		font-style: italic;
+		font-size: $body-text;
+	}
+}
+
+figcaption *
+{
+	color: rgba(255, 255, 255, 0.5);
+}
+
+.arrow-right
+{
+	content: '';
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	right: -35px;
+	bottom: -110px;
+	z-index: 9999;
+	background: url('images/angle-right_black.svg');
+	background-size: contain;
+}
+.arrow-left
+{
+	content: '';
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	bottom: -110px;
+	left: -35px;
+	z-index: 9999;
+	background: url('images/angle-left_black.svg');
+	background-size: contain;
+}
+
+.arrow-right,
+.arrow-left
+{
+	@include respond-to( 'small' )
+	{
+		display: none;
+	}
+}
+
+.image-gallery-section
+{
+	@include respond-to( 'small' )
+	{
+		&:before,
+		&:after
+		{
+			display: none;
+		}
+	}
+
+	flex-flow: row nowrap;
+
+	overflow: -moz-scrollbars-none !important;
+	overflow-x: scroll;
+	position: absolute;
+	width: 100%;
+	top: 37px;
+
+	-ms-overflow-style: none;
+
+	img
+	{
+		cursor: pointer;
+		height: 150px;
+		margin-right: 1em;
+	}
+}
+
+.bibliography-item
+{
+	flex-flow: row;
+}
+
+.bibliography-title
+{
+	flex-flow: row;
+}
+
+.bibliography-image
+{
+	align-self: center;
+
+	width: 100px;
+	height: 100px;
+	margin-right: 0.5rem;
+	background-position: left center;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.project-page-award
+{
+	margin-bottom: 10px;
+
+	&:last-child
+	{
+		margin-bottom: 0;
+	}
+}
+
+.contracted
+{
+	&:before
+	{
+		content: '+';
+		display: block !important;
+		position: absolute;
+		top: -2px;
+		left: -15px;
+	}
+
+	.mobile-details
+	{
+		overflow-y: hidden;
+		height: 190px;
+
+		.project-detail-wrapper
+		{
+			display: flex !important;
+		}
+	}
+
+	.project-detail-wrapper
+	{
+		display: none;
+	}
+
+	.project-description-body
+	{
+		overflow-y: hidden;
+		max-height: 97px;
+		margin-right: 0px;
+		margin-bottom: 1rem;
+	}
+	.project-description-body.sustainability
+	{
+		overflow-y: hidden;
+		max-height: 0px;
+		margin-right: 0px;
+	}
+
+	&.component .project-description-body
+	{
+		display: none;
+	}
+
+	&.image-gallery-section-wrapper
+	{
+		height: 1rem !important;
+	}
+
+	.image-gallery-section
+	{
+		display: none;
+	}
+
+	&.project-overview
+	{
+		overflow: hidden;
+		position: relative;
+		max-height: 150px;
+		margin-right: 0px;
+		margin-bottom: 2 * $page-margin;
+
+		/*&:after*/
+		/*{*/
+		/*content: '';*/
+		/*position: absolute;*/
+		/*width: 100%;*/
+		/*height: 100px;*/
+		/*bottom: 0;*/
+		/*left: 0;*/
+		/*z-index: 999999;*/
+		/*background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); [> W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ <]*/
+		/*}*/
+	}
+
+	&.project-credits
+	{
+		.show-morph-team
+		{
+			display: none;
+		}
+	}
+
+	&.project-page-sidebar-section
+	{
+		margin: 0;
+	}
+
+	&.show-morph-team:before
+	{
+		content: '+';
+	}
+}
+
+.open
+{
+	&:before
+	{
+		content: '-';
+		display: block !important;
+		position: absolute;
+		top: -2px;
+		left: -15px;
+	}
+
+	&.project-page-sidebar-section
+	{
+		margin-top: 0;
+		margin-bottom: 1rem;
+	}
+
+	.project-page-sidebar-header
+	{
+		margin-bottom: 0.5rem;
+	}
+
+	&.show-morph-team:before
+	{
+		content: '-';
+	}
+}
+
+.show-morph-team
+{
+	transition: all 1s ease;
+
+	*
+	{
+		margin-left: 0.5rem;
+
+		&:hover
+		{
+			text-decoration: none !important;
+		}
+	}
+
+	&:before
+	{
+		content: '+';
+		position: absolute;
+		top: -2px;
+		left: -15px;
+	}
+}
