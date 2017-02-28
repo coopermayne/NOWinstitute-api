@@ -1,14 +1,23 @@
 %nav
   .menu-wrapper-wrapper{ class: ('white' if @menu_white)}
     %ul.menu-wrapper
-      - @menu[:sections].each do |section|
-        .section
+      - @menu[:sections].each_with_index do |section, ix|
+        .section{ class: ('active' if section[:id] = @section.id)}
           %a{ href: section[:url]}
             %h1= section[:title]
-        .sorting
-          %a{href: '', data: {sort:'alpha'}}
-            %h2 a-z
-          %a{href: '', data: {sort:'year'}}
-            %h2 year
-          %a{href: '', data: {sort:'type'}}
-            %h2 type
+        - if ix==0
+          .sorting
+            %a{href: '', data: {sort:'alpha'}}
+              %h2 about
+            %a{href: '', data: {sort:'year'}}
+              %h2 people
+            %a{href: '', data: {sort:'type'}}
+              %h2 test3
+        - else
+          .sorting
+            %a{href: '', data: {sort:'alpha'}}
+              %h2 a-z
+            %a{href: '', data: {sort:'year'}}
+              %h2 year
+            %a{href: '', data: {sort:'type'}}
+              %h2 type

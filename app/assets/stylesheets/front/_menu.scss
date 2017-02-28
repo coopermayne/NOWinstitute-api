@@ -1,1 +1,22 @@
-* {}
+nav {
+  flex: 0 0 300px;
+  background-color: pink;
+
+  .menu-wrapper-wrapper {
+    position:fixed;
+    background-color: green;
+  }
+
+  ul {
+    .sorting {
+      display: flex
+    }
+  }
+}
+
+.menu-wrapper-wrapper{
+  h1 {
+    color: white;
+  }
+}
+

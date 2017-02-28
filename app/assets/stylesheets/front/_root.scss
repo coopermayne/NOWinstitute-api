@@ -2,22 +2,6 @@
   display: flex;
 }
 
-nav {
-  flex: 0 0 300px;
-  background-color: pink;
-
-  .menu-wrapper-wrapper {
-    position:fixed;
-    background-color: green;
-  }
-
-  ul {
-    .sorting {
-      display: flex
-    }
-  }
-}
-
 .index-container {
   display: flex;
   background-color: red;
@@ -53,12 +37,6 @@ nav {
     /*min-height: 50%;*/
     /*display: none;*/
   /*}*/
-}
-
-.menu-wrapper-wrapper{
-  h1 {
-    color: white;
-  }
 }
 
 .slideshow-wrapper {

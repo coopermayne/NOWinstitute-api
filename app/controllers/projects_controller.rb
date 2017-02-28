@@ -31,9 +31,10 @@
 #  primary_id     :integer
 
 class ProjectsController < ApplicationController
+  helper FrontHelper
   def index
     @section = Section.find_by_title request.fullpath.slice(1,request.fullpath.length-1).capitalize
-    @menu = build_response
+    @menu = FrontHelper.build_menu
     @menu_white = false
     @projects = Project.where(section_id: @section.id).includes(:primary_image, :project_types, :section, :components)
     #render html: Rails.cache.fetch("projects", :expires_in => 1.hours) { 
@@ -46,65 +47,6 @@ class ProjectsController < ApplicationController
     #render html: Rails.cache.fetch("projects" + params[:id].to_s , :expires_in => 1.hours) { 
       #render_to_string :show 
     #}
-  end
-
-  def build_response
-    all_slides = Slide.get_all_slides
-    news = NewsItem.news_box_items     
-    now_slides = all_slides["Now Institute"]
-    home_slides = all_slides["Home Page"]
-
-    res = {}
-    now_section = Section.find_by_title("Now Institute")
-
-    res[:homeSlides] = home_slides
-
-    res[:sections] = [
-      {
-      title: 'Now',
-      slides: now_slides,
-      state: 'root.section-state',
-      url: "about",
-      contact: markdown( now_section.contact),
-      about: markdown( now_section.about ), 
-      sorting: [ {
-        title: 'Contact',
-        items: ''
-      }, {
-        title: 'People',
-        items: ['Leadership']
-      } ]
-    },
-
-    {
-      title: 'Projects',
-      url: "projects",
-      state: 'root.section-state.sorting-state',
-      sorting: [ {
-        title: 'A-Z'
-      }
-      ]
-    }, 
-
-    {
-      title: 'Research',
-      url: "research",
-      state: 'root.section-state.sorting-state',
-      sorting: [ {
-        title: 'A-Z'
-      }
-      ]
-    }, 
-
-    {
-      title: 'News',
-      url: 'news',
-      state: 'root.section-state',
-      items: news
-    }
-    ]
-
-    res
   end
 
   def markdown(text)

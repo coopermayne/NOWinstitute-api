@@ -41,6 +41,7 @@ Rails.application.routes.draw do
 
 
   root 'pages#main'
+  get 'about' =>  'pages#about'
 
   # Example of regular route:
   resources :projects, path: "projects", only: [:index, :show]
