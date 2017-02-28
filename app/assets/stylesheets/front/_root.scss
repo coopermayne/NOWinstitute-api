@@ -1,0 +1,84 @@
+body {
+  background-color: black;
+}
+
+.container {
+  display: flex;
+}
+
+nav {
+  flex: 0 0 300px;
+  background-color: pink;
+
+  .menu-container {
+    position:fixed;
+    background-color: green;
+  }
+
+  ul {
+
+  }
+}
+
+.index-container {
+  display: flex;
+  background-color: red;
+
+  flex-flow: row;
+  flex-wrap: wrap;
+
+  .box {
+    width: 300px;
+    height: 400px;
+    background-color: blue;
+    margin: 10px;
+  }
+
+  /*.img-wrapper {*/
+    /*z-index: -99;*/
+    /*position: fixed; */
+    /*top: -50%; */
+    /*left: -50%; */
+    /*width: 200%; */
+    /*height: 200%;*/
+  /*}*/
+
+  /*.img-wrapper img {*/
+    /*position: absolute; */
+    /*top: 0; */
+    /*left: 0; */
+    /*right: 0; */
+    /*bottom: 0; */
+    /*margin: auto; */
+    /*min-width: 50%;*/
+    /*min-height: 50%;*/
+    /*display: none;*/
+  /*}*/
+}
+
+.menu-container.white{
+  h1 {
+    color: white;
+  }
+}
+
+.slideshow-wrapper {
+  z-index: -99;
+  position: fixed; 
+  top: -50%; 
+  left: -50%; 
+  width: 200%; 
+  height: 200%;
+}
+
+.slideshow-image {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  margin: auto; 
+  min-width: 50%;
+  min-height: 50%;
+  display: none;
+}

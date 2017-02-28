@@ -1,10 +1,6 @@
 // Reset
 *
 {
-	flex-flow: column;
-	flex-shrink: 0;
-
-	display: flex;
 	box-sizing: border-box;
 	position: relative;
 }
@@ -44,4 +40,8 @@ h5
 p
 {
 	margin: 0;
+}
+
+head {
+  display: none;
 }
