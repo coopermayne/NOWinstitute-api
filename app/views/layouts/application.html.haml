@@ -8,5 +8,6 @@
     = javascript_include_tag 'front'
     = csrf_meta_tags
   %body
-    = render 'layouts/front/menu'
-    = yield
+    .container
+      = render 'layouts/front/menu' unless @project
+      = yield

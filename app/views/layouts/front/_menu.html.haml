@@ -1,4 +1,5 @@
 .menu-container{ class: ('white' if @menu_white)}
+  %ul.menu-wrapper
   %a{ href: '/'}
     %h1 home
   - @menu[:sections].each do |section|

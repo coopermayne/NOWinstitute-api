@@ -1,6 +1,7 @@
 //= require jquery
-$(document).on('ready', function(){
-  console.log('ready');
+//= require turbolinks
+
+$(document).on('turbolinks:load', function(){
 
   var slides = $('.slideshow-image')
   var lastSlideIndex = slides.length-1
@@ -20,4 +21,5 @@ $(document).on('ready', function(){
   setInterval(function(){
     nextSlide()
   }, 5000)
+
 })
