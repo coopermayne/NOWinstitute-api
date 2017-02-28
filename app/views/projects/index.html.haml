@@ -1,5 +1,8 @@
+- meta title: "Projects"
+
 .index-container
   -@projects.each do |project|
-    .box
+    %a.box{href: @section.title.downcase + "/" + project.id.to_s, data: { title: project.title } }
+      =project.title
       -#.img-wrapper
         -#%img{ src: project.index_image.name.mobile.url}

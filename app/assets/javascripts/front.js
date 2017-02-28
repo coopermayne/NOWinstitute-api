@@ -22,4 +22,28 @@ $(document).on('turbolinks:load', function(){
     nextSlide()
   }, 5000)
 
+  $('.sorting a').on('click', function(e){
+    e.preventDefault()
+    e.stopPropagation()
+
+    var sortBy = $( e.target ).parent().data('sort')
+
+    var $cont = $('.index-container')
+    var $items = $cont.children('.box');
+
+    $items.sort(function(a,b){
+      var an = a.getAttribute('data-title');
+      var bn = b.getAttribute('data-title');
+
+        if(an > bn) {
+          return 1;
+        }
+        if(an < bn) {
+          return -1;
+        }
+        return 0;
+    });
+    $items.detach().appendTo($cont);
+  })
+
 })

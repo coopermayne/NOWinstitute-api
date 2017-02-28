@@ -1,9 +1,14 @@
 %nav
-  .menu-container{ class: ('white' if @menu_white)}
+  .menu-wrapper-wrapper{ class: ('white' if @menu_white)}
     %ul.menu-wrapper
-    %a{ href: '/'}
-      %h1 home
-
-    - @menu[:sections].each do |section|
-      %a{ href: section[:url]}
-        %h1= section[:title]
+      - @menu[:sections].each do |section|
+        .section
+          %a{ href: section[:url]}
+            %h1= section[:title]
+        .sorting
+          %a{href: '', data: {sort:'alpha'}}
+            %h2 a-z
+          %a{href: '', data: {sort:'year'}}
+            %h2 year
+          %a{href: '', data: {sort:'type'}}
+            %h2 type

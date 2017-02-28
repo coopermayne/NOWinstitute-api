@@ -32,13 +32,20 @@
 
 class ProjectsController < ApplicationController
   def index
+    @section = Section.find_by_title request.fullpath.slice(1,request.fullpath.length-1).capitalize
     @menu = build_response
     @menu_white = false
-    @projects = Project.includes(:primary_image, :project_types, :section, :components)
+    @projects = Project.where(section_id: @section.id).includes(:primary_image, :project_types, :section, :components)
+    #render html: Rails.cache.fetch("projects", :expires_in => 1.hours) { 
+      #render_to_string :index 
+    #}
   end
 
   def show
     @project = Project.includes(roles: [:position, :person ], uploads: [ :file_type, :credit ], bibliography_items: [:primary_image]).find(params[:id])
+    #render html: Rails.cache.fetch("projects" + params[:id].to_s , :expires_in => 1.hours) { 
+      #render_to_string :show 
+    #}
   end
 
   def build_response
