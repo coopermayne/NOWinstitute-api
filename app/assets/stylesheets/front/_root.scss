@@ -60,23 +60,6 @@
   }
 }
 
-.collapse-menu {
-  display: none;
-}
-
 .hide {
   display: none;
-}
-
-.magic-x {
-  z-index: 98;
-  color: black;
-  position: fixed;
-  top: 0;
-  right: 0;
-  font-size: $subheader-text;
-
-  &.white {
-    color: white;
-  }
 }

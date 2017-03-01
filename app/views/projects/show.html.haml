@@ -1,5 +1,7 @@
 - meta title: @project.title
 
-.magic-x{data: {action: 'go back'}} X
+.magic-x{data: {action: 'go back'}}
 
-%h1= @project.title
+.project-page-wrapper
+  .project-page-header-image-wrapper
+    .project-page-header-image{ style: "background-image:url(#{@project.primary_image.name.url});"}
