@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'search' =>  'search_results#index'
 
   #no sign up
+  get 'admin', to: redirect('/admin/projects')
   devise_for :users, path_prefix: 'd',  controllers: { registrations: "registrations"}
 
   get 'press_list' => 'press#create'
