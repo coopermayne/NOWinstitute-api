@@ -1,5 +1,5 @@
 //= require jquery
-//= require jquery.unveil.min
+//= require jquery.unveil
 //= require turbolinks
 
 $(document).on('turbolinks:load', function(){
@@ -22,5 +22,7 @@ $(document).on('turbolinks:load', function(){
   setInterval(function(){
     nextSlide()
   }, 5000)
+
+  $('img.lazy').unveil();
 
 })
