@@ -1,5 +1,8 @@
-%nav
-  .menu-wrapper-wrapper{ class: ('white' if @menu_white)}
+#hamburger{class: ('hide' unless @projects||@people)}
+  %h1{href: '#'} Menu
+
+%nav{class: ('hide cover' unless @display_mobile_menu )}
+  .menu-wrapper-wrapper
     %ul.menu-wrapper
       - @menu[:sections].each do |section|
         .section
@@ -11,3 +14,5 @@
             - if section[:url] == '/about'
               %a{href: '/about/contact', class: ('active' if request.fullpath['/about/contact'])} contact,
               %a{href: '/about/people', class: ('active' if request.fullpath['/about/people'])} people
+
+.magic-x{class: 'hide', data: {action: 'collapse menu'} } X

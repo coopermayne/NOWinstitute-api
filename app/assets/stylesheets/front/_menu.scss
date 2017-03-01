@@ -1,16 +1,23 @@
 nav {
+
+  &.cover {
+    padding-bottom: 500px;
+  }
+
   flex: 0 0 300px;
 
   .menu-wrapper-wrapper {
-    background-color: yellow;
-    @include respond-to('medium') { background-color: blue; }
-    @include respond-to('large') { background-color: red; }
-    position:fixed;
+
+    @include respond_to('medium') {
+      position:fixed;
+    }
   }
 
   ul {
     .sorting {
       display: none;
+
+      flex-direction: row;
     }
     .sub-sorting {
       /*display: none;*/
@@ -19,6 +26,7 @@ nav {
 
     h1, .sorting a {
       margin-right: 5px;
+      display: inline-block;
     }
   }
 }
@@ -43,5 +51,19 @@ nav {
   }
   .sorting a {
     font-size: $subheader-text;
+  }
+}
+
+#hamburger{
+  @include respond-to('medium') {
+    display:none;
+  }
+  width: 100%;
+  padding: 2px;
+  z-index: 99;
+  position: fixed;
+  background-color: white;
+  * {
+    color: $black;
   }
 }

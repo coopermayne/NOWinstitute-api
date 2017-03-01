@@ -1,5 +1,14 @@
 .container {
   display: flex;
+  @include respond_to('medium') {
+    flex-direction: row;
+  }
+
+  &.white {
+    p,h1,h2,h3,a {
+      color: $white;
+    }
+  }
 }
 
 .index-container {
@@ -10,7 +19,6 @@
   flex-wrap: wrap;
 
   .box {
-    color: white;
     width: 300px;
     height: 400px;
     background-color: blue;
@@ -44,4 +52,31 @@
   min-width: 50%;
   min-height: 50%;
   display: none;
+}
+
+.content-over-slideshow {
+  p {
+    font-size: $subheader-text
+  }
+}
+
+.collapse-menu {
+  display: none;
+}
+
+.hide {
+  display: none;
+}
+
+.magic-x {
+  z-index: 98;
+  color: black;
+  position: fixed;
+  top: 0;
+  right: 0;
+  font-size: $subheader-text;
+
+  &.white {
+    color: white;
+  }
 }

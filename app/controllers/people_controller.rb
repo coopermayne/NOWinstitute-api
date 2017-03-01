@@ -30,6 +30,7 @@ class PeopleController < ApplicationController
   end
 
   def show
+    @no_menu = true
     @menu = FrontHelper.build_menu
     @section = Section.find_by_title("Now Institute") 
     @person = Person.includes(:educations, roles: [:position, :project]).find(params[:id])

@@ -25,4 +25,37 @@ $(document).on('turbolinks:load', function(){
 
   $('img.lazy').unveil();
 
+  $('#hamburger').on('click', function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    console.log("clicked ham");
+
+    $('nav').toggleClass('hide')
+    $('#hamburger').toggleClass('hide')
+    $('.magic-x').toggleClass('hide')
+  })
+
+  $('.magic-x').on('click', function(e){
+    e.preventDefault();
+    e.stopPropagation();
+
+    var action = $(e.target).data('action')
+
+    if ( action === 'go back' ) {
+
+      var storedRef = $('meta[name=previous-page]')
+      if(storedRef.attr('content').match('localhost')){
+        window.history.back()
+      }else {
+        var uu = window.location.href
+        window.location = uu.substring(0, uu.lastIndexOf('/'))
+      }
+
+    } else if ( action == 'collapse menu') {
+      $('nav').toggleClass('hide')
+      $('#hamburger').toggleClass('hide')
+      $('.magic-x').toggleClass('hide')
+    }
+  })
+
 })

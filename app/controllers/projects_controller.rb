@@ -44,6 +44,8 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @ref = request.referer
+    @no_menu = true
     @project = Project.includes(roles: [:position, :person ], uploads: [ :file_type, :credit ], bibliography_items: [:primary_image]).find(params[:id])
     #render html: Rails.cache.fetch("projects" + params[:id].to_s , :expires_in => 1.hours) { 
       #render_to_string :show 

@@ -2,21 +2,23 @@ class PagesController < ApplicationController
   helper FrontHelper
 
   def main
-    @menu_white = true
-    @test = "test local var"
+    @display_mobile_menu = true
+    @white_menu = true
     @section = Section.find_by_title("Home Page") 
     @slides = Slide.with_section @section.id
     @menu = FrontHelper.build_menu
   end
 
   def about
-    @menu_white = true
+    @display_mobile_menu = true
+    @white_menu = true
     @menu = FrontHelper.build_menu
     @section = Section.find_by_title("Now Institute") 
     @slides = Slide.with_section @section.id
   end
 
   def contact
+    @no_menu = true
     @menu = FrontHelper.build_menu
     @section = Section.find_by_title("Now Institute") 
   end
