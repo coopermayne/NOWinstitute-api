@@ -1,10 +1,12 @@
 nav {
   flex: 0 0 300px;
-  background-color: pink;
 
   .menu-wrapper-wrapper {
+    background-color: yellow;
+    @include respond-to('large') { background-color: red; }
+    @include respond-to('medium') { background-color: blue; }
+    @include respond-to('small') { background-color: green; }
     position:fixed;
-    background-color: green;
   }
 
   ul {
@@ -31,7 +33,7 @@ nav {
     }
   }
 
-  > a { 
+  > a {
     text-decoration: underline;
   }
 }
@@ -44,4 +46,3 @@ nav {
     font-size: $subheader-text;
   }
 }
-
