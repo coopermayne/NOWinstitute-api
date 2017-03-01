@@ -1,5 +1,9 @@
 nav {
 
+  @include respond-to('medium') {
+    display: flex !important;
+  }
+
   &.cover {
     padding-bottom: 500px;
   }
@@ -32,7 +36,9 @@ nav {
 }
 
 .section.active {
-
+  h1 {
+    text-decoration: underline;
+  }
   .sorting {
     display: flex;
     a.active {
