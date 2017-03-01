@@ -77,7 +77,7 @@ class Admin::UsersController < AdminController
     def require_admin
       unless user_signed_in? && current_user.admin
         flash[:error] = "You aren't authorized to manage users"
-        redirect_to root_path
+        redirect_to "/d/users/sign_in"
       end
     end
 end

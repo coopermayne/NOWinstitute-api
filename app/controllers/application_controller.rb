@@ -1,4 +1,14 @@
 class ApplicationController < ActionController::Base
+  layout :layout_by_resource
+
+  def after_sign_in_path_for(resource_or_scope)
+    "/admin/projects"
+  end
+
+  def after_sign_out_path_for(resource_or_scope)
+    "/admin/projects"
+  end
+
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protect_from_forgery with: :exception
@@ -24,6 +34,16 @@ class ApplicationController < ActionController::Base
       headers['Access-Control-Allow-Headers'] = '*'
       headers['Access-Control-Max-Age'] = '1728000'
       render :text => '', :content_type => 'text/plain'
+    end
+  end
+
+  private
+
+  def layout_by_resource
+    if devise_controller?
+      "admin"
+    else
+      "application"
     end
   end
 
