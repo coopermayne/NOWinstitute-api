@@ -3,6 +3,4 @@
 .index-container
   -@people.each do |person|
     %a.box{href: request.fullpath + '/' + person.id.to_s + '-' + person.para_name, data: { name: person.name } }
-      =person.name
-      -#.img-wrapper
-        -#%img{ src: person.index_image.name.mobile.url}
+      %img.lazy{ data: {src: person.index_image.name.index.url}} 

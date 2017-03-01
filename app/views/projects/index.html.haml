@@ -3,4 +3,4 @@
 .index-container
   -@projects.each do |project|
     %a.box{href: request.fullpath + '/' + project.id.to_s + '-' + project.para_title, data: { title: project.title } }
-      %img.lazy{ src: project.index_image.name.index.url} 
+      %img.lazy{ data: {src: project.index_image.name.index.url}} 
