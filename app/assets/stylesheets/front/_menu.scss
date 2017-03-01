@@ -9,14 +9,39 @@ nav {
 
   ul {
     .sorting {
-      display: flex
+      display: none;
     }
+    .sub-sorting {
+      /*display: none;*/
+      font-size: $little-sorting-option;
+    }
+
+    h1, .sorting a {
+      margin-right: 5px;
+    }
+  }
+}
+
+.section.active {
+
+  .sorting {
+    display: flex;
+    a.active {
+      text-decoration: underline;
+    }
+  }
+
+  > a { 
+    text-decoration: underline;
   }
 }
 
 .menu-wrapper-wrapper{
   h1 {
-    color: white;
+    font-size: $header-text;
+  }
+  .sorting a {
+    font-size: $subheader-text;
   }
 }
 

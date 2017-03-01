@@ -45,3 +45,21 @@ p
 head {
   display: none;
 }
+
+a {
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    text-decoration: underline;
+    color: inherit;
+  }
+  &:active {
+    text-decoration: underline;
+    color: inherit;
+  }
+  &:visited {
+    color: inherit;
+  }
+}
+

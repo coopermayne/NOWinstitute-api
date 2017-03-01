@@ -54,4 +54,7 @@ class Project < ActiveRecord::Base
 
   scope :with_section, -> (section_id) { where section_id: section_id }
 
+  def para_title
+    title.gsub('.','').parameterize
+  end
 end

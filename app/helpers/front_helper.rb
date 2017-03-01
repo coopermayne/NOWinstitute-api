@@ -14,42 +14,25 @@ module FrontHelper
       {
       title: 'Now',
       slides: now_slides,
-      id: now_section.id,
-      url: "about",
+      url: "/about",
       contact: markdown( now_section.contact),
-      about: markdown( now_section.about ), 
-      sorting: [ {
-        title: 'Contact',
-        items: ''
-      }, {
-        title: 'People',
-        items: ['Leadership']
-      } ]
+      about: markdown( now_section.about ),
     },
 
     {
       title: 'Projects',
-      url: "projects",
-      id: Section.find_by_title("Projects").id,
-      sorting: [ {
-        title: 'A-Z'
-      }
-      ]
+      url: "/projects"
     }, 
 
     {
       title: 'Research',
-      url: "research",
-      id: Section.find_by_title("Research").id,
-      sorting: [ {
-        title: 'A-Z'
-      }
-      ]
+      url: "/research"
     }, 
 
     {
       title: 'News',
-      url: 'news'
+      target: '_blank',
+      url: 'http://www.aud.ucla.edu/programs/m_arch_ii_degree_1/studios/mayne/category/studio/news/'
     }
     ]
 

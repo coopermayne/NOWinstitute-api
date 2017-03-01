@@ -45,4 +45,8 @@ class Person < ActiveRecord::Base
     end
     res
   end
+
+  def para_name
+    name.gsub('.','').parameterize
+  end
 end

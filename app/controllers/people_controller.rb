@@ -24,10 +24,14 @@
 
 class PeopleController < ApplicationController
   def index
+    @menu = FrontHelper.build_menu
+    @section = Section.find_by_title("Now Institute") 
     @people = Person.includes(:primary_image).where(is_ucla_team: true)
   end
 
   def show
+    @menu = FrontHelper.build_menu
+    @section = Section.find_by_title("Now Institute") 
     @person = Person.includes(:educations, roles: [:position, :project]).find(params[:id])
   end
 end

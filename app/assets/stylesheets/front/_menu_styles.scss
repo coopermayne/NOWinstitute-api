@@ -645,8 +645,7 @@ menu-directive
 
 	color: $black;
 	font-size: 1em;
-	font-family: 'Executive';
-
+	font-family: $executive-reg;
 	transition: background 0.5s ease-in-out;
 
 	&:focus,

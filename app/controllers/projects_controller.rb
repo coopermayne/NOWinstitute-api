@@ -32,6 +32,7 @@
 
 class ProjectsController < ApplicationController
   helper FrontHelper
+
   def index
     @section = Section.find_by_title request.fullpath.slice(1,request.fullpath.length-1).capitalize
     @menu = FrontHelper.build_menu
