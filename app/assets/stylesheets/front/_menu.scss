@@ -3,9 +3,8 @@ nav {
 
   .menu-wrapper-wrapper {
     background-color: yellow;
-    @include respond-to('large') { background-color: red; }
     @include respond-to('medium') { background-color: blue; }
-    @include respond-to('small') { background-color: green; }
+    @include respond-to('large') { background-color: red; }
     position:fixed;
   }
 
