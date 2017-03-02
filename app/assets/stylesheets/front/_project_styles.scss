@@ -66,7 +66,6 @@
 
   //mobile main and desktop sidebar content go here
   .side-bar {
-    background-color: red;
     flex: 1;
     flex-direction: column;
     @include respond-to('medium') {
@@ -87,6 +86,8 @@
 }
 
 .project-detail-wrapper {
+  padding: 0.5rem 0;
+
   .project-detail-text, .project-detail-label {
 
   }
@@ -96,9 +97,25 @@
     font-size: 0.7rem;
     text-transform: uppercase;
   }
+
+  &.bib {
+    /*clear:both;*/
+    /*.project-detail-image{*/
+      /*align-self: center;*/
+      /*width: 100px;*/
+      /*height: 100px;*/
+      /*margin-right: .5rem;*/
+      /*background-position: left center;*/
+      /*background-size: contain;*/
+      /*background-repeat: no-repeat;*/
+    /*}*/
+  }
 }
 
+
+
 .description {
+  padding-right: 1rem;
   h1
   {
     margin-top: 1rem;
@@ -131,6 +148,48 @@
   }
 }
 
+.side-bar {
+  .overview {
+    font-size: $subheader-text;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+
+.openable {
+  &:before {
+    content: '-';
+    display: block !important;
+    position: absolute;
+    top: -2px;
+    left: -15px;
+    .project-detail-wrapper {
+      display: none;
+    }
+  }
+
+  &.closed {
+    .content {
+      height: 6.5rem;
+      overflow-y: hidden;
+    }
+
+    &:before {
+      content: '+';
+      display: block !important;
+      position: absolute;
+      top: -2px;
+      left: -15px;
+    }
+
+    .project-detail-wrapper {
+      display: none;
+    }
+
+  }
+}
 
 
 .hide-on-desktop{

@@ -15,30 +15,58 @@
         .project-detail-wrapper.location
           .project-detail-label Location:
           .project-detail-text= @project.address
+
         .project-detail-wrapper.types
           .project-detail-label Types:
           - @project.project_types.each do |type|
             .project-detail-text= type.title
+
         .project-detail-wrapper.date
           .project-detail-label Dates:
           .project-detail-text= [ @project.start.year, @project.end.year ].join('-')
+
         .project-page-main-text.overview.hide-on-desktop= @project.overview
-        .credits
-          .title Design Recongnition:
+
+        .section.credits.openable.closed
+          .title Project Credits
           - @project.roles.each do |role|
-            .project-detail-label= role.position.title + ":"
-            .project-detail-text= role.person.name
-        .description.hide-on-desktop= @project.description
-        .awards
-          .title Awards:
-          - @project.awards.each do |award|
-            .award= award.title
-        .bibliography
-          .title Bibliography:
+            .project-detail-wrapper.role
+              .project-detail-label= role.position.title + ":"
+              .project-detail-text= role.person.name
+
+        .description.hide-on-desktop.openable.closed 
+          .content= markdown @project.description
+
+        .section.awards.openable.closed
+          .title Recognition
+          - @project.awards.group_by(&:year).sort_by{|y,i| y}.reverse.each do |group|
+            .project-detail-wrapper.award
+              .project-detail-label= group.first
+              - group.last.each do |award|
+                .project-detail-text= award.title
+
+        .section.bibliography.openable.closed
+          .title Bibliography
           - @project.bibliography_items.each do |bib|
-            .bib= bib.title
-        .image-galleries.hide-on-desktop image-galleries
+            .project-detail-wrapper.bib
+              - if bib.primary_image
+                .project-detail-image{ style: "background-image:url(#{bib.primary_image.name.thumb.url});"}= bib.title
+
+        .image-galleries.hide-on-desktop
+          - @project.getGalleries.each do |gallery_name, gallery_images|
+            .section.openable
+              .title= gallery_name.to_s
+              .project-detail-wrapper
+                .picture{:itemscope => "", :itemtype => "http://schema.org/ImageGallery"}
+                  %figure{:itemprop => "associatedMedia", :itemscope => "", :itemtype => "http://schema.org/ImageObject"}
+                    %a{"data-index" => "0", "data-size" => "1000x667", :href => "http://fillmurray.com/1000/667", :itemprop => "contentUrl"}
+                      %img{:alt => "Beach", :height => "400", :itemprop => "thumbnail", :src => "http://fillmurray.com/400/400", :width => "600"}/
+                .picture{:itemscope => "", :itemtype => "http://schema.org/ImageGallery"}
+                  %figure{:itemprop => "associatedMedia", :itemscope => "", :itemtype => "http://schema.org/ImageObject"}
+                    %a{"data-index" => "0", "data-size" => "1000x667", :href => "http://fillmurray.com/1000/667", :itemprop => "contentUrl"}
+                      %img{:alt => "Beach", :height => "400", :itemprop => "thumbnail", :src => "http://fillmurray.com/400/400", :width => "600"}/
       .desktop-content.show-on-desktop
         .project-page-main-text.overview= @project.overview
         .description= markdown(@project.description)
         .image-galleries IMAGE-GALLERIES
+
