@@ -49,24 +49,14 @@
           .title Bibliography
           - @project.bibliography_items.each do |bib|
             .project-detail-wrapper.bib
-              - if bib.primary_image
-                .project-detail-image{ style: "background-image:url(#{bib.primary_image.name.thumb.url});"}= bib.title
+              .project-detail-text= bib.title
+              -#- if bib.primary_image
+                -#.project-detail-image{ style: "background-image:url(#{bib.primary_image.name.thumb.url});"}= bib.title
 
         .image-galleries.hide-on-desktop
-          - @project.getGalleries.each do |gallery_name, gallery_images|
-            .section.openable
-              .title= gallery_name.to_s
-              .project-detail-wrapper
-                .picture{:itemscope => "", :itemtype => "http://schema.org/ImageGallery"}
-                  %figure{:itemprop => "associatedMedia", :itemscope => "", :itemtype => "http://schema.org/ImageObject"}
-                    %a{"data-index" => "0", "data-size" => "1000x667", :href => "http://fillmurray.com/1000/667", :itemprop => "contentUrl"}
-                      %img{:alt => "Beach", :height => "400", :itemprop => "thumbnail", :src => "http://fillmurray.com/400/400", :width => "600"}/
-                .picture{:itemscope => "", :itemtype => "http://schema.org/ImageGallery"}
-                  %figure{:itemprop => "associatedMedia", :itemscope => "", :itemtype => "http://schema.org/ImageObject"}
-                    %a{"data-index" => "0", "data-size" => "1000x667", :href => "http://fillmurray.com/1000/667", :itemprop => "contentUrl"}
-                      %img{:alt => "Beach", :height => "400", :itemprop => "thumbnail", :src => "http://fillmurray.com/400/400", :width => "600"}/
+
       .desktop-content.show-on-desktop
         .project-page-main-text.overview= @project.overview
         .description= markdown(@project.description)
-        .image-galleries IMAGE-GALLERIES
+        .image-galleries
 

@@ -99,16 +99,15 @@
   }
 
   &.bib {
-    /*clear:both;*/
-    /*.project-detail-image{*/
-      /*align-self: center;*/
-      /*width: 100px;*/
-      /*height: 100px;*/
-      /*margin-right: .5rem;*/
-      /*background-position: left center;*/
-      /*background-size: contain;*/
-      /*background-repeat: no-repeat;*/
-    /*}*/
+    .project-detail-image{
+      align-self: center;
+      width: 100px;
+      height: 100px;
+      margin-right: .5rem;
+      background-position: left center;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
   }
 }
 

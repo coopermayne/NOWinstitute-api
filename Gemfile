@@ -9,8 +9,6 @@ gem 'haml'
 gem 'haml-rails'
 gem 'metamagic'
 
-gem 'photoswipe-rails'
-
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.15'
 gem 'rack-cache'
