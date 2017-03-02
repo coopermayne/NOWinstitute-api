@@ -59,4 +59,7 @@
         .project-page-main-text.overview= @project.overview
         .description= markdown(@project.description)
         .image-galleries
+          -@project.uploads.each do |u|
+
+          
 

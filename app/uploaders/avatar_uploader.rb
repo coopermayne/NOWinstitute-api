@@ -6,20 +6,14 @@ class AvatarUploader < CarrierWave::Uploader::Base
 
   process :set_content_type
 
-  # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
-
-  # Choose what kind of storage to use for this uploader:
-  #storage :file
   storage :fog
 
-  # Override the directory where uploaded files will be stored.
-  # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
     "uploads/#{model.id}"
   end
 
   process :resize_to_limit => [1600, 1200], :if => :image?
+  process :store_dimensions
   process :optimize, :if => :image?
   process :get_color, :if => :image?
   process :save_content_type_and_size_in_model
@@ -55,6 +49,14 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   def get_color
+  end
+
+  private
+
+  def store_dimensions
+    if file && model
+      model.width, model.height = `identify -format "%wx%h" #{file.path}`.split(/x/)
+    end
   end
 
 end

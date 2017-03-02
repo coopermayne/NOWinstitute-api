@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170301003824) do
+ActiveRecord::Schema.define(version: 20170302232148) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -328,6 +328,8 @@ ActiveRecord::Schema.define(version: 20170301003824) do
     t.string   "content_type"
     t.string   "file_size"
     t.string   "color"
+    t.integer  "height"
+    t.integer  "width"
   end
 
   add_index "uploads", ["credit_id"], name: "index_uploads_on_credit_id", using: :btree
