@@ -3,5 +3,42 @@
 .magic-x{data: {action: 'go back'}}
 
 .project-page-wrapper
+
   .project-page-header-image-wrapper
     .project-page-header-image{ style: "background-image:url(#{@project.primary_image.name.url});"}
+
+  .project-page-content-wrapper
+    .project-page-header-text= @project.title
+
+    .project-page-text-wrapper
+      .side-bar
+        .project-detail-wrapper.location
+          .project-detail-label Location:
+          .project-detail-text= @project.address
+        .project-detail-wrapper.types
+          .project-detail-label Types:
+          - @project.project_types.each do |type|
+            .project-detail-text= type.title
+        .project-detail-wrapper.date
+          .project-detail-label Dates:
+          .project-detail-text= [ @project.start.year, @project.end.year ].join('-')
+        .project-page-main-text.overview.hide-on-desktop= @project.overview
+        .credits
+          .title Design Recongnition:
+          - @project.roles.each do |role|
+            .project-detail-label= role.position.title + ":"
+            .project-detail-text= role.person.name
+        .description.hide-on-desktop= @project.description
+        .awards
+          .title Awards:
+          - @project.awards.each do |award|
+            .award= award.title
+        .bibliography
+          .title Bibliography:
+          - @project.bibliography_items.each do |bib|
+            .bib= bib.title
+        .image-galleries.hide-on-desktop image-galleries
+      .desktop-content.show-on-desktop
+        .project-page-main-text.overview= @project.overview
+        .description= markdown(@project.description)
+        .image-galleries IMAGE-GALLERIES
