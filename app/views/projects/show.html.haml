@@ -58,8 +58,7 @@
       .desktop-content.show-on-desktop
         .project-page-main-text.overview= @project.overview
         .description= markdown(@project.description)
-        .image-galleries
-          -@project.uploads.each do |u|
-
-          
-
+        #gallery
+          -@project.uploads.select(&:is_image).each do |u|
+            %a.slide{src: u.name.url}
+              %img{src: u.name.thumb.url, data:{original_src_width: u.width, original_src_height: u.height}, alt: 'caption text'}

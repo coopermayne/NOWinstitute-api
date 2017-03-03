@@ -3,10 +3,11 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     = metamagic site: "Now Institute", title: [:title, :site], separator: " — "
-
     %meta{name: "viewport", content:"width=device-width, initial-scale=1.0"}
-
     %meta{name: "previous-page", content: @ref || '' }
+
+      %link{ rel: "stylesheet", href:"https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css"}
+      %link{ rel: "stylesheet", href:"https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css"}
 
     = stylesheet_link_tag    'front', media: 'all'
     = javascript_include_tag 'front'
