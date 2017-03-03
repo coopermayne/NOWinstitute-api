@@ -63,13 +63,21 @@ $(document).on('turbolinks:load', function(){
   $('.openable').on('click', function(e){
     var el = $(e.target);
     if(el.hasClass('openable')){
+      if(el.hasClass('image-gallery')){ return; }
       el.toggleClass('closed')
     } else {
       el.parent().click()
     }
   })
 
+  $('.image-gallery .title').on('click', function(e){
+    $(e.target).parent().toggleClass('closed')
+  })
+
   $('.gallery').photoSwipe(".slide", {
+    isClickableElement: function(){
+      return true;
+    },
     arrowEl: true,
     timeToIdle: 2000,
     bgOpacity: 0.8,

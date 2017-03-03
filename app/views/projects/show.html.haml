@@ -59,7 +59,9 @@
             .project-detail-wrapper.gallery-wrapper
               .gallery
                 -gallery_images.each do |image|
-                  %img.slide{src: image.name.thumb.url, data:{original_src: image.name.url, original_src_width: image.width, original_src_height: image.height} }
+                  %img.slide{src: image.name.index.url, data:{original_src: image.name.url, original_src_width: image.width, original_src_height: image.height} }
+
+        .extra-space
 
       .desktop-content.show-on-desktop
         .project-page-main-text.overview= @project.overview
