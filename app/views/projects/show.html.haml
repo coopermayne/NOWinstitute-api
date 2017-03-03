@@ -57,8 +57,15 @@
 
       .desktop-content.show-on-desktop
         .project-page-main-text.overview= @project.overview
+
         .description= markdown(@project.description)
-        #gallery
-          -@project.uploads.select(&:is_image).each do |u|
-            %a.slide{src: u.name.url}
-              %img{src: u.name.thumb.url, data:{original_src: u.name.url, original_src_width: u.width, original_src_height: u.height}, alt: 'caption text'}
+
+        -@project.getGalleries.each do |gallery_name, gallery_images|
+          .section.image-gallery
+            .arrow-left
+            .arrow-right
+            .title= gallery_name
+            .gallery-wrapper
+              .gallery
+                -gallery_images.each do |image|
+                  %img.slide{src: image.name.thumb.url, data:{original_src: image.name.url, original_src_width: image.width, original_src_height: image.height} }

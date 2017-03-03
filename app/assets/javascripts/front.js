@@ -69,7 +69,13 @@ $(document).on('turbolinks:load', function(){
     }
   })
 
-  $('#gallery').photoSwipe(".slide", {bgOpacity: 0.8, shareEl: false}, {
+  $('.gallery').photoSwipe(".slide", {
+    arrowEl: true,
+    timeToIdle: 2000,
+    bgOpacity: 0.8,
+    shareEl: false,
+
+  }, {
     close: function(){
       console.log("close slideshow");
     }

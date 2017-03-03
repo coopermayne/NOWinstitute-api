@@ -61,6 +61,9 @@
 .project-page-text-wrapper
 {
   padding: 2rem 0;
+  @include respond-to('large'){
+    padding-right: 33px;
+  }
   display: flex;
   flex-flow: row;
 
@@ -69,14 +72,16 @@
     flex: 1;
     flex-direction: column;
     @include respond-to('medium') {
-      flex: 0 0 310px;
+      flex: 0 0 260px;
     }
   }
 
   /*desktop main content goes here*/
   .desktop-content{
+    padding: 0 30px;
     background-color: pink;
     display: none;
+    overflow: hidden;
     @include respond-to('medium') {
       display: flex;
       flex-direction: column;
@@ -152,7 +157,6 @@
     font-size: $subheader-text;
     margin-top: 1rem;
     margin-bottom: 1rem;
-    padding-right: 1rem;
   }
 }
 
@@ -188,6 +192,45 @@
     }
 
   }
+}
+
+.gallery-wrapper {
+}
+
+.gallery {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  img {
+    margin-right: 1em;
+    height: 150px;
+  }
+}
+
+.image-gallery{
+  position: relative;
+}
+
+.arrow-left, .arrow-right {
+  content: '';
+  position: absolute;;
+  width: 40px;
+  height: 40px;
+  top: 68px;
+  z-index: 9999;
+  background-size: contain;
+}
+
+.arrow-left
+{
+  left: -35px;
+  background: url('angle-left_black.svg');
+}
+.arrow-right
+{
+  right: -42px;
+  background: url('angle-right_black.svg');
 }
 
 
