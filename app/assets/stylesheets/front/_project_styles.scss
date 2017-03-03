@@ -195,6 +195,7 @@
 }
 
 .gallery-wrapper {
+  position: relative;
 }
 
 .gallery {
@@ -208,16 +209,12 @@
   }
 }
 
-.image-gallery{
-  position: relative;
-}
-
 .arrow-left, .arrow-right {
   content: '';
   position: absolute;;
   width: 40px;
   height: 40px;
-  top: 68px;
+  top: 55px;
   z-index: 9999;
   background-size: contain;
 }

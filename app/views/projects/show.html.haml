@@ -62,10 +62,10 @@
 
         -@project.getGalleries.each do |gallery_name, gallery_images|
           .section.image-gallery
-            .arrow-left
-            .arrow-right
             .title= gallery_name
             .gallery-wrapper
+              .arrow-left
+              .arrow-right
               .gallery
                 -gallery_images.each do |image|
                   %img.slide{src: image.name.thumb.url, data:{original_src: image.name.url, original_src_width: image.width, original_src_height: image.height} }

@@ -81,4 +81,14 @@ $(document).on('turbolinks:load', function(){
     }
   });
 
+  $('.arrow-right').on('click', function(e){
+    var gal = $(e.target).siblings('.gallery').first()
+    $(gal).animate({scrollLeft: gal.scrollLeft()+300}, 800);
+  })
+
+  $('.arrow-left').on('click', function(e){
+    var gal = $(e.target).siblings('.gallery').first()
+    $(gal).animate({scrollLeft: gal.scrollLeft()-300}, 800);
+  })
+
 })
