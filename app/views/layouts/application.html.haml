@@ -10,10 +10,10 @@
       %link{ rel: "stylesheet", href:"https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css"}
 
     = stylesheet_link_tag    'front', media: 'all'
-    = javascript_include_tag 'front'
     = csrf_meta_tags
   %body
     .container{class: ( 'white' if @white_menu )}
       = render 'layouts/front/menu' unless ( @no_menu  )
 
       = yield
+    = javascript_include_tag 'front'

@@ -4,6 +4,7 @@
 //= require turbolinks
 
 $(document).on('turbolinks:load', function(){
+  console.log('load');
 
   var slides = $('.slideshow-image')
   var lastSlideIndex = slides.length-1
@@ -68,6 +69,10 @@ $(document).on('turbolinks:load', function(){
     }
   })
 
-  $('#gallery').photoSwipe(".slide", {bgOpacity: 0.8, shareEl: false}, {});
+  $('#gallery').photoSwipe(".slide", {bgOpacity: 0.8, shareEl: false}, {
+    close: function(){
+      console.log("close slideshow");
+    }
+  });
 
 })
