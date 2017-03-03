@@ -230,10 +230,11 @@
   }
 }
 
-.gallery-wrapper {
+//mobile
+.image-gallery.hide-on-desktop {
   .gallery {
     img{
-      width: 49%;
+      width: 30%;
     }
   }
 }
