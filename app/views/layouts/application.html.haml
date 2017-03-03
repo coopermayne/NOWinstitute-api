@@ -8,7 +8,10 @@
 
       %link{ rel: "stylesheet", href:"https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css"}
       %link{ rel: "stylesheet", href:"https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css"}
+      %script{ src: 'https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe-ui-default.js'}
+      %script{ src: 'https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.js'}
 
+    = javascript_include_tag 'front'
     = stylesheet_link_tag    'front', media: 'all'
     = csrf_meta_tags
   %body
@@ -16,4 +19,3 @@
       = render 'layouts/front/menu' unless ( @no_menu  )
 
       = yield
-    = javascript_include_tag 'front'
