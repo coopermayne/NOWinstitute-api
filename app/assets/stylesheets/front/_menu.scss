@@ -93,8 +93,8 @@ nav {
   top: $page-margin;
   right: $page-margin;
   z-index: 98;
-  background: url('trigger_black.svg') no-repeat center center;
+  background: image-url('trigger_black.svg') no-repeat center center;
   &.white {
-    background: url('trigger.svg') no-repeat center center;
+    background: image-url('trigger.svg') no-repeat center center;
   }
 }
