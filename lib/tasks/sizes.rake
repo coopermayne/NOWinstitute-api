@@ -1,5 +1,6 @@
 namespace :images do
   desc "correct image sizes"
+
   task get_sizes: :environment do
     Upload.all.each do |u|
       if u.is_image
@@ -9,4 +10,15 @@ namespace :images do
       end
     end
   end
+
+  task recreate: :environment do
+    Upload.all.each do |u|
+      if u.name && u.name.file
+        puts u.name.recreate_versions!
+      else
+        puts u.destroy
+      end
+    end
+  end
+
 end

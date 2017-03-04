@@ -1,4 +1,5 @@
 .container {
+  padding: 1rem 0 0 1rem;
   display: flex;
   @include respond_to('medium') {
     flex-direction: row;
@@ -12,24 +13,18 @@
 }
 
 .index-container {
+  margin-top: 0.5rem;
   display: flex;
-  background-color: red;
-
   flex-flow: row;
   flex-wrap: wrap;
 
   .box {
-    width: 300px;
-    height: 400px;
-    background-color: blue;
-    margin: 10px;
-    overflow:hidden;
-  }
+    margin-right: 1.5rem;
+    margin-bottom: 2rem;
 
-  .box img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+    .project-title{
+      font-style: italic;
+    }
   }
 }
 
@@ -54,9 +49,15 @@
   display: none;
 }
 
+
 .content-over-slideshow {
+  max-width: 500px;
   p {
     font-size: $subheader-text
+  }
+
+  @include respond-to('medium'){
+    margin: 1rem 4rem 0 3rem;
   }
 }
 

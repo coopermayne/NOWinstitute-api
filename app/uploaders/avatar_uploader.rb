@@ -30,7 +30,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   version :index, :if => :image? do
-    process :resize_to_fill => [250, 280]
+    process :resize_to_fill => [250, 204]
     process :optimize
   end
 
