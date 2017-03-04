@@ -51,10 +51,10 @@ module FrontHelper
             "1970-1979"
           ]
         },
-        {
-          title: "Location",
-          items: [ ]
-        }
+        #{
+          #title: "Location",
+          #items: [ ]
+        #}
       ]
     }, 
 
@@ -76,10 +76,10 @@ module FrontHelper
             "1970-1979"
           ]
         },
-        {
-          title: "Location",
-          items: [ ]
-        }
+        #{
+          #title: "Location",
+          #items: [ ]
+        #}
       ]
     }, 
 

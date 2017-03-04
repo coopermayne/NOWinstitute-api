@@ -1,3 +1,6 @@
+.menu-directive-wrapper{
+}
+
 .menu-directive
 {
   flex: 0 0 300px;
@@ -17,7 +20,6 @@
 
     width: auto;
     margin-right: 0;
-
     font-size: $mobile-menu-text;
   }
 
@@ -29,7 +31,6 @@
 
   width: 300px;
   margin-right: $page-margin;
-
   font-size: $header-text;
 }
 
@@ -43,6 +44,7 @@
     left: 0;
     padding: $page-margin;
     z-index: 50;
+    position: fixed;
 
     &.hidden
     {
@@ -69,13 +71,13 @@
   }
 
   opacity: 1;
-  position: fixed;
   width: 300px;
   z-index: 10;
 
   transition: opacity 1s ease;
 
   -webkit-overflow-scrolling: touch;
+
   &.hidden
   {
     opacity: 0;
@@ -457,5 +459,26 @@ a.twitter-link
     opacity: 0.5;
     width: 3rem;
     height: 3rem;
+  }
+}
+
+.magic-x
+{
+  @include respond-to( 'medium' )
+  {
+    width: 50px;
+    height: 50px;
+  }
+
+  position: fixed;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  top: $page-margin;
+  right: $page-margin;
+  z-index: 98;
+  background: image-url('trigger_black.svg') no-repeat center center;
+  &.white {
+    background: image-url('trigger.svg') no-repeat center center;
   }
 }

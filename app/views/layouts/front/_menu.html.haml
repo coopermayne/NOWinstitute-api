@@ -4,7 +4,7 @@
     - @menu[:sections].each do |bigMenuItem|
       %li.menu-section
         .section-title{ class: ('selected' if request.fullpath[bigMenuItem[:url]]) }
-          %span.section-title-inner
+          %a.section-title-inner{href: bigMenuItem[:url]}
             =bigMenuItem[:title]
 
         - if request.fullpath[bigMenuItem[:url]]
@@ -12,5 +12,6 @@
             - bigMenuItem[:sorting].each do |sortingOption|
               .sorting-option-wrapper
                 .sorting-option-title-wrapper{ class:('selected' if sortingOption[:url] && request.fullpath[sortingOption[:url]]) }
-                  .sorting-option-title
-                    = sortingOption[:title]
+                  %a.sorting-option-title{ href: sortingOption[:url] }= sortingOption[:title]
+
+.magic-x{class: 'hide', data: {action: 'collapse menu'} }
