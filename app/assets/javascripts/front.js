@@ -148,29 +148,7 @@ $(document).on('turbolinks:load', function(){
   })
 
 
-  var openPhotoSwipe = function(gallery){
-    var pswpElement = document.querySelectorAll('.pswp')[0];
-    var options = {
-      index: 0,
-      history: false
-    };
-
-    var els = $(gallery).children().map(function(index, item){
-      return {
-        src: $(this).data('original-src'),
-        w: $(this).data('original-src-width'),
-        h: $(this).data('original-src-height'),
-        msrc: $(this).attr('src')
-      }
-    })
-
-    var g = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, els, options);
-    g.init();
-
-
-  }
-
-  $('.show-on-desktop .gallery').each(function(index){
+  $('.gallery').each(function(index){
     //create image arrays
     var that = this
     //bind click events 
@@ -180,3 +158,23 @@ $(document).on('turbolinks:load', function(){
   });
 
 })
+
+var openPhotoSwipe = function(gallery){
+  var pswpElement = document.querySelectorAll('.pswp')[0];
+  var options = {
+    index: 0,
+    history: false
+  };
+
+  var els = $(gallery).children().map(function(index, item){
+    return {
+      src: $(this).data('original-src'),
+      w: $(this).data('original-src-width'),
+      h: $(this).data('original-src-height'),
+      msrc: $(this).attr('src')
+    }
+  })
+
+  var g = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, els, options);
+  g.init();
+}

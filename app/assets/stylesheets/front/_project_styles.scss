@@ -213,32 +213,22 @@
   }
 }
 
-@include respond-to('medium') {
-  .gallery-wrapper {
-    position: relative;
-  }
+.gallery-wrapper {
+  position: relative;
+}
 
-  .gallery {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    overflow-x: scroll;
-    img {
-      margin-right: 1em;
-      height: 150px;
-    }
+.gallery {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  img {
+    margin-right: 1em;
+    height: 150px;
   }
 }
 
 //mobile
-.image-gallery.hide-on-desktop {
-  .gallery {
-    img{
-      width: 30%;
-    }
-  }
-}
-
 .arrow-left, .arrow-right {
   content: '';
   position: absolute;;
