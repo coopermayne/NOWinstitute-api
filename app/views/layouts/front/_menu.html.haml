@@ -1,5 +1,5 @@
 .menu-directive
-  %ul.menu-directive-wrapper
+  %ul.menu-directive-wrapper{ class: ( 'white-menu' if @white_menu ) }
     //- Build each big menu item and subsections
     - @menu[:sections].each do |bigMenuItem|
       %li.menu-section
@@ -7,10 +7,10 @@
           %span.section-title-inner
             =bigMenuItem[:title]
 
-        - if true 
+        - if request.fullpath[bigMenuItem[:url]]
           .sorting-options
             - bigMenuItem[:sorting].each do |sortingOption|
               .sorting-option-wrapper
-                .sorting-option-title-wrapper{ class: ('selected' if true) }
+                .sorting-option-title-wrapper{ class:('selected' if sortingOption[:url] && request.fullpath[sortingOption[:url]]) }
                   .sorting-option-title
                     = sortingOption[:title]

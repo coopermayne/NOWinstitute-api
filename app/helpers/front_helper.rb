@@ -12,17 +12,19 @@ module FrontHelper
 
     res[:sections] = [
       {
+      url: "/about",
       title: 'Now',
       slides: now_slides,
-      url: "/about",
       contact: markdown( now_section.contact),
       about: markdown( now_section.about ),
       sorting: [
         {
+          url: "/about/contact",
           title: "Contact",
           items: ""
         },
         {
+          url: "/about/people",
           title: "People",
           items: [
             "Leadership"
