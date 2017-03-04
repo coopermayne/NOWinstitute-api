@@ -17,20 +17,73 @@ module FrontHelper
       url: "/about",
       contact: markdown( now_section.contact),
       about: markdown( now_section.about ),
+      sorting: [
+        {
+          title: "Contact",
+          items: ""
+        },
+        {
+          title: "People",
+          items: [
+            "Leadership"
+          ]
+        }
+      ]
     },
 
     {
       title: 'Projects',
-      url: "/projects"
+      url: "/projects",
+      sorting: [
+        {
+          title: "A-Z",
+          items: "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        },
+        {
+          title: "Year",
+          items: [
+            "2010-2019",
+            "2000-2009",
+            "1990-1999",
+            "1980-1989",
+            "1970-1979"
+          ]
+        },
+        {
+          title: "Location",
+          items: [ ]
+        }
+      ]
     }, 
 
     {
       title: 'Research',
-      url: "/research"
+      url: "/research",
+      sorting: [
+        {
+          title: "A-Z",
+          items: "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        },
+        {
+          title: "Year",
+          items: [
+            "2010-2019",
+            "2000-2009",
+            "1990-1999",
+            "1980-1989",
+            "1970-1979"
+          ]
+        },
+        {
+          title: "Location",
+          items: [ ]
+        }
+      ]
     }, 
 
     {
       title: 'News',
+      sorting: [],
       target: '_blank',
       url: 'http://www.aud.ucla.edu/programs/m_arch_ii_degree_1/studios/mayne/category/studio/news/'
     }
