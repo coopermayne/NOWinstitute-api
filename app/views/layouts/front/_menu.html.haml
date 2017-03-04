@@ -1,61 +1,16 @@
-%ul.menu-directive-wrapper
-  //- Build each big menu item and subsections
-  - @menu[:sections].each do |bigMenuItem|
-    %li.menu-section
-      .section-title{ class: ('selected' if request.fullpath[bigMenuItem[:url]]) }
-        %span.section-title-inner
-          =bigMenuItem[:title]
+.menu-directive
+  %ul.menu-directive-wrapper
+    //- Build each big menu item and subsections
+    - @menu[:sections].each do |bigMenuItem|
+      %li.menu-section
+        .section-title{ class: ('selected' if request.fullpath[bigMenuItem[:url]]) }
+          %span.section-title-inner
+            =bigMenuItem[:title]
 
-      - if true 
-        .sorting-options
-          - bigMenuItem[:sorting].each do |sortingOption|
-            .sorting-option-wrapper
-              .sorting-option-title-wrapper{ class: ('active' if request.fullpath['/about/contact']) }
-                .sorting-option-title
-                  = sortingOption[:title]
-
-              -#Categories (Letters, Residential, etc)
-              .option-list-wrapper
-                - if true
-                  %ul.ghost-elements{ class: ( "people-option-list" if @people )}
-                    %li.ghost-element(
-                      ng-repeat='ghostElement in sortingOption.items'
-                    )
-                      | Ghost
-                      .ghost-element-subsection(
-                        ng-repeat='ghostChild in ghostElement.children'
-                        ng-if='showSubSections( ghostElement.title, ghostElement.children )'
-                      )
-                        | Ghost
-                  ul.option-list(
-                    ng-if='stateParams.sortingType == sortingOption.title.toLowerCase(  )'
-                    ng-click='$event.stopPropagation(  )'
-                    ng-class='{ "people-option-list": stateParams.sortingType === "people" }'
-                  )
-                    li.alphabetical-hash.option(
-                      ng-if='sortingOption.title === "A-Z"'
-                      ui-sref='root.section-state.sorting-state( { q: "num", e: null, p: null, sub: null } )'
-                    )
-                      p( ng-class='{ "selected": stateParams.q === "num" }' )
-                    li.option(
-                      ng-repeat='littleSortingOption in sortingOption.items'
-                      ui-sref='root.section-state.sorting-state( { q: littleSortingOption.title.toLowerCase(  ) || littleSortingOption.toLowerCase(  ), e: null, p: null, sub: null } )'
-                      ng-mouseover='$event.stopPropagation(  )'
-                      ng-click='$event.stopPropagation(  ); closeMobileMenu(  ); scrollSortToTop(  )'
-                    )
-                      p(
-                        ng-class='{"selected": stateParams.q && stateParams.q === (littleSortingOption.title.toLowerCase(  ) || littleSortingOption.toLowerCase(  )) }'
-                      )
-                        | {{ littleSortingOption.title || littleSortingOption }}
-
-                      //- Subsection
-                      .option-list-subsection(
-                        ng-if='showSubSections( littleSortingOption.title, littleSortingOption.children )'
-                        ng-repeat='subSection in littleSortingOption.children'
-                        ui-sref='root.section-state.sorting-state( { q: subSection.title.toLowerCase(  ) } )'
-                        ng-mouseover='$event.stopPropagation(  )'
-                        ng-click='$event.stopPropagation(  ); closeMobileMenu(  ); scrollSortToTop(  )'
-                        ng-class='{"selected": stateParams.q && stateParams.q === (subSection.title.toLowerCase(  ) || subSection.toLowerCase(  )) }'
-                      )
-                        | {{ subSection.title }}
-
+        - if true 
+          .sorting-options
+            - bigMenuItem[:sorting].each do |sortingOption|
+              .sorting-option-wrapper
+                .sorting-option-title-wrapper{ class: ('selected' if true) }
+                  .sorting-option-title
+                    = sortingOption[:title]
