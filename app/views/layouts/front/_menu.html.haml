@@ -1,5 +1,6 @@
 #hamburger{class: ('hide' unless @projects||@people)}
-  %h1{href: '#'} Menu
+  - sub = @people ? 'people' : (@projects && @projects.first.section.title.downcase)
+  %h1{href: '#'}= "NOW/#{sub}"
 
 %nav{class: ('hide' unless @display_mobile_menu )}
   .menu-wrapper-wrapper

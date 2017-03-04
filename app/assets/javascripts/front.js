@@ -165,7 +165,11 @@ var openPhotoSwipe = function(gallery){
   var pswpElement = document.querySelectorAll('.pswp')[0];
   var options = {
     index: 0,
-    history: false
+    history: false,
+    shareButtons: [
+      {id:'twitter', label:'Tweet', url:'https://twitter.com/intent/tweet?text={{text}}&url={{url}}'},
+      {id:'download', label:'Download image', url:'{{raw_image_url}}', download:true}
+    ],
   };
 
   var els = $(gallery).children().map(function(index, item){
