@@ -148,39 +148,14 @@ $(document).on('turbolinks:load', function(){
   })
 
 
-  var pswpElement = document.querySelectorAll('.pswp')[0];
+  var openPhotoSwipe = function(gallery){
+    var pswpElement = document.querySelectorAll('.pswp')[0];
+    var options = {
+      index: 0,
+      history: false
+    };
 
-  var items_b = [
-    {
-      src: 'https://placekitten.com/600/200',
-      w: 600,
-      h: 200
-    },
-  ];
-  var items_a = [
-    {
-      src: 'https://placekitten.com/600/401',
-      w: 600,
-      h: 401
-    },
-    {
-      src: 'https://placekitten.com/1200/900',
-      w: 1200,
-      h: 900
-    }
-  ];
-
-  var options = {
-    index: 0,
-    history: false
-  };
-
-  var galleries = [
-  ]
-
-  $('.show-on-desktop .gallery').each(function(index){
-    //create image arrays
-    var els = $(this).children().map(function(index, item){
+    var els = $(gallery).children().map(function(index, item){
       return {
         src: $(this).data('original-src'),
         w: $(this).data('original-src-width'),
@@ -189,16 +164,19 @@ $(document).on('turbolinks:load', function(){
       }
     })
 
-    galleries.push(new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, els, options))
+    var g = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, els, options);
+    g.init();
 
+
+  }
+
+  $('.show-on-desktop .gallery').each(function(index){
+    //create image arrays
+    var that = this
     //bind click events 
     $(this).children().on('click', function(){
-      galleries[index].init()
+      openPhotoSwipe(that);
     });
   });
-
-  //$('img.slide').on('click', function(){
-    //gallery.init();
-  //})
 
 })
