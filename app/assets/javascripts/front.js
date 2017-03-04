@@ -74,6 +74,7 @@ $(document).on('turbolinks:load', function(){
     console.log("clicked ham");
 
     $('nav').toggleClass('hide')
+    $('nav').toggleClass('cover')
     $('#hamburger').toggleClass('hide')
     $('.magic-x').toggleClass('hide')
   })
@@ -99,6 +100,7 @@ $(document).on('turbolinks:load', function(){
 
     } else if ( action == 'collapse menu') {
       $('nav').toggleClass('hide')
+      $('nav').toggleClass('cover')
       $('#hamburger').toggleClass('hide')
       $('.magic-x').toggleClass('hide')
     }

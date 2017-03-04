@@ -1,7 +1,7 @@
 #hamburger{class: ('hide' unless @projects||@people)}
   %h1{href: '#'} Menu
 
-%nav{class: ('hide cover' unless @display_mobile_menu )}
+%nav{class: ('hide' unless @display_mobile_menu )}
   .menu-wrapper-wrapper
     %ul.menu-wrapper
       - @menu[:sections].each do |section|
