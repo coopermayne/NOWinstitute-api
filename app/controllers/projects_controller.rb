@@ -45,7 +45,7 @@ class ProjectsController < ApplicationController
 
   def show
     @ref = request.referer
-    render html: Rails.cache.fetch("projects#{@ref}" + params[:id].to_s , :expires_in => 1.hours) { 
+    render html: Rails.cache.fetch("projects#{@ref.crypt('salt')}" + params[:id].to_s , :expires_in => 1.hours) { 
       @no_menu = true
       @project = Project.includes(roles: [:position, :person ], uploads: [ :file_type, :credit ], bibliography_items: [:primary_image]).find(params[:id])
       render_to_string :show 
