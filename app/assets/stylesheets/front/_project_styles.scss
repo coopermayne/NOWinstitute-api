@@ -70,6 +70,7 @@
   //mobile main and desktop sidebar content go here
   .side-bar {
     flex: 1;
+    max-width: 100%;
     flex-direction: column;
     @include respond-to('medium') {
       flex: 0 0 260px;
@@ -148,7 +149,9 @@
   .overview {
     font-size: $subheader-text;
     margin-bottom: 1rem;
-    padding-right: 5rem;
+    @include respond-to('large'){
+      padding-right: 5rem;
+    }
   }
 
   .section.image-gallery {

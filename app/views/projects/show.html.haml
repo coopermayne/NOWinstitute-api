@@ -21,9 +21,11 @@
           - @project.project_types.each do |type|
             .project-detail-text= type.title
 
-        .project-detail-wrapper.date
+        .project-detail-wrapper{class: ( @project.start && @project.end ) || 'hide'}
           .project-detail-label Dates:
-          .project-detail-text= [ @project.start.year, @project.end.year ].join('-')
+          .project-detail-text
+            =[ @project.start && @project.start.year,
+              @project.end && @project.end.year ].join('-')
 
         .project-page-main-text.overview.hide-on-desktop= @project.overview
 
@@ -59,7 +61,7 @@
             .project-detail-wrapper.gallery-wrapper
               .gallery
                 -gallery_images.each do |image|
-                  %img.slide{src: image.name.index.url, data:{original_src: image.name.url, original_src_width: image.width, original_src_height: image.height} }
+                  %img.slide{src: image.name.thumb.url, data:{original_src: image.name.url, original_src_width: image.width, original_src_height: image.height} }
 
         .extra-space
 
