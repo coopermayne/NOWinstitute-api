@@ -6,14 +6,13 @@
   .menu-wrapper-wrapper
     %ul.menu-wrapper
       - @menu[:sections].each do |section|
-        .section
         .section{ class: ('active' if request.fullpath[section[:url]]) }
           %a{ href: section[:url], target: (section[:target])}
             %h1= section[:title]
 
           .sorting
             - if section[:url] == '/about'
-              %a{href: '/about/contact', class: ('active' if request.fullpath['/about/contact'])} contact,
-              %a{href: '/about/people', class: ('active' if request.fullpath['/about/people'])} people
+              %a{href: '/about/contact', class: ('active' if request.fullpath['/about/contact'])} Contact
+              %a{href: '/about/people', class: ('active' if request.fullpath['/about/people'])} People
 
 .magic-x{class: 'hide', data: {action: 'collapse menu'} }
