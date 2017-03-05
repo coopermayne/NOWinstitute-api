@@ -468,6 +468,13 @@ a.twitter-link
   @include respond-to('medium') {
     display: inherit;
   }
+
+}
+.cover {
+  position: fixed !important;
+  height: 100vh;
+  width: 100vh;
+  background-color: white;
 }
 
 .magic-x
@@ -488,5 +495,19 @@ a.twitter-link
   background: image-url('trigger_black.svg') no-repeat center center;
   &.white {
     background: image-url('trigger.svg') no-repeat center center;
+  }
+}
+
+#hamburger{
+  @include respond-to('medium') {
+    display:none;
+  }
+  width: 100%;
+  padding: 2px;
+  z-index: 99;
+  position: fixed;
+  background-color: $white;
+  * {
+    color: $black;
   }
 }
