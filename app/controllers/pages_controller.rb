@@ -25,7 +25,6 @@ class PagesController < ApplicationController
 
   def contact
     #render html: Rails.cache.fetch("contact", :expires_in => 1.hours) { 
-      @no_menu = true
       @menu = FrontHelper.build_menu
       @section = Section.find_by_title("Now Institute") 
       #render_to_string :contact
