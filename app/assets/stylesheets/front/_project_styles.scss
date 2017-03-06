@@ -245,7 +245,7 @@
   flex-direction: row;
   flex-wrap: nowrap;
   overflow-x: scroll;
-  img {
+  img, .iframe-container {
     margin-right: 1em;
     height: 150px;
   }
@@ -279,4 +279,18 @@
   @include respond-to('medium') {
     display: none;
   }
+}
+
+.embeds {
+
+  .project-detail-wrapper {
+    display: flex;
+    flex-direction: row;
+
+    .iframe-container{
+      flex-grow: 1;
+    }
+
+  }
+
 }
