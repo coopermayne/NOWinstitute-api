@@ -472,6 +472,8 @@ a.twitter-link
 }
 .cover {
   position: fixed !important;
+  padding-top: 1rem;
+  top: 0;
   height: 100vh;
   width: 100vh;
   background-color: white;
@@ -506,6 +508,7 @@ a.twitter-link
   padding: 2px;
   z-index: 99;
   position: fixed;
+  top: 0px;
   background-color: $white;
   * {
     color: $black;

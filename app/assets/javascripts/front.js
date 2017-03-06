@@ -99,8 +99,8 @@ $(document).on('turbolinks:load', function(){
       }
 
     } else if ( action == 'collapse menu') {
-      $('nav').toggleClass('hide')
-      $('nav').toggleClass('cover')
+      $('.menu-directive').toggleClass('contracted-menu')
+      $('.menu-directive').toggleClass('cover')
       $('#hamburger').toggleClass('hide')
       $('.magic-x').toggleClass('hide')
     }
