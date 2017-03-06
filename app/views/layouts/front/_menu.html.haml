@@ -9,7 +9,7 @@
       %li.menu-section
         .section-title{ class: ('selected' if request.fullpath[bigMenuItem[:url]]) }
           %a.section-title-inner{href: bigMenuItem[:url]}
-            =bigMenuItem[:title]
+            =(request.fullpath == '/' && bigMenuItem[:url]=='/about') ? "Now Institute" : bigMenuItem[:title]
 
         - if request.fullpath[bigMenuItem[:url]]
           .sorting-options
