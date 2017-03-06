@@ -29,7 +29,7 @@
         .project-page-main-text.overview.hide-on-desktop{ class: ( 'hide' if @project.overview.empty? ) }
           = @project.overview
 
-        .section.credits.openable.closed{ class: ( 'hide' if @project.roles.empty? ) }
+        .section.credits{ class: ( 'hide' if @project.roles.empty? ) }
           .title Project Credits
           - ucla_team = @project.roles.select{|r| r.person.is_ucla_team}
           - consultants = @project.roles.select{|r| r.person.is_consultant}
@@ -46,7 +46,7 @@
                 .project-detail-label= role.position.title + ":"
                 .project-detail-text= role.person.name
 
-        .description.hide-on-desktop.openable.closed{ class: ( 'hide' if @project.description.empty? ) }
+        .section.description.hide-on-desktop.openable.closed{ class: ( 'hide' if @project.description.empty? ) }
           .content= markdown @project.description
 
         .section.awards.openable.closed{ class: ( 'hide' if @project.awards.empty? ) }
@@ -66,7 +66,7 @@
                 -#.project-detail-image{ style: "background-image:url(#{bib.primary_image.name.thumb.url});"}= bib.title
 
         -@project.getGalleries.each do |gallery_name, gallery_images|
-          .section.image-gallery.hide-on-desktop.openable
+          .section.image-gallery.hide-on-desktop
             .title= gallery_name
             .project-detail-wrapper.gallery-wrapper
               .gallery

@@ -114,11 +114,9 @@ $(document).on('turbolinks:load', function(){
     if(el.hasClass('openable')){
       if(el.hasClass('image-gallery')){ return; }
 
-      console.log(el);
       el.toggleClass('closed')
 
     } else {
-      console.log("else");
       el.parent().click()
     }
   })

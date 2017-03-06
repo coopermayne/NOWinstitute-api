@@ -169,6 +169,15 @@
   }
 }
 
+.side-bar > .section {
+  margin: 1.2rem 0;
+}
+
+.credits {
+  > .title {
+    margin-bottom: 0.5rem;
+  }
+}
 
 .section {
   .title {
@@ -182,8 +191,16 @@
   height: 600px;
 }
 
-.section.credits.closed {
-  .section {display: none;}
+.section.credits {
+  .section .title {
+    font-style: normal;
+  }
+
+  @include respond-to('medium') {
+    &:before {
+      content: "" !important;
+    }
+  }
 }
 
 .openable {
@@ -193,7 +210,7 @@
     position: absolute;
     top: -2px;
     left: -15px;
-    .project-detail-wrapper {
+    > .project-detail-wrapper {
       display: none;
     }
   }
@@ -212,7 +229,7 @@
       left: -15px;
     }
 
-    .project-detail-wrapper {
+    > .project-detail-wrapper {
       display: none;
     }
 
