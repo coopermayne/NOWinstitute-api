@@ -69,11 +69,11 @@
 
   //mobile main and desktop sidebar content go here
   .side-bar {
-    flex: 1;
+    flex: 1 0 0%;
     max-width: 100%;
     flex-direction: column;
     @include respond-to('medium') {
-      flex: 0 0 205px;
+      min-width: 150px;
     }
   }
 
@@ -86,7 +86,7 @@
     @include respond-to('medium') {
       display: flex;
       flex-direction: column;
-      flex-grow: 1;
+      flex: 3 0 0%;
     }
   }
 }
