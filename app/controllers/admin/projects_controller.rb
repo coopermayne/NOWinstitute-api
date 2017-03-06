@@ -120,7 +120,7 @@ class Admin::ProjectsController < AdminController
 				:_destroy,
 				:title,
 				:uid,
-				:obj_type
+        :embed_type_id
 			],
 			components_attributes: [
 				:id,
