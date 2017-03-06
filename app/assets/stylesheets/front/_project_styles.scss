@@ -80,7 +80,6 @@
   /*desktop main content goes here*/
   .desktop-content{
     padding: 0 30px;
-    background-color: pink;
     display: none;
     overflow: hidden;
     @include respond-to('medium') {
@@ -181,6 +180,10 @@
 
 .extra-space {
   height: 600px;
+}
+
+.section.credits.closed {
+  .section {display: none;}
 }
 
 .openable {

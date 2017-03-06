@@ -12,11 +12,11 @@
 
     .project-page-text-wrapper
       .side-bar
-        .project-detail-wrapper.location
+        .project-detail-wrapper.location{ class: ( 'hide' if @project.address.empty? ) }
           .project-detail-label Location:
           .project-detail-text= @project.address
 
-        .project-detail-wrapper.types
+        .project-detail-wrapper.types{ class: ( 'hide' if @project.project_types.empty? ) }
           .project-detail-label Types:
           - @project.project_types.each do |type|
             .project-detail-text= type.title
@@ -24,30 +24,40 @@
         .project-detail-wrapper{class: ( @project.start && @project.end ) || 'hide'}
           .project-detail-label Dates:
           .project-detail-text
-            =[ @project.start && @project.start.year,
-              @project.end && @project.end.year ].join('-')
+            =[ @project.start && @project.start.year, @project.end && @project.end.year ].join('-')
 
-        .project-page-main-text.overview.hide-on-desktop= @project.overview
+        .project-page-main-text.overview.hide-on-desktop{ class: ( 'hide' if @project.overview.empty? ) }
+          = @project.overview
 
-        .section.credits.openable.closed
+        .section.credits.openable.closed{ class: ( 'hide' if @project.roles.empty? ) }
           .title Project Credits
-          - @project.roles.each do |role|
-            .project-detail-wrapper.role
-              .project-detail-label= role.position.title + ":"
-              .project-detail-text= role.person.name
+          - ucla_team = @project.roles.select{|r| r.person.is_ucla_team}
+          - consultants = @project.roles.select{|r| r.person.is_consultant}
+          .section.ucla.openable.closed{ class: ( 'hide' if ucla_team.empty? ) }
+            .title UCLA Team
+            - ucla_team.each do |role|
+              .project-detail-wrapper.role
+                .project-detail-label= role.position.title + ":"
+                .project-detail-text= role.person.name
+          .section.consultants.openable.closed{ class: ( 'hide' if consultants.empty? ) }
+            .title Consultants
+            - consultants.each do |role|
+              .project-detail-wrapper.role
+                .project-detail-label= role.position.title + ":"
+                .project-detail-text= role.person.name
 
-        .description.hide-on-desktop.openable.closed
+        .description.hide-on-desktop.openable.closed{ class: ( 'hide' if @project.description.empty? ) }
           .content= markdown @project.description
 
-        .section.awards.openable.closed
-          .title Recognition
+        .section.awards.openable.closed{ class: ( 'hide' if @project.awards.empty? ) }
+          .title Awards
           - @project.awards.group_by(&:year).sort_by{|y,i| y}.reverse.each do |group|
             .project-detail-wrapper.award
               .project-detail-label= group.first
               - group.last.each do |award|
                 .project-detail-text= award.title
 
-        .section.bibliography.openable.closed
+        .section.bibliography.openable.closed{ class: ( 'hide' if @project.bibliography_items.empty? ) }
           .title Bibliography
           - @project.bibliography_items.each do |bib|
             .project-detail-wrapper.bib
@@ -66,9 +76,10 @@
         .extra-space
 
       .desktop-content.show-on-desktop
-        .project-page-main-text.overview= @project.overview
+        .project-page-main-text.overview{ class: ( 'hide' if @project.overview.empty? ) }
+          = @project.overview
 
-        .description= markdown(@project.description)
+        .description{ class: ( 'hide' if @project.description.empty? ) }= markdown(@project.description)
 
         -@project.getGalleries.each do |gallery_name, gallery_images|
           .section.image-gallery
