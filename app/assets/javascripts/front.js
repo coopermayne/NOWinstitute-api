@@ -148,6 +148,18 @@ $(document).on('turbolinks:load', function(){
   setTimeout(function(){
     loadDefferedEmbeds();
   }, 500)
+
+  //hide unnec arrows
+  $('.desktop-content .gallery').each(function(e){
+    var galleryWidth = $(this).width();
+    var lastChildPosition = $(this).children().last().position().left + $(this).children().last().width();
+
+    if ( lastChildPosition < galleryWidth  ){
+      $(this).siblings().hide()
+    }
+
+  })
+
 })
 
 var loadDefferedEmbeds = function(){
