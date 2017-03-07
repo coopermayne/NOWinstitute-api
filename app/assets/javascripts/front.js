@@ -125,25 +125,6 @@ $(document).on('turbolinks:load', function(){
     $(e.target).parent().toggleClass('closed')
   })
 
-  //$('.gallery').photoSwipe(".slide", {
-    //isClickableElement: function(){
-      //return true;
-    //},
-    //arrowEl: true,
-    //timeToIdle: 2000,
-    //bgOpacity: 0.8,
-    //shareEl: false,
-    //history: false,
-
-  //}, {
-    //close: function(){
-      //console.log("close slideshow");
-    //},
-    //destroy: function(){
-      //console.log("destroy");
-    //}
-  //});
-
   $('.arrow-right').on('click', function(e){
     var gal = $(e.target).siblings('.gallery').first()
     $(gal).animate({scrollLeft: gal.scrollLeft()+300}, 800);
@@ -164,7 +145,21 @@ $(document).on('turbolinks:load', function(){
     });
   });
 
+  setTimeout(function(){
+    loadDefferedEmbeds();
+  }, 500)
 })
+
+var loadDefferedEmbeds = function(){
+  var vidDefer = document.getElementsByTagName('iframe');
+  if (document.documentElement.clientWidth > 480 ){
+    for (var i=0; i<vidDefer.length; i++) {
+      if(vidDefer[i].getAttribute('data-src')) {
+        vidDefer[i].setAttribute('src',vidDefer[i].getAttribute('data-src'));
+      } 
+    }
+  } 
+}
 
 var openPhotoSwipe = function(gallery){
   var pswpElement = document.querySelectorAll('.pswp')[0];
