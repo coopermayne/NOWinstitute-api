@@ -7,6 +7,7 @@
 #  rank       :integer
 #  ancestry   :string
 #  section_id :integer
+#  old_id     :integer
 #
 
 class ProjectType < ActiveRecord::Base

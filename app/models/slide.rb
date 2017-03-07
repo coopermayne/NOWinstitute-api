@@ -10,9 +10,6 @@
 #  updated_at      :datetime         not null
 #  section_id      :integer
 #  image_upload_id :integer
-#  vida_upload_id  :integer
-#  vidb_upload_id  :integer
-#  gif_upload_id   :integer
 #  project_id      :integer
 #  title           :string
 #

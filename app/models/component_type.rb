@@ -6,6 +6,7 @@
 #  title      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  old_id     :integer
 #
 
 class ComponentType < ActiveRecord::Base

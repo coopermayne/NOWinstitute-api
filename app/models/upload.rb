@@ -15,7 +15,14 @@
 #  uploadable_type :string
 #  in_gallery      :boolean
 #  is_featured     :boolean
+#  old_id          :integer
+#  content_type    :string
+#  file_size       :string
+#  color           :string
+#  height          :integer
+#  width           :integer
 #
+
 class Upload < ActiveRecord::Base
 
   attr_accessor :make_primary, :make_index, :content_type, :file_size, :color

@@ -8,6 +8,11 @@
 #  updated_at :datetime         not null
 #  rank       :integer
 #  content    :text
+#  old_id     :integer
+#  about      :text
+#  contact    :text
+#  employment :text
+#  media      :text
 #
 
 class Section < ActiveRecord::Base

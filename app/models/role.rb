@@ -8,6 +8,8 @@
 #  person_id   :integer
 #  project_id  :integer
 #  position_id :integer
+#  old_id      :integer
+#  rank        :integer          default(99999999)
 #
 
 class Role < ActiveRecord::Base

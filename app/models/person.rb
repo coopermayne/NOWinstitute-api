@@ -10,16 +10,17 @@
 #  email           :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
-#  is_morphosis    :boolean
-#  is_employed     :boolean
 #  is_collaborator :boolean
 #  is_consultant   :boolean
 #  start_date      :date
 #  end_date        :date
 #  website         :string
-#  hit             :integer
 #  location        :string
 #  primary_id      :integer
+#  index_image_id  :integer
+#  is_leadership   :boolean          default(FALSE)
+#  is_ucla_team    :boolean
+#  is_published    :boolean          default(FALSE)
 #
 
 class Person < ActiveRecord::Base

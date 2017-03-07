@@ -6,29 +6,23 @@
 #  title          :string
 #  overview       :text
 #  description    :text
-#  program        :text
-#  client         :string
-#  size           :integer
-#  site_area      :decimal(, )
 #  lat            :decimal(, )
 #  lon            :decimal(, )
 #  street_address :string
 #  zip            :integer
-#  design_sdate   :date
-#  design_edate   :date
-#  constr_sdate   :date
-#  constr_edate   :date
-#  open_date      :date
-#  close_date     :date
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  section_id     :integer
-#  height         :integer
-#  hit            :integer
 #  city           :string
 #  state          :string
 #  country        :string
 #  primary_id     :integer
+#  index_image_id :integer
+#  address        :string
+#  date           :date
+#  start          :date
+#  end            :date
+#  is_published   :boolean          default(FALSE)
 #
 
 class Project < ActiveRecord::Base

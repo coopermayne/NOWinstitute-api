@@ -20,6 +20,12 @@
 #  news_type_id   :integer
 #  primary_id     :integer
 #  in_news_box    :boolean          default(FALSE)
+#  old_id         :integer
+#  index_image_id :integer
+#  address        :string
+#  rank           :integer
+#  link           :string
+#  is_published   :boolean          default(FALSE)
 #
 
 class NewsItemsController < ApplicationController
