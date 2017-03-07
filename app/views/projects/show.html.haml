@@ -104,7 +104,7 @@
             .gallery
               - videos.each do |vid|
                 .iframe-container
-                  %iframe{ class:"ytplayer",type:"text/html",data: {src:"https://www.youtube.com/embed/#{vid.uid}?autoplay=0&modestbranding=1&autohide=1&showinfo=0&controls=0"},frameborder:"0", allowfullscreen:"allowfullscreen"}
+                  %iframe{ class:"ytplayer",type:"text/html",data: {src:"https://www.youtube.com/embed/#{vid.uid}?autoplay=0&modestbranding=1&autohide=1&showinfo=0&controls=1"},frameborder:"0", allowfullscreen:"allowfullscreen"}
 
         - pdfs.each do |pdf|
           .section
