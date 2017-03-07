@@ -102,7 +102,7 @@
             .gallery
               - videos.each do |embed|
                 .iframe-container
-                  %iframe{ class:"ytplayer",type:"text/html",data: {src:"https://www.youtube.com/embed/#{embed.uid}?autoplay=0"},frameborder:"0", allowfullscreen:"allowfullscreen"}
+                  %iframe{ class:"ytplayer",type:"text/html",data: {src:"https://www.youtube.com/embed/#{embed.uid}?autoplay=0&modestbranding=1&autohide=1&showinfo=0&controls=0"},frameborder:"0", allowfullscreen:"allowfullscreen"}
 
         -#- pdfs.each do |embed|
           -#.section
