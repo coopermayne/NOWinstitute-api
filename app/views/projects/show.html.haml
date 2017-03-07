@@ -1,4 +1,5 @@
 - meta title: @project.title
+- meta description: @project.description ? @project.title.slice(0,150) : ""
 
 .magic-x{data: {action: 'go back'}}
 
@@ -99,7 +100,7 @@
             .gallery
               -@project.embedded_objects.select{|o| o.embed_type == EmbedType.first }.each do |embed|
                 .iframe-container
-                  %iframe{ id:"ytplayer",type:"text/html",src:"https://www.youtube.com/embed/#{embed.uid}?autoplay=0",frameborder:"0", allowfullscreen:"allowfullscreen"}
+                  %iframe{ class:"ytplayer",type:"text/html",src:"https://www.youtube.com/embed/#{embed.uid}?autoplay=0",frameborder:"0", allowfullscreen:"allowfullscreen"}
 
         -@project.embedded_objects.select{|o| o.embed_type==EmbedType.last}.each do |embed|
           .section

@@ -9,11 +9,15 @@ class ApplicationController < ActionController::Base
     "/admin/projects"
   end
 
+  def redirect_to_https
+    redirect_to :protocol => "https://" unless (request.ssl? || request.local?)
+  end
+
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protect_from_forgery with: :exception
 
-  before_filter :cors_preflight_check
+  before_filter :cors_preflight_check, :redirect_to_https
   after_filter :cors_set_access_control_headers
 
   def cors_set_access_control_headers
