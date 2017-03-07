@@ -2,5 +2,6 @@
 
 .index-container
   -@people.each do |person|
-    %a.box{href: request.fullpath + '/' + person.id.to_s + '-' + person.para_name, data: { name: person.name } }
+    %a.box{href: slugify(person), data: { title: person.name } }
       %img.lazy{ data: {src: person.index_image.name.index.url}} 
+      .project-title= person.name

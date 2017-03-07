@@ -1,4 +1,158 @@
 - meta title: @person.name
+- meta description: @person.description ? @person.description.slice(0,150) : ""
 
-%h1= @person.name
-%p= @person.description
+.magic-x{data: {action: 'go back'}}
+
+.project-page-wrapper
+
+  .project-page-header-image-wrapper
+    .project-page-header-image{ style: "background-image:url(#{@person.primary_image.name.url});"}
+
+  .project-page-content-wrapper
+    .project-page-header-text= @person.name
+
+    .project-page-text-wrapper
+      .side-bar
+        .project-detail-wrapper.location{ class: ( 'hide' if @project.address.empty? ) }
+          .project-detail-label Location:
+          .project-detail-text= @project.address
+
+        .project-detail-wrapper.types{ class: ( 'hide' if @project.project_types.empty? ) }
+          .project-detail-label Types:
+          - @project.project_types.each do |type|
+            .project-detail-text= type.title
+
+        .project-detail-wrapper{class: ( @project.start && @project.end ) || 'hide'}
+          .project-detail-label Dates:
+          .project-detail-text
+            =[ @project.start && @project.start.year, @project.end && @project.end.year ].join('-')
+
+        .project-page-main-text.overview.hide-on-desktop{ class: ( 'hide' if @project.overview.empty? ) }
+          = @project.overview
+
+        .section.credits{ class: ( 'hide' if @project.roles.empty? ) }
+          .title Project Credits
+          - ucla_team = @project.roles.select{|r| r.person.is_ucla_team}
+          - consultants = @project.roles.select{|r| r.person.is_consultant}
+          .section.ucla.openable.closed{ class: ( 'hide' if ucla_team.empty? ) }
+            .title UCLA Team
+            - ucla_team.each do |role|
+              .project-detail-wrapper.role
+                .project-detail-label= role.position.title + ":"
+                %a.project-detail-text{href: slugify(role.person)}= role.person.name
+          .section.consultants.openable.closed{ class: ( 'hide' if consultants.empty? ) }
+            .title Consultants
+            - consultants.each do |role|
+              .project-detail-wrapper.role
+                .project-detail-label= role.position.title + ":"
+                %a.project-detail-text{href: slugify(role.person)}= role.person.name
+
+        .section.description.hide-on-desktop.openable.closed{ class: ( 'hide' if @project.description.empty? ) }
+          .content= markdown @project.description
+
+        .section.awards.openable.closed{ class: ( 'hide' if @project.awards.empty? ) }
+          .title Awards
+          - @project.awards.group_by(&:year).sort_by{|y,i| y}.reverse.each do |group|
+            .project-detail-wrapper.award
+              .project-detail-label= group.first
+              - group.last.each do |award|
+                .project-detail-text= award.title
+
+        .section.bibliography.openable.closed{ class: ( 'hide' if @project.bibliography_items.empty? ) }
+          .title Bibliography
+          - @project.bibliography_items.each do |bib|
+            .project-detail-wrapper.bib
+              .project-detail-text= bib.title
+              -#- if bib.primary_image
+                -#.project-detail-image{ style: "background-image:url(#{bib.primary_image.name.thumb.url});"}= bib.title
+
+        -@project.getGalleries.each do |gallery_name, gallery_images|
+          .section.image-gallery.hide-on-desktop
+            .title= gallery_name
+            .project-detail-wrapper.gallery-wrapper
+              .gallery
+                -gallery_images.each do |image|
+                  %img.slide{src: image.name.thumb.url, data:{original_src: image.name.url, original_src_width: image.width, original_src_height: image.height} }
+
+        .extra-space
+
+      .desktop-content.show-on-desktop
+        .project-page-main-text.overview{ class: ( 'hide' if @project.overview.empty? ) }
+          = @project.overview
+
+        .description{ class: ( 'hide' if @project.description.empty? ) }= markdown(@project.description)
+
+        -@project.getGalleries.each do |gallery_name, gallery_images|
+          .section.image-gallery
+            .title= gallery_name
+            .gallery-wrapper
+              .arrow-left
+              .arrow-right
+              .gallery
+                -gallery_images.each do |image|
+                  %img.slide{src: image.name.thumb.url, data:{original_src: image.name.url, original_src_width: image.width, original_src_height: image.height} }
+
+        - videos = @project.embedded_objects.select{|o| o.embed_type == EmbedType.all[0] }
+        - pdfs = @project.embedded_objects.select{|o| o.embed_type==EmbedType.all[1]}
+        - story_maps = @project.embedded_objects.select{|o| o.embed_type==EmbedType.all[2]}
+
+        .section.image-gallery{ class: ( 'hide' if videos.empty?)}
+          .title Videos
+          .gallery-wrapper
+            .arrow-left
+            .arrow-right
+            .gallery
+              - videos.each do |vid|
+                .iframe-container
+                  %iframe{ class:"ytplayer",type:"text/html",data: {src:"https://www.youtube.com/embed/#{vid.uid}?autoplay=0&modestbranding=1&autohide=1&showinfo=0&controls=1"},frameborder:"0", allowfullscreen:"allowfullscreen"}
+
+        - pdfs.each do |pdf|
+          .section
+            .title= pdf.title
+            .project-detail-wrapper
+              .iframe-container
+                %iframe{ style:"width:220px; height:300px;", data:{src:"//e.issuu.com/embed.html##{pdf.uid}"}, frameborder:"0",allowfullscreen: "allowfullscreen"}
+
+        - story_maps.each do |storymap|
+          .section
+            .title= storymap.title
+            .project-detail-wrapper
+              .iframe-container
+                %iframe{ width:"100%",height:"600px",data: {src: storymap.uid },frameborder:"0" }
+
+.pswp{"aria-hidden" => "true", :role => "dialog", :tabindex => "-1"}
+  /
+    Background of PhotoSwipe.
+    It's a separate element as animating opacity is faster than rgba().
+  .pswp__bg
+  / Slides wrapper with overflow:hidden.
+  .pswp__scroll-wrap
+    /
+      Container that holds slides.
+      PhotoSwipe keeps only 3 of them in the DOM to save memory.
+      Don't modify these 3 pswp__item elements, data is added later on.
+    .pswp__container
+      .pswp__item
+      .pswp__item
+      .pswp__item
+    / Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed.
+    .pswp__ui.pswp__ui--hidden
+      .pswp__top-bar
+        / Controls are self-explanatory. Order can be changed.
+        .pswp__counter
+        %button.pswp__button.pswp__button--close{:title => "Close (Esc)"}
+        %button.pswp__button.pswp__button--share{:title => "Share"}
+        %button.pswp__button.pswp__button--fs{:title => "Toggle fullscreen"}
+        %button.pswp__button.pswp__button--zoom{:title => "Zoom in/out"}
+        / Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR
+        / element will get class pswp__preloader--active when preloader is running
+        .pswp__preloader
+          .pswp__preloader__icn
+            .pswp__preloader__cut
+              .pswp__preloader__donut
+      .pswp__share-modal.pswp__share-modal--hidden.pswp__single-tap
+        .pswp__share-tooltip
+      %button.pswp__button.pswp__button--arrow--left{:title => "Previous (arrow left)"}
+      %button.pswp__button.pswp__button--arrow--right{:title => "Next (arrow right)"}
+      .pswp__caption
+        .pswp__caption__center
