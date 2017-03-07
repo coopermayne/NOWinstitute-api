@@ -111,6 +111,8 @@ $(document).on('turbolinks:load', function(){
 
   //hide unnec arrows
   $('.desktop-content .gallery').each(function(e){
+    if ( !$(this).children().length ) {return;}
+
     var galleryWidth = $(this).width();
     var lastChildPosition = $(this).children().last().position().left + $(this).children().last().width();
 
