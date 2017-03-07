@@ -39,13 +39,13 @@
             - ucla_team.each do |role|
               .project-detail-wrapper.role
                 .project-detail-label= role.position.title + ":"
-                .project-detail-text= role.person.name
+                %a.project-detail-text{href: slugify(role.person)}= role.person.name
           .section.consultants.openable.closed{ class: ( 'hide' if consultants.empty? ) }
             .title Consultants
             - consultants.each do |role|
               .project-detail-wrapper.role
                 .project-detail-label= role.position.title + ":"
-                .project-detail-text= role.person.name
+                %a.project-detail-text{href: slugify(role.person)}= role.person.name
 
         .section.description.hide-on-desktop.openable.closed{ class: ( 'hide' if @project.description.empty? ) }
           .content= markdown @project.description
