@@ -41,7 +41,6 @@ $(document).on('turbolinks:load', function(){
   $('#hamburger').on('click', function(e){
     e.preventDefault();
     e.stopPropagation();
-    console.log("clicked ham");
 
     $('.menu-directive').toggleClass('contracted-menu')
     $('.menu-directive').toggleClass('cover')
@@ -52,7 +51,6 @@ $(document).on('turbolinks:load', function(){
   $('.magic-x').on('click', function(e){
     e.preventDefault();
     e.stopPropagation();
-    console.log("CLICK X");
 
     var action = $(e.target).data('action')
 
@@ -87,7 +85,7 @@ $(document).on('turbolinks:load', function(){
 
   })
 
-  $('a').on('click', function(e){
+  $('.credits a').on('click', function(e){
     e.stopPropagation();
   })
 
