@@ -72,7 +72,12 @@
 .content-over-slideshow {
   max-width: 500px;
   p {
-    font-size: $subheader-text
+    font-size: $subheader-text;
+    margin-bottom: 2rem;
+  }
+
+  a {
+    text-decoration: underline;
   }
 
   @include respond-to('medium'){

@@ -292,5 +292,17 @@
     }
 
   }
+}
 
+.section.roles {
+  .project-detail-label:first-child{
+    margin-top: 0;
+  }
+  .project-detail-label{
+    margin-top: 1rem;
+  }
+
+  a.project-detail-text{
+    display: block;
+  }
 }

@@ -48,7 +48,7 @@
                 %a.project-detail-text{href: slugify(role.person)}= role.person.name
 
         .section.description.hide-on-desktop.openable.closed{ class: ( 'hide' if @project.description.empty? ) }
-          .content= markdown @project.description
+          .content.markdown= markdown @project.description
 
         .section.awards.openable.closed{ class: ( 'hide' if @project.awards.empty? ) }
           .title Awards
@@ -80,7 +80,7 @@
         .project-page-main-text.overview{ class: ( 'hide' if @project.overview.empty? ) }
           = @project.overview
 
-        .description{ class: ( 'hide' if @project.description.empty? ) }= markdown(@project.description)
+        .description.markdown{ class: ( 'hide' if @project.description.empty? ) }= markdown(@project.description)
 
         -@project.getGalleries.each do |gallery_name, gallery_images|
           .section.image-gallery

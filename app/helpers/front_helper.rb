@@ -15,8 +15,8 @@ module FrontHelper
       url: "/about",
       title: 'Now',
       slides: now_slides,
-      contact: markdown( now_section.contact),
-      about: markdown( now_section.about ),
+      contact: now_section.contact,
+      about: now_section.about,
       sorting: [
         {
           url: "/about/contact",
