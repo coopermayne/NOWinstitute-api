@@ -13,6 +13,8 @@ $(document).on('page:change', function() {
 $(document).on('turbolinks:load', function(){
   console.log('load');
 
+  loadLazyCss()
+
   var slides = $('.slideshow-image')
   var lastSlideIndex = slides.length-1
   var currentVisId = 0
@@ -189,6 +191,22 @@ var openPhotoSwipe = function(gallery){
 
   var g = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, els, options);
   g.init();
+}
+
+var loadLazyCss = function(){
+  var photoswipcss = document.createElement('link');
+  photoswipcss.rel = 'stylesheet';
+  photoswipcss.href ="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css";
+  photoswipcss.type = 'text/css';
+  var godefer = document.getElementsByTagName('link')[0];
+  godefer.parentNode.insertBefore(photoswipcss, godefer);
+
+  var theme = document.createElement('link');
+  theme.rel = 'stylesheet';
+  theme.href = "https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css";
+  theme.type = 'text/css';
+  var godefer2 = document.getElementsByTagName('link')[0];
+  godefer2.parentNode.insertBefore(theme, godefer2);
 }
 
 function wait(ms) {
