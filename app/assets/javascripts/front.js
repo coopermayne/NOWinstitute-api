@@ -135,6 +135,15 @@ $(document).on('turbolinks:load', function(){
 
     //manage filtering
     $('a.box').not('[data-is-leadership]').hide()
+
+    //close mobile menu
+    if( $('.menu-directive').hasClass('cover')){
+      console.log("hello");
+      $('.menu-directive').toggleClass('cover')
+      $('.menu-directive').toggleClass('contracted-menu')
+      $('#hamburger').toggleClass('hide')
+      $('.magic-x').toggleClass('hide')
+    }
   })
 
 })

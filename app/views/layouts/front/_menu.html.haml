@@ -2,7 +2,7 @@
   %h1{href: '#'} NOW
   -# sub = @people ? 'people' : (@projects && @projects.first.section.title.downcase)
 
-.menu-directive{class: ( 'contracted-menu' if @projects)}
+.menu-directive{class: ( 'contracted-menu' if @projects || @people)}
   %ul.menu-directive-wrapper{ class: ( 'white-menu' if @white_menu ) }
     //- Build each big menu item and subsections
     - @menu[:sections].each do |bigMenuItem|
