@@ -17,6 +17,7 @@
 }
 
 .index-container {
+
   margin-top: 0.5rem;
   display: flex;
   flex-flow: row;
@@ -32,13 +33,13 @@
 
     @include respond-to('medium') {
       width: auto;
-      padding-right: 0rem
+      padding-right: 0rem;
+      margin-right: 1.5rem;
       img{
         width: auto;
       }
     }
 
-    margin-right: 1.5rem;
     margin-bottom: 2rem;
 
     .project-title{
