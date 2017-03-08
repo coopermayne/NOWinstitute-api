@@ -25,15 +25,22 @@
 
 class PeopleController < ApplicationController
   def index
-    @menu = FrontHelper.build_menu
+    render html: Rails.cache.fetch('people', :expires_in => 1.hours) { 
     @section = Section.find_by_title("Now Institute") 
+    @menu = FrontHelper.build_menu
     @people = Person.includes(:primary_image).where(is_ucla_team: true)
+    render_to_string :index 
+    }
   end
 
   def show
+    @ref = request.referer
+    render html: Rails.cache.fetch("people#{@ref}" + params[:id].to_s , :expires_in => 1.hours) { 
     @no_menu = true
     @menu = FrontHelper.build_menu
     @section = Section.find_by_title("Now Institute") 
     @person = Person.includes(:educations, roles: [:position, :project]).find(params[:id])
+    render_to_string :show
+    }
   end
 end
