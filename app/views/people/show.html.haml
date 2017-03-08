@@ -6,7 +6,8 @@
 .project-page-wrapper
 
   .project-page-header-image-wrapper
-    .project-page-header-image{ style: "background-image:url(#{@person.primary_image.name.url});"}
+    - if @person.primary_image
+      .project-page-header-image{ style: "background-image:url(#{@person.primary_image.name.url});"}
 
   .project-page-content-wrapper
     .project-page-header-text= @person.name
@@ -21,7 +22,7 @@
 
         .section{ class: ('hide' if @person.email.empty?)}
           .title Contact
-          %a.project-detail-wrapper{ href: "mailto:"+@person.email }= @person.email
+          %a.project-detail-wrapper.underline{ href: "mailto:"+@person.email }= @person.email
 
         .project-page-main-text.overview.hide-on-desktop{ class: ( 'hide' if @person.location.empty? ) }
           = @person.location
@@ -32,7 +33,7 @@
             - @person.getRoles.each do |pos_title, roles|
               .project-detail-label= pos_title
               - roles.each do |role|
-                %a.project-detail-text{ href: slugify(role.project) }= role.project.title
+                %a.project-detail-text.underline-on-hover{ href: slugify(role.project) }= role.project.title
 
         .section.description.hide-on-desktop.openable.closed{ class: ( 'hide' if @person.description.empty? ) }
           .content.markdown= markdown @person.description
@@ -51,4 +52,4 @@
             - @person.getRoles.each do |pos_title, roles|
               .project-detail-label= pos_title
               - roles.each do |role|
-                %a.project-detail-text{ href: slugify(role.project) }= role.project.title
+                %a.project-detail-text.underline-on-hover{ href: slugify(role.project) }= role.project.title

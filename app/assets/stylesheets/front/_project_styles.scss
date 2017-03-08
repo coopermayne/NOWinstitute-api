@@ -74,6 +74,7 @@
     flex-direction: column;
     @include respond-to('medium') {
       min-width: 150px;
+      padding-right: 1rem;
     }
   }
 
@@ -153,7 +154,7 @@
     }
   }
 
-  .section.image-gallery {
+  .section {
     margin: 1rem 0;
     .title {
       margin-bottom: 0.5rem;
@@ -294,12 +295,19 @@
   }
 }
 
+.side-bar {
+  .section:first-child {
+    margin-top: 0;
+  }
+}
+
 .section.roles {
   .project-detail-label:first-child{
-    margin-top: 0;
+    margin-top: 0.5rem;
   }
   .project-detail-label{
     margin-top: 1rem;
+    margin-bottom: 0.2rem;
   }
 
   a.project-detail-text{
