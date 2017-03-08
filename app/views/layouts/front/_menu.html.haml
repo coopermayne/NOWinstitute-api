@@ -18,4 +18,16 @@
                 .sorting-option-title-wrapper{ class:('selected' if sortingOption[:url] && request.fullpath[sortingOption[:url]]) }
                   %a.sorting-option-title{ href: sortingOption[:url] }= sortingOption[:title]
 
+                - if @people
+                  .option-list-wrapper
+                    - if sortingOption[:title] == "People"
+                      %ul.ghost-elements
+                        - sortingOption[:items].each do |ghostElement|
+                          %li.ghost-element Ghost
+                      %ul.option-list
+                        - sortingOption[:items].each do |el|
+                          %li.option
+                            %p= el
+
+
 .magic-x{class: 'hide', data: {action: 'collapse menu'} }

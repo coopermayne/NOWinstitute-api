@@ -122,6 +122,21 @@ $(document).on('turbolinks:load', function(){
 
   })
 
+
+  //people index sorting
+
+  $('.option-list-wrapper p').on('click', function(){
+    var el = $(this)
+
+    //manage display to user
+    el.parent().siblings().each(function(){$(this).children().removeClass('selected')})
+    el.addClass("selected")
+    console.log(el.text());
+
+    //manage filtering
+    $('a.box').not('[data-is-leadership]').hide()
+  })
+
 })
 
 var loadDefferedEmbeds = function(){
