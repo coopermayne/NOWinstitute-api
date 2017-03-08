@@ -35,7 +35,7 @@
               - roles.each do |role|
                 %a.project-detail-text.underline-on-hover{ href: slugify(role.project) }= role.project.title
 
-        .section.description.hide-on-desktop.openable.closed{ class: ( 'hide' if @person.description.empty? ) }
+        .section.description.hide-on-desktop{ class: ( 'hide' if @person.description.empty? ) }
           .content.markdown= markdown @person.description
 
         .extra-space
