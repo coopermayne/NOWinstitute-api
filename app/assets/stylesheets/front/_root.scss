@@ -85,6 +85,10 @@
   @include respond-to('medium'){
     margin: 1rem 4rem 0 3rem;
   }
+
+  &.contact{
+    margin-top: 40px;
+  }
 }
 
 .underline {
