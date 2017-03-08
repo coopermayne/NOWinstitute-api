@@ -2,6 +2,14 @@
 //= require jquery.unveil
 //= require turbolinks
 
+$(document).on('page:change', function() {
+  if (window._gaq != null) {
+    return _gaq.push(['_trackPageview']);
+  } else if (window.pageTracker != null) {
+    return pageTracker._trackPageview();
+  }
+});
+
 $(document).on('turbolinks:load', function(){
   console.log('load');
 
