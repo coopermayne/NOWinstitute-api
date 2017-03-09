@@ -13,6 +13,11 @@ $(document).on('page:change', function() {
 $(document).on('turbolinks:load', function(){
   console.log('load');
 
+  if(isDesktop()){
+    var el = $('.responsive-background').first();
+    el.css('background-image', 'url(' + el.data('desktop') + ')');
+  }
+
   $('.sorting-option-wrapper').on('click', function(e){
     var href = $(this).children().children().first().attr('href')
     if(window.location.pathname !== href){
@@ -162,6 +167,11 @@ $(document).on('turbolinks:load', function(){
   })
 
 })
+
+var isDesktop = function(){
+  return document.documentElement.clientWidth > 480
+}
+
 
 var loadDefferedEmbeds = function(){
   var vidDefer = document.getElementsByTagName('iframe');
