@@ -35,13 +35,13 @@
           - ucla_team = @project.roles.select{|r| r.person.is_ucla_team}
           - consultants = @project.roles.select{|r| r.person.is_consultant}
           .section.ucla.openable.closed{ class: ( 'hide' if ucla_team.empty? ) }
-            .title UCLA Team
+            .title.clickable UCLA Team
             - ucla_team.each do |role|
               .project-detail-wrapper.role
                 .project-detail-label= role.position.title + ":"
                 %a.project-detail-text.underline-on-hover{href: slugify(role.person)}= role.person.name
           .section.consultants.openable.closed{ class: ( 'hide' if consultants.empty? ) }
-            .title Consultants
+            .title.clickable Consultants
             - consultants.each do |role|
               .project-detail-wrapper.role
                 .project-detail-label= role.position.title + ":"
@@ -51,7 +51,7 @@
           .content.markdown= markdown @project.description
 
         .section.awards.openable.closed{ class: ( 'hide' if @project.awards.empty? ) }
-          .title Awards
+          .title.clickable Awards
           - @project.awards.group_by(&:year).sort_by{|y,i| y}.reverse.each do |group|
             .project-detail-wrapper.award
               .project-detail-label= group.first
@@ -59,7 +59,7 @@
                 .project-detail-text= award.title
 
         .section.bibliography.openable.closed{ class: ( 'hide' if @project.bibliography_items.empty? ) }
-          .title Bibliography
+          .title.clickable Bibliography
           - @project.bibliography_items.each do |bib|
             .project-detail-wrapper.bib
               .project-detail-text= bib.title

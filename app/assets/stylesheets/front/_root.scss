@@ -25,6 +25,12 @@
 
   .box {
 
+    &:hover {
+      .project-title {
+        text-decoration: underline;
+      }
+    }
+
     width: 100%;
     padding-right: 1rem;
     img{
@@ -104,8 +110,11 @@
     text-decoration: underline;
   }
 }
+
 .hide {
   display: none !important;
 }
 
-
+.clickable {
+  cursor: pointer;
+}
