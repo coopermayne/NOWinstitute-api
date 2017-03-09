@@ -13,6 +13,13 @@ $(document).on('page:change', function() {
 $(document).on('turbolinks:load', function(){
   console.log('load');
 
+  $('.sorting-option-wrapper').on('click', function(e){
+    var href = $(this).children().children().first().attr('href')
+    if(window.location.pathname !== href){
+      Turbolinks.visit(href)
+    }
+  })
+
   loadLazyCss()
 
   var slides = $('.slideshow-image')
@@ -146,7 +153,6 @@ $(document).on('turbolinks:load', function(){
 
     //close mobile menu
     if( $('.menu-directive').hasClass('cover')){
-      console.log("hello");
       $('.menu-directive').toggleClass('cover')
       $('.menu-directive').toggleClass('contracted-menu')
       $('#hamburger').toggleClass('hide')
