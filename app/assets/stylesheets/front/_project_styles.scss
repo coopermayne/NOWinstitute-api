@@ -242,6 +242,7 @@
 }
 
 .gallery {
+  -ms-overflow-style: none;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
