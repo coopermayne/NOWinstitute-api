@@ -25,6 +25,7 @@ $(document).on('turbolinks:load', function(){
   var slides = $('.slideshow-image')
   var lastSlideIndex = slides.length-1
   var currentVisId = 0
+  var slideShowSpeed = 10000
 
   var nextSlide = function(){
     $( slides[currentVisId] ).hide()
@@ -39,7 +40,7 @@ $(document).on('turbolinks:load', function(){
   $( slides[currentVisId] ).show()
   setInterval(function(){
     nextSlide()
-  }, 5000)
+  }, slideShowSpeed)
 
   //apply lazy load for images
   $('img.lazy').unveil();
