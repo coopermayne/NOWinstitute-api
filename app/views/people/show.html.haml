@@ -7,7 +7,9 @@
 
   .project-page-header-image-wrapper
     - if @person.primary_image
-      .project-page-header-image{ style: "background-image:url(#{@person.primary_image.name.url});"}
+      .project-page-header-image.responsive-background{ style: "background-image:url(#{@person.primary_image.name.index.url});",
+                                                        data: { desktop: @person.primary_image.name.url,
+                                                                mobile: @person.primary_image.name.index.url }}
 
   .project-page-content-wrapper
     .project-page-header-text= @person.name
