@@ -22,7 +22,7 @@
           - @person.educations.each do |ed|
             .project-detail-wrapper= ed.title
 
-        .section{ class: ('hide' if @person.email.empty?)}
+        .section.contact{ class: ('hide' if @person.email.empty?)}
           .title Contact
           %a.project-detail-wrapper.underline{ href: "mailto:"+@person.email }= @person.email
 
