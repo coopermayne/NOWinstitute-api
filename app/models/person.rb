@@ -27,6 +27,7 @@ class Person < ActiveRecord::Base
   include Searchable
   include Primaryable
   include Publishable
+  include Clearcache
 
   has_many :roles, dependent: :destroy
   has_many :educations, dependent: :destroy
