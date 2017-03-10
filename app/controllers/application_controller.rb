@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
 
-  #before_filter :cors_preflight_check, :redirect_to_https
+  before_filter :cors_preflight_check, :redirect_to_https
   after_filter :cors_set_access_control_headers
 
   def cors_set_access_control_headers
