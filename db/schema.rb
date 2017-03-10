@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170306225323) do
+ActiveRecord::Schema.define(version: 20170225002652) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -111,15 +111,6 @@ ActiveRecord::Schema.define(version: 20170306225323) do
 
   add_index "educations", ["person_id"], name: "index_educations_on_person_id", using: :btree
 
-  create_table "embed_types", force: :cascade do |t|
-    t.string   "title"
-    t.string   "uid"
-    t.text     "instructions"
-    t.text     "description"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
   create_table "embedded_objects", force: :cascade do |t|
     t.string   "title"
     t.string   "url"
@@ -128,12 +119,10 @@ ActiveRecord::Schema.define(version: 20170306225323) do
     t.integer  "rank"
     t.integer  "project_id"
     t.integer  "person_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.integer  "embed_type_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "embedded_objects", ["embed_type_id"], name: "index_embedded_objects_on_embed_type_id", using: :btree
   add_index "embedded_objects", ["person_id"], name: "index_embedded_objects_on_person_id", using: :btree
   add_index "embedded_objects", ["project_id"], name: "index_embedded_objects_on_project_id", using: :btree
 
@@ -339,8 +328,6 @@ ActiveRecord::Schema.define(version: 20170306225323) do
     t.string   "content_type"
     t.string   "file_size"
     t.string   "color"
-    t.integer  "height"
-    t.integer  "width"
   end
 
   add_index "uploads", ["credit_id"], name: "index_uploads_on_credit_id", using: :btree
