@@ -405,7 +405,6 @@ DEPENDENCIES
   byebug
   carrierwave (= 0.10.0)
   chosen-rails
-  coffee-rails (~> 4.1.0)
   dalli
   devise
   figaro
