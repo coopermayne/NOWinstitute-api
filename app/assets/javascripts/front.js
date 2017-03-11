@@ -1,3 +1,5 @@
+//= require photoswipe.min
+//= require photoswipe-ui-default.min
 //= require jquery
 //= require jquery.unveil
 //= require turbolinks
