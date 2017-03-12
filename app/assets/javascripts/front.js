@@ -4,17 +4,9 @@
 //= require jquery.unveil
 //= require turbolinks
 
-//$(document).on('turbolinks:change', function() {
-  //console.log("change");
-
-//});
-
 $(document).on('turbolinks:load', function(){
 
-  ga('send', 'pageview', window.location.pathname);
-
-  console.log('load');
-
+  //console.log("load: " + window.location.pathname);
   if(isDesktop()){
     var el = $('.responsive-background').first();
     el.css('background-image', 'url(' + el.data('desktop') + ')');
