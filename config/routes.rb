@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get "/", to: redirect('/404'), constraints: lambda { |request| request.params[:p] == "3200" }
+
   get 'search' =>  'search_results#index'
 
   #no sign up
