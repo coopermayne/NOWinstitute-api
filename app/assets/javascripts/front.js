@@ -5,7 +5,11 @@
 //= require turbolinks
 
 $(document).on('turbolinks:load', function(){
-  console.log("load: " + window.location.pathname );
+  //console.log("turbo-load: " + window.location.pathname );
+  if (typeof(ga) === "function"){
+    //console.log("google: " + window.location.pathname );
+    ga('send', 'pageview', (location.pathname));
+  }
 
   //console.log("load: " + window.location.pathname);
   if(isDesktop()){

@@ -9,19 +9,9 @@
     = javascript_include_tag 'front'
     = stylesheet_link_tag    'front', media: 'all'
     = csrf_meta_tags
-    -if ENV['RAILS_ENV']=='production'
-      = render 'layouts/front/footer'
+    = render 'layouts/front/footer'
   %body
     .container{class: ( 'white' if @white_menu )}
 
       = render 'layouts/front/menu' unless ( @no_menu  )
       = yield
-
-    :javascript
-      console.log(location.pathname)
-
-    -if ENV['RAILS_ENV']=='production'
-      :javascript
-        if (typeof(ga) === "function"){
-          ga('send', 'pageview', (location.pathname));
-        }
