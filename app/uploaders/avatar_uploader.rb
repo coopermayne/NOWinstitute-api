@@ -13,7 +13,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   def asset_host
-    ENV['cloudfront_assets_url']
+    ENV['cloudfront_uploads_url']
   end
 
   process :resize_to_limit => [1600, 1200], :if => :image?
