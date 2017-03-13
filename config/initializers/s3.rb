@@ -7,6 +7,7 @@ CarrierWave.configure do |config|
     :region                     =>ENV["bucket_region"]
   }
   config.fog_directory = ENV["bucket_name"]
+
   config.fog_attributes = { 'Cache-Control' => "max-age=#{365.day.to_i}"}
 
 end
