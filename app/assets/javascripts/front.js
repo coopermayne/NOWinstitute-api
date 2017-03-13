@@ -5,6 +5,7 @@
 //= require turbolinks
 
 $(document).on('turbolinks:load', function(){
+  console.log("load: " + window.location.pathname );
 
   //console.log("load: " + window.location.pathname);
   if(isDesktop()){

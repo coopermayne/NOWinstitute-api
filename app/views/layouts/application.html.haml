@@ -17,9 +17,11 @@
       = render 'layouts/front/menu' unless ( @no_menu  )
       = yield
 
+    :javascript
+      console.log(location.pathname)
+
     -if ENV['RAILS_ENV']=='production'
       :javascript
         if (typeof(ga) === "function"){
           ga('send', 'pageview', (location.pathname));
-          console.log('running')
         }
