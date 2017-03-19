@@ -130,17 +130,17 @@ $(document).on('turbolinks:load', function(){
   }, 500)
 
   //hide unnec arrows
-  $('.desktop-content .gallery').each(function(e){
-    if ( !$(this).children().length ) {return;}
+  //$('.desktop-content .gallery').each(function(e){
+    //if ( !$(this).children().length ) {return;}
 
-    var galleryWidth = $(this).width();
-    var lastChildPosition = $(this).children().last().position().left + $(this).children().last().width();
+    //var galleryWidth = $(this).width();
+    //var lastChildPosition = $(this).children().last().position().left + $(this).children().last().width();
 
-    if ( lastChildPosition < galleryWidth  ){
-      $(this).siblings().hide()
-    }
+    //if ( lastChildPosition < galleryWidth  ){
+      //$(this).siblings().hide()
+    //}
 
-  })
+  //})
 
 
   //people index sorting
