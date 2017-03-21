@@ -1,75 +1,129 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--Created using XmlSitemapGenerator.org - Free HTML, RSS and XML sitemap generator-->
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-  <url>
-    <loc>https://www.thenowinstitute.org/</loc>
-  </url>
-  <url>
-    <loc>https://www.thenowinstitute.org/research</loc>
-  </url>
-  <url>
-    <loc>https://www.thenowinstitute.org/research/18-sustainable-la-grand-challenge</loc>
-  </url>
-  <url>
-    <loc>https://www.thenowinstitute.org/research/8-informal-settlements</loc>
-  </url>
-  <url>
-    <loc>https://www.thenowinstitute.org/about</loc>
-  </url>
-  <url>
-    <loc>https://www.thenowinstitute.org/projects</loc>
-  </url>
-  <url>
-    <loc>https://www.thenowinstitute.org/about/people/3-eui-sung-yi</loc>
-  </url>
-  <url>
-    <loc>https://www.thenowinstitute.org/research/6-the-post-industrial-city</loc>
-  </url>
-  <url>
-    <loc>https://www.thenowinstitute.org/about/people/1-annie-eby</loc>
-  </url>
-  <url>
-    <loc>https://www.thenowinstitute.org/about/people</loc>
-  </url>
-  <url>
-    <loc>https://www.thenowinstitute.org/about/people/2-ryan-doyle</loc>
-  </url>
-  <url>
-    <loc>https://www.thenowinstitute.org/projects/17-south-sea-pearl-eco-island</loc>
-  </url>
-  <url>
-    <loc>https://www.thenowinstitute.org/research/7-emerging-asia</loc>
-  </url>
-  <url>
-    <loc>https://www.thenowinstitute.org/about/contact</loc>
-  </url>
-  <url>
-    <loc>https://www.thenowinstitute.org/about/people/4-thom-mayne</loc>
-  </url>
-  <url>
-    <loc>https://www.thenowinstitute.org/projects/11-madrid-now</loc>
-  </url>
-  <url>
-    <loc>https://www.thenowinstitute.org/projects/13-culture-now</loc>
-  </url>
-  <url>
-    <loc>https://www.thenowinstitute.org/projects/14-new-orleans-now</loc>
-  </url>
-  <url>
-    <loc>https://www.thenowinstitute.org/projects/5-haiti-now</loc>
-  </url>
-  <url>
-    <loc>https://www.thenowinstitute.org/projects/9-la-now-volume-1</loc>
-  </url>
-  <url>
-    <loc>https://www.thenowinstitute.org/projects/16-wilshire-densification</loc>
-  </url>
-  <url>
-    <loc>https://www.thenowinstitute.org/projects/12-la-now-volume-2</loc>
-  </url>
-  <url>
-    <loc>https://www.thenowinstitute.org/projects/10-la-now-volume-3-4</loc>
-  </url>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+<url>
+  <loc>https://www.thenowinstitute.org/</loc>
+  <changefreq>monthly</changefreq>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://www.thenowinstitute.org/about</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.thenowinstitute.org/projects</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.thenowinstitute.org/research</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.thenowinstitute.org/about/contact</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.thenowinstitute.org/about/people</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.thenowinstitute.org/projects/10-la-now-volume-3-4</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.thenowinstitute.org/projects/5-haiti-now</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.thenowinstitute.org/projects/9-la-now-volume-1</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.thenowinstitute.org/projects/12-la-now-volume-2</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.thenowinstitute.org/projects/11-madrid-now</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.thenowinstitute.org/projects/13-culture-now</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.thenowinstitute.org/projects/16-wilshire-densification</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.thenowinstitute.org/projects/17-south-sea-pearl-eco-island</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.thenowinstitute.org/projects/14-new-orleans-now</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.thenowinstitute.org/research/6-the-post-industrial-city</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.thenowinstitute.org/research/7-emerging-asia</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.thenowinstitute.org/research/8-informal-settlements</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.thenowinstitute.org/research/18-sustainable-la-grand-challenge</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.thenowinstitute.org/research/20-building-forward-regulatory-reform</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.thenowinstitute.org/about/people/3-eui-sung-yi</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.thenowinstitute.org/about/people/4-thom-mayne</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.thenowinstitute.org/about/people/1-annie-eby</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.thenowinstitute.org/about/people/2-ryan-doyle</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.51</priority>
+</url>
 </urlset>
-<!--<guid value="0806bc0a-8943-46e3-afb4-c4a26354b6e4" />-->
-<!--Created using XmlSitemapGenerator.org - Free HTML, RSS and XML sitemap generator-->
