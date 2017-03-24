@@ -7,7 +7,7 @@
 
   .project-page-header-image-wrapper
     - if @person.primary_image
-      .project-page-header-image.responsive-background{ style: "background-image:url(#{@person.primary_image.name.index.url});",
+      .project-page-header-image.people.responsive-background{ style: "background-image:url(#{@person.primary_image.name.index.url});",
                                                         data: { desktop: @person.primary_image.name.url,
                                                                 mobile: @person.primary_image.name.index.url }}
 

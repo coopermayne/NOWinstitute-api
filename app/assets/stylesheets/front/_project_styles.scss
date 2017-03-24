@@ -36,6 +36,11 @@
 	background-position: center center;
 	background-size: cover;
 	background-repeat: no-repeat;
+
+  &.people {
+	  background-position: center;
+	  background-size: contain;
+  }
 }
 
 .project-page-content-wrapper
