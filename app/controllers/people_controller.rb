@@ -25,7 +25,7 @@
 
 class PeopleController < ApplicationController
   def index
-    render html: Rails.cache.fetch('people', :expires_in => 1.hours) { 
+    render html: Rails.cache.fetch('people', :expires_in => 30.days) { 
     @section = Section.find_by_title("Now Institute") 
     @menu = FrontHelper.build_menu
     @people = Person.includes(:primary_image).where(is_ucla_team: true)
@@ -35,7 +35,7 @@ class PeopleController < ApplicationController
 
   def show
     @ref = request.referer
-    render html: Rails.cache.fetch("people#{@ref}" + params[:id].to_s , :expires_in => 1.hours) { 
+    render html: Rails.cache.fetch("people#{@ref}" + params[:id].to_s , :expires_in => 30.days) { 
     @no_menu = true
     @menu = FrontHelper.build_menu
     @section = Section.find_by_title("Now Institute") 
