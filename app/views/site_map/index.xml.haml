@@ -2,25 +2,25 @@
 
 %urlset{ xmlns: "http://www.sitemaps.org/schemas/sitemap/0.9"}
   %url
-    %loc https://www.thenowinstitute.com
+    %loc https://www.thenowinstitute.org
     %priority 1
     %changefreq weekly
   %url
-    %loc https://www.thenowinstitute.com/about
+    %loc https://www.thenowinstitute.org/about
     %priority 0.8
     %changefreq weekly
   %url
-    %loc https://www.thenowinstitute.com/about/contact
+    %loc https://www.thenowinstitute.org/about/contact
     %priority 0.8
     %changefreq weekly
 
   %url
-    %loc https://www.thenowinstitute.com/about/people
+    %loc https://www.thenowinstitute.org/about/people
 
   - @people.each do |person|
     %url
-      %loc= "https://www.thenowinstitute.com" + slugify(person)
+      %loc= "https://www.thenowinstitute.org" + slugify(person)
 
   - @projects.each do |project|
     %url
-      %loc= "https://www.thenowinstitute.com" + slugify(project)
+      %loc= "https://www.thenowinstitute.org" + slugify(project)
