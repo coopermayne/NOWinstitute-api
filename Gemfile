@@ -12,8 +12,6 @@ gem 'haml'
 gem 'haml-rails'
 
 gem 'metamagic'
-gem 'sitemap_generator'
-
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.15'

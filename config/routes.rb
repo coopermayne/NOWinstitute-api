@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
   #match routes with query params... this is for bad google results
+  get 'sitemap.xml', :to => 'site_map#index', :defaults => {:format => 'xml'}
+
   get "/", to: redirect('/404'),
     constraints: lambda { |request| !( request.params.keys & ['p', 'attachment_id', 'tag', 'say', 's', 'author'] ).empty? }
-
 
   get 'search' =>  'search_results#index'
 

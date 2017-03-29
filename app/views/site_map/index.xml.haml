@@ -1,0 +1,29 @@
+!!! XML
+
+%urlset{ xmlns: "http://www.sitemaps.org/schemas/sitemap/0.9"}
+  %url
+    %loc https://www.thenowinstitute.com
+    %priority 1
+    %changefreq weekly
+  %url
+    %loc https://www.thenowinstitute.com/about
+    %priority 0.8
+    %changefreq weekly
+  %url
+    %loc https://www.thenowinstitute.com/about/contact
+    %priority 0.8
+    %changefreq weekly
+
+  %url
+    %loc https://www.thenowinstitute.com/about/people
+    %changefreq weekly
+
+  - @people.each do |person|
+    %url
+      %loc= "https://www.thenowinstitute.com" + slugify(person)
+      %changefreq monthly
+
+  - @projects.each do |project|
+    %url
+      %loc= "https://www.thenowinstitute.com" + slugify(project)
+      %changefreq monthly
