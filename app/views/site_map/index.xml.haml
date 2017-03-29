@@ -16,14 +16,11 @@
 
   %url
     %loc https://www.thenowinstitute.com/about/people
-    %changefreq weekly
 
   - @people.each do |person|
     %url
       %loc= "https://www.thenowinstitute.com" + slugify(person)
-      %changefreq monthly
 
   - @projects.each do |project|
     %url
       %loc= "https://www.thenowinstitute.com" + slugify(project)
-      %changefreq monthly
