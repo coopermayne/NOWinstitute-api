@@ -4,8 +4,8 @@ class SiteMapController < ApplicationController
     headers['Content-Type'] = 'application/xml'
     respond_to do |format|
       format.xml do
-        @projects = Project.all
-        @people = Person.all
+        @projects = Project.all.select{|pr| !pr.section.nil?}
+        @people = Person.all.select{|per| !per.name.nil?}
       end
     end
   end
