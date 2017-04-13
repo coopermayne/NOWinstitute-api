@@ -10,15 +10,17 @@
       <div class='col-md-10'>
         <h2><%= @title %></h2>
       </div>
-      <div class='col-md-2 align-bottom'>
-        <%= f.check_box :is_published, class: 'fancy-checkbox', data: 
-          {
-          "on-color": "success",
-          "on-text": "Publish",
-          "off-text": "Draft"
-          } 
-        %>
-    </div>
+      <% if @person.is_ucla_team %>
+        <div class='col-md-2 align-bottom'>
+          <%= f.check_box :is_published, class: 'fancy-checkbox', data: 
+            {
+            "on-color": "success",
+            "on-text": "Publish",
+            "off-text": "Draft"
+            } 
+          %>
+        </div>
+      <% end %>
     </div>
   </div>
 
