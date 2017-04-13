@@ -76,6 +76,10 @@
                 -gallery_images.each do |image|
                   %img.slide{src: image.name.thumb.url, data:{original_src: image.name.url, original_src_width: image.width, original_src_height: image.height} }
 
+        .section.logos
+          -@project.uploads.select{|u| u.file_type == FileType.find_by_title("Logos")}.each do |logo|
+            .logo
+              %img{ src: logo.name.mobile.url }
         .extra-space
 
       .desktop-content.show-on-desktop
