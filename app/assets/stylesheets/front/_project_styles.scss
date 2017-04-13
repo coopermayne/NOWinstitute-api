@@ -295,17 +295,18 @@
   }
 }
 
-.embeds {
+.pdf-container {
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
 
-  .project-detail-wrapper {
-    display: flex;
-    flex-direction: row;
-
-    .iframe-container{
-      flex-grow: 1;
-    }
-
+  .pdfs{
+    margin-right: 1rem;
+    flex-grow: 1;
+    max-width: 220px;
+    align-self: baseline;
   }
+
 }
 
 .side-bar {
@@ -326,4 +327,8 @@
   a.project-detail-text{
     display: block;
   }
+}
+
+.pdfs {
+  width: 220px;
 }
