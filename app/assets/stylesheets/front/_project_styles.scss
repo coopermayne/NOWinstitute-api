@@ -258,7 +258,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  overflow-x: scroll;
+  overflow-x: hidden;
   img, .iframe-container {
     margin-right: 1em;
     height: 150px;
