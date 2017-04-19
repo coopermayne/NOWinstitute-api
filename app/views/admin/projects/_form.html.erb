@@ -23,3 +23,22 @@
   <%= render partial: "admin/projects/formpartials/form_for_embedded_objects", locals: {f: f} %>
 
 <% end %>
+
+<!-- Modal -->
+<div class="modal fade" id="embedModal" tabindex="-1" role="dialog" aria-labelledby="EmbedModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="EmbedModalLabel">Adding Embeds</h5>
+      </div>
+      <div class="modal-body">
+        <p><strong>Video embeds</strong> need a Youtube UID which should look like: <strong>2A8yRNePbs8</strong></p>
+        <p><strong>Issuu embeds</strong> need an issuu.com UID which should look like: <strong>28431577/44903178</strong></p>
+        <p><strong>StoryMap embeds</strong> need a UID which is the url to the story map, ex: <strong>http://story.maps.arcgis.com/apps/StorytellingSwipe/index.html?appid=459ff1719f5f427180cd8b793894052b</strong></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
