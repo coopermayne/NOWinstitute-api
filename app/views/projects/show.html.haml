@@ -113,7 +113,7 @@
                   %iframe{ class:"ytplayer",type:"text/html",data: {src:"https://www.youtube.com/embed/#{vid.uid}?autoplay=0&modestbranding=1&autohide=1&showinfo=0&controls=1"},frameborder:"0", allowfullscreen:"allowfullscreen"}
 
         .pdf-container{ class: ( 'hide' if pdfs.empty?)}
-          - pdfs.each do |pdf|
+          - pdfs.sort_by(&:rank).each do |pdf|
             .section.pdfs
               .title= pdf.title
               .project-detail-wrapper
