@@ -4,23 +4,39 @@
 
       <div class='panel panel-default'>
         <div class="panel-heading">
-          <h3 class="panel-title">New Component <%= link_to "<span class='pull-right'>#{fa_icon 'close'}</span>".html_safe, "#", class: "remove_fields pull-right" %> </h3>
+          <h3 class="panel-title">New Embed <%= link_to "<span class='pull-right'>#{fa_icon 'close'}</span>".html_safe, "#", class: "remove_fields pull-right" %> </h3>
         </div>
 
         <div class='panel-body'>
-          <div class='row'>
 
-            <div class="col-md-4">
-              <%= f.input :uid %>
-            </div>
-            <div class="col-md-4">
-              <%= f.association :embed_type %>
-            </div>
-            <div class="col-md-4">
-              <%= f.input :title %>
-            </div>
+            <table class='table'>
+            <thead>
+              <tr>
+                <th> Rank </th>
+                <th> UID </th>
+                <th> Type </th>
+                <th> Title </th>
+                <th> &nbsp; </th>
+              </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>
+                <%= f.input :rank, label: false, input_html: {:style => 'width: 65px'}  %>
+              </td>
+              <td>
+                <%= f.input :uid, label: false %>
+              </td>
+              <td>
+                <%= f.association :embed_type, label: false %>
+              </td>
+              <td>
+                <%= f.input :title, label: false %>
+              </td>
+            </tr>
+            </tbody>
+            </table>
 
-          </div>
         </div>
       </div>
     </div>

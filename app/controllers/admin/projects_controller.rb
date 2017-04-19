@@ -117,6 +117,7 @@ class Admin::ProjectsController < AdminController
       ],
 			embedded_objects_attributes: [
 				:id,
+        :rank,
 				:_destroy,
 				:title,
 				:uid,

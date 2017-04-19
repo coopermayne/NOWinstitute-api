@@ -1,54 +1,65 @@
-<div class='row' id="anchor-embedded-objects">
-  <div class='col-sm-12'>
+<div class='row' id="anchor-embeds">
+  <div class='col-md-12'>
     <div class='panel panel-default'>
       <div class="panel-heading">
         <h3 class="panel-title">Embeds</h3>
       </div>
       <div class='panel-body'>
 
-        <div class="row">
-          <table class='table'>
-            <%= f.fields_for :embedded_objects do |builder| %>
+        <% f.object.embedded_objects.group_by(&:embed_type).each do |embed_type, embed_group| %>
+          <div class='row'>
+            <div class='col-md-12'>
+              <div class='panel panel-default'>
+                <div class="panel-heading">
+                  <h3 class="panel-title"><%= embed_type ? embed_type.title : "No Type" %></h3>
+                </div>
+                <div class='panel-body'>
+                  <table class='table'>
+                    <thead>
+                      <tr>
+                        <th> Rank </th>
+                        <th> UID </th>
+                        <th> Type </th>
+                        <th> Title </th>
+                        <th> &nbsp; </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <%= f.fields_for :embedded_objects, embed_group.sort_by{|i| i.rank} do |builder| %>
+                        <tr>
+                          <td>
+                            <%= builder.input :rank, label:false, input_html: {:style => 'width: 65px'}   %>
+                          </td>
+                          <td>
+                            <%= builder.input :uid, label:false %>
+                          </td>
+                          <td>
+											      <%= builder.association :embed_type, label: false, collection: EmbedType.order(title: :asc), include_blank: true, input_html: {class: 'chosen-select assoc'} %>
+                          </td>
+                          <td>
+                            <%= builder.input :title, label:false %>
+                          </td>
+                          <td>
+                            <%= builder.check_box :_destroy, class: 'fancy-checkbox', data: 
+                              {
+                                "on-color": "danger",
+                                "on-text": "#{fa_icon "trash-o"}",
+                                "off-text": "#{fa_icon "trash-o"}"
+                              }
+                            %>
+                          </td>
+                        </tr>
+                      <% end  %>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
 
-							<div class='row'>
-								<div class='col-sm-12'>
+        <% end %>
 
-									<div class='panel panel-default'>
-										<div class="panel-heading">
-											<h3 class="panel-title">Embed</h3>
-										</div>
-
-										<div class='panel-body'>
-											<div class='row'>
-                        <div class="col-sm-5">
-                          <%= builder.input :uid %>
-                        </div>
-                        <div class="col-sm-5">
-                          <%= builder.association :embed_type %>
-                        </div>
-                        <div class="col-sm-5">
-                          <%= builder.input :title %>
-                        </div>
-												<div class="col-sm-2">
-                          <%= builder.check_box :_destroy, class: 'pull-right fancy-checkbox', data: 
-                            {
-                              "on-color": "danger",
-                              "on-text": "#{fa_icon "trash-o"}",
-                              "off-text": "#{fa_icon "trash-o"}"
-                            }
-                          %>
-                        </div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-
-            <% end %>
-          </table>
-        </div>
-
-				<%= link_to_add_fields "Add embed", f, :embedded_objects %>
+        <%= link_to_add_fields "Add Embed", f, :embedded_objects %>
 
       </div>
     </div>
