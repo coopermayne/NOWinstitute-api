@@ -24,7 +24,7 @@
 	font-style: italic;
 	font-family: 'Executive-ItalicIE';
 
-	src: url( asset-path('Executive-Italic.eot?#iefix') ) format( 'embedded-opentype' ),
+	src: url( asset-path('Executive-Italic.eot') );
 }
 
 @font-face
@@ -33,5 +33,5 @@
 	font-style: normal;
 	font-family: 'ExecutiveIE';
 
-	src: url( asset-path('Executive-Regular.eot?#iefix') ) format( 'embedded-opentype' ),
+	src: url( asset-path('Executive-Regular.eot') );
 }
