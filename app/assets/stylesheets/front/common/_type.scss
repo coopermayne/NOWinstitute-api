@@ -4,8 +4,6 @@
 	font-style: normal;
 	font-family: 'Executive';
 
-	src: url( asset-path('Executive-Regular.eot') );
-	src: url( asset-path('Executive-Regular.eot?#iefix') ) format( 'embedded-opentype' ),
 	url( asset-path('Executive-Regular.woff') ) format( 'woff' ),
 	url( asset-path('Executive-Regular.ttf') ) format( 'truetype' );
 }
@@ -16,8 +14,26 @@
 	font-style: italic;
 	font-family: 'Executive-Italic';
 
-	src: url( asset-path('Executive-Italic.eot') );
-	src: url( asset-path('Executive-Italic.eot?#iefix') ) format( 'embedded-opentype' ),
 	url( asset-path('Executive-Italic.woff') ) format( 'woff' ),
 	url( asset-path('Executive-Italic.ttf') ) format( 'truetype' );
+}
+
+@font-face
+{
+	font-weight: normal;
+	font-style: italic;
+	font-family: 'Executive-ItalicIE';
+
+	src: url( asset-path('Executive-Italic.eot') );
+	src: url( asset-path('Executive-Italic.eot?#iefix') ) format( 'embedded-opentype' ),
+}
+
+@font-face
+{
+	font-weight: normal;
+	font-style: normal;
+	font-family: 'ExecutiveIE';
+
+	src: url( asset-path('Executive-Regular.eot') );
+	src: url( asset-path('Executive-Regular.eot?#iefix') ) format( 'embedded-opentype' ),
 }
