@@ -2,6 +2,6 @@
   - image = slide.image.name
   .slideshow-wrapper
     %img.slideshow-image{ class: ('show' if i==0),
-      src: image.pixel.url,
+      src: image.url,
       srcset: "#{image.mobile.url} 500w, #{image.url} 1000w", 
       sizes: "(max-width: 380px) 80vw, 100vw" }

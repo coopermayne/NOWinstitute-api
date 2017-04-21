@@ -13,6 +13,7 @@ $(document).on('turbolinks:load', function(){
 
   //console.log("load: " + window.location.pathname);
   if(isDesktop()){
+    console.log('yes');
     var el = $('.responsive-background').first();
     el.css('background-image', 'url(' + el.data('desktop') + ')');
   }
