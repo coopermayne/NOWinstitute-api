@@ -44,6 +44,7 @@ class NewsItemsController < ApplicationController
 
     @current_page = page || 0
     @news_items = @news_items.slice(starting_page, per_page)
+    @menu = FrontHelper.build_menu
   end
 
   def show

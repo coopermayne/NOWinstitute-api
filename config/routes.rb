@@ -52,7 +52,6 @@ Rails.application.routes.draw do
   get 'about/contact' =>  'pages#contact'
   get 'about/people' =>  'people#index'
 
-  # Example of regular route:
   resources :projects, path: "projects", only: [:index, :show]
   resources :projects, path: "research", only: [:index, :show]
   resources :news_items, path: "news", only: [:index, :show]
