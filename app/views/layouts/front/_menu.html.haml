@@ -8,7 +8,7 @@
     - @menu[:sections].each do |bigMenuItem|
       %li.menu-section
         .section-title{ class: ('selected' if request.fullpath[bigMenuItem[:url]]) }
-          %a.section-title-inner{href: bigMenuItem[:url], target: ( '_blank' if bigMenuItem[:title] == 'News')}
+          %a.section-title-inner{href: bigMenuItem[:url], target: ( '_blank' if bigMenuItem[:target] && bigMenuItem[:target] == '_blank')}
             =(request.fullpath == '/' && bigMenuItem[:url]=='/about') ? "Now Institute" : bigMenuItem[:title]
 
         - if request.fullpath['about'] && request.fullpath[bigMenuItem[:url]]

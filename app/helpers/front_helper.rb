@@ -86,8 +86,9 @@ module FrontHelper
     {
       title: 'News',
       sorting: [],
-      target: '_blank',
-      url: 'http://www.aud.ucla.edu/programs/m_arch_ii_degree_1/studios/mayne/category/studio/news/'
+      #target: '_blank',
+      url: '/news'
+      #url: 'http://www.aud.ucla.edu/programs/m_arch_ii_degree_1/studios/mayne/category/studio/news/'
     }
     ]
 
