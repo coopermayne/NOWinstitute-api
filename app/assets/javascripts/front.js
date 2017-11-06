@@ -105,6 +105,13 @@ $(document).on('turbolinks:load', function(){
     $(e.target).parent().toggleClass('closed')
   })
 
+  //$('.gallery').on('mouseenter', function(e){
+    //var arrow = $(e.target)
+    //arrow.animate({ "left": "-=3px" }, 300);
+    //arrow.animate({ "left": "+=3px" }, 300);
+    //arrow.animate({ "left": "-=3px" }, 300);
+  //})
+
   $('.arrow-right').on('click', function(e){
     var gal = $(e.target).siblings('.gallery').first()
     $(gal).animate({scrollLeft: gal.scrollLeft()+300}, 800);
