@@ -5,6 +5,7 @@ module Clearcache
 
   included do
     after_save :clear_all_cache
+    after_destroy :clear_all_cache
   end
 
   def clear_all_cache

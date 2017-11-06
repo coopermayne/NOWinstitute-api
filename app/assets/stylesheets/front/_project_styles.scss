@@ -313,6 +313,10 @@
   .section:first-child {
     margin-top: 0;
   }
+
+  a.project-detail-text{
+    display: block !important;
+  }
 }
 
 .section.roles {
@@ -325,9 +329,10 @@
   }
 
   a.project-detail-text{
-    display: block;
+    display: block !important;
   }
 }
+
 
 .pdfs {
   width: 220px;

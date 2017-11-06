@@ -38,10 +38,11 @@
           - consultants = @project.roles.select{|r| r.person.is_consultant}
           .section.ucla.openable.closed{ class: ( 'hide' if ucla_team.empty? ) }
             .title.clickable UCLA Team
-            - ucla_team.each do |role|
+            - ucla_team.group_by{|role| role.position }.sort_by{|position, role| position.rank}.each do |position_group|
               .project-detail-wrapper.role
-                .project-detail-label= role.position.title + ":"
-                %a.project-detail-text.underline-on-hover{href: slugify(role.person)}= role.person.name
+                .project-detail-label= position_group.first.title + ":"
+                - position_group[1].map(&:person).sort_by(&:last_name).each do |person|
+                  %a.project-detail-text.underline-on-hover{href: slugify(person)}= person.name
           .section.consultants.openable.closed{ class: ( 'hide' if consultants.empty? ) }
             .title.clickable Consultants
             - consultants.each do |role|
@@ -77,7 +78,7 @@
                   %img.slide{src: image.name.thumb.url, data:{original_src: image.name.url, original_src_width: image.width, original_src_height: image.height} }
 
         .section.logos
-          -@project.uploads.select{|u| u.file_type == FileType.find_by_title("Logos")}.select{|u| u.is_image}.each do |logo|
+          -@project.uploads.select{|u| u.file_type == FileType.find_by_title("Logos")}.select{|u| u.is_image}.sort_by(&:rank).each do |logo|
             .logo
               %img{ src: logo.name.mobile.url }
         .extra-space
