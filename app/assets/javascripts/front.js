@@ -121,7 +121,9 @@ $(document).on('turbolinks:load', function(){
     var that = this
     //bind click events 
     $(this).children().on('click', function(){
-      openPhotoSwipe(that);
+      console.log(this)
+      console.log(that)
+      openPhotoSwipe(that, $(this).index());
     });
   });
 
@@ -183,10 +185,10 @@ var loadDefferedEmbeds = function(){
   } 
 }
 
-var openPhotoSwipe = function(gallery){
+var openPhotoSwipe = function(gallery, clickIndex){
   var pswpElement = document.querySelectorAll('.pswp')[0];
   var options = {
-    index: 0,
+    index: clickIndex,
     history: false,
     shareButtons: [
       {id:'twitter', label:'Tweet', url:'https://twitter.com/intent/tweet?text={{text}}&url={{url}}'},
