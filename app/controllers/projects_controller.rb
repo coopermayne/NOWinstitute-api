@@ -38,7 +38,8 @@ class ProjectsController < ApplicationController
       @project_type = nil
     end
 
-    #render html: Rails.cache.fetch(@section.title.downcase, :expires_in => 30.days) { 
+    @ptid = @project_type ? @project_type.id.to_s : ''
+    render html: Rails.cache.fetch(@section.title.downcase + @ptid, :expires_in => 30.days) { 
       @menu = FrontHelper.build_menu
       @menu_white = false
 
@@ -48,16 +49,16 @@ class ProjectsController < ApplicationController
         @projects = Project.where(section_id: @section.id).includes(:primary_image, :project_types, :section, :components)
       end
       render_to_string :index 
-    #}
+    }
   end
 
   def show
     @ref = request.referer
-    #render html: Rails.cache.fetch("projects#{@ref}" + params[:id].to_s , :expires_in => 30.days) { 
+    render html: Rails.cache.fetch("projects#{@ref}" + params[:id].to_s , :expires_in => 30.days) { 
       @no_menu = true
       @project = Project.includes(roles: [:position, :person ], uploads: [ :file_type, :credit ], bibliography_items: [:primary_image]).find(params[:id])
       render_to_string :show 
-    #}
+    }
   end
 
   def markdown(text)
