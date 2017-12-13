@@ -12,7 +12,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
     "uploads/#{model.id}"
   end
 
-  process :resize_to_limit => [1600, 1200], :if => :image?
+  process :resize_to_limit => [2000, 1500], :if => :image?
   process :store_dimensions
   process :optimize, :if => :image?
   process :get_color, :if => :image?
