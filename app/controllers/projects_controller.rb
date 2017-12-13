@@ -28,22 +28,36 @@ class ProjectsController < ApplicationController
   helper FrontHelper
 
   def index
-    @section = Section.find_by_title request.fullpath.slice(1,request.fullpath.length-1).capitalize
-    render html: Rails.cache.fetch(@section.title.downcase, :expires_in => 30.days) { 
+    @section = Section.find_by_title request.fullpath.gsub(/\?\w*/, '').slice(1,request.fullpath.length-1).capitalize
+
+    if params.keys.include? 'research'
+      @project_type = ProjectType.find_by_title "Research Projects" 
+    elsif params.keys.include? 'global'
+      @project_type = ProjectType.find_by_title "Global Issues" 
+    else
+      @project_type = nil
+    end
+
+    #render html: Rails.cache.fetch(@section.title.downcase, :expires_in => 30.days) { 
       @menu = FrontHelper.build_menu
       @menu_white = false
-      @projects = Project.where(section_id: @section.id).includes(:primary_image, :project_types, :section, :components)
+
+      if @project_type
+        @projects = Project.where(section_id: @section.id).includes(:primary_image, :project_types, :section, :components).select{|pr| pr.project_types.include? @project_type }
+      else
+        @projects = Project.where(section_id: @section.id).includes(:primary_image, :project_types, :section, :components)
+      end
       render_to_string :index 
-    }
+    #}
   end
 
   def show
     @ref = request.referer
-    render html: Rails.cache.fetch("projects#{@ref}" + params[:id].to_s , :expires_in => 30.days) { 
+    #render html: Rails.cache.fetch("projects#{@ref}" + params[:id].to_s , :expires_in => 30.days) { 
       @no_menu = true
       @project = Project.includes(roles: [:position, :person ], uploads: [ :file_type, :credit ], bibliography_items: [:primary_image]).find(params[:id])
       render_to_string :show 
-    }
+    #}
   end
 
   def markdown(text)

@@ -29,7 +29,7 @@ $(document).on('turbolinks:load', function(){
   var slides = $('.slideshow-image')
   var lastSlideIndex = slides.length-1
   var currentVisId = 0
-  var slideShowSpeed = 10000
+  var slideShowSpeed = 2500
 
   var nextSlide = function(){
     $( slides[currentVisId] ).hide()

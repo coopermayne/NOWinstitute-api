@@ -19,8 +19,8 @@ module FrontHelper
       about: now_section.about,
       sorting: [
         {
-          url: "/about/contact",
-          title: "Contact",
+          url: "/about",
+          title: "About",
           items: ""
         },
         {
@@ -29,6 +29,11 @@ module FrontHelper
           items: [
             "Leadership"
           ]
+        },
+        {
+          url: "/about/contact",
+          title: "Contact",
+          items: ""
         }
       ]
     },
@@ -38,44 +43,20 @@ module FrontHelper
       url: "/projects",
       sorting: [
         {
-          title: "A-Z",
-          items: "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+          title: 'Research',
+          url: "/projects?research"
         },
         {
-          title: "Year",
-          items: [
-            "2010-2019",
-            "2000-2009",
-            "1990-1999",
-            "1980-1989",
-            "1970-1979"
-          ]
-        },
-        #{
-          #title: "Location",
-          #items: [ ]
-        #}
+          title: 'Global Issues',
+          url: "/projects?global"
+        }
       ]
     }, 
 
     {
-      title: 'Research',
+      title: 'Publications',
       url: "/research",
       sorting: [
-        {
-          title: "A-Z",
-          items: "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        },
-        {
-          title: "Year",
-          items: [
-            "2010-2019",
-            "2000-2009",
-            "1990-1999",
-            "1980-1989",
-            "1970-1979"
-          ]
-        },
         #{
           #title: "Location",
           #items: [ ]
