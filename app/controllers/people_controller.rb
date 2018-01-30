@@ -28,7 +28,7 @@ class PeopleController < ApplicationController
     render html: Rails.cache.fetch('people', :expires_in => 30.days) { 
     @section = Section.find_by_title("Now Institute") 
     @menu = FrontHelper.build_menu
-    @people = Person.order(:last_name).includes(:primary_image).where(is_ucla_team: true)
+    @people = Person.order(:last_name).includes(:primary_image).where(is_ucla_team: true).sort_by(&:rank)
     render_to_string :index 
     }
   end

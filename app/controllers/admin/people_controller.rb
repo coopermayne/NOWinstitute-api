@@ -9,7 +9,7 @@ class Admin::PeopleController < AdminController
       @people = @people.where(params[:type]=> true)
     end
 
-    @people = @people.order(created_at: :desc)
+    @people = @people.order(rank: :asc)
   end
 
   def show
@@ -60,6 +60,7 @@ class Admin::PeopleController < AdminController
     params.require(:person).permit(
       :is_published,
       :name,
+      :rank,
       :last_name,
       :make_primary,
       :make_index,

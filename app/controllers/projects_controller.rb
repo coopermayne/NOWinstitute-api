@@ -44,9 +44,9 @@ class ProjectsController < ApplicationController
       @menu_white = false
 
       if @project_type
-        @projects = Project.where(section_id: @section.id).includes(:primary_image, :project_types, :section, :components).select{|pr| pr.project_types.include? @project_type }
+        @projects = Project.where(section_id: @section.id).includes(:primary_image, :project_types, :section, :components).select{|pr| pr.project_types.include? @project_type }.sort_by(&:rank)
       else
-        @projects = Project.where(section_id: @section.id).includes(:primary_image, :project_types, :section, :components)
+        @projects = Project.where(section_id: @section.id).includes(:primary_image, :project_types, :section, :components).sort_by(&:rank)
       end
       render_to_string :index 
     }

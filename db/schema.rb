@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170419171533) do
+ActiveRecord::Schema.define(version: 20180130020938) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -210,6 +210,7 @@ ActiveRecord::Schema.define(version: 20170419171533) do
     t.boolean  "is_leadership",   default: false
     t.boolean  "is_ucla_team"
     t.boolean  "is_published",    default: false
+    t.integer  "rank",            default: 9999
   end
 
   create_table "positions", force: :cascade do |t|
@@ -251,6 +252,7 @@ ActiveRecord::Schema.define(version: 20170419171533) do
     t.date     "start"
     t.date     "end"
     t.boolean  "is_published",   default: false
+    t.integer  "rank",           default: 9999
   end
 
   add_index "projects", ["section_id"], name: "index_projects_on_section_id", using: :btree

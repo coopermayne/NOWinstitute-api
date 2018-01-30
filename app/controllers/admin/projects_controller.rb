@@ -5,7 +5,7 @@ class Admin::ProjectsController < AdminController
     @section_id = params[:type]
     @projects = Project.includes(:section, :primary_image).where(nil)
     @projects = @projects.with_section(@section_id) if @section_id
-    @projects = @projects.order(created_at: :desc)
+    @projects = @projects.order(rank: :asc)
   end
 
   def show
@@ -56,6 +56,7 @@ class Admin::ProjectsController < AdminController
     params.require(:project).permit(
       :is_published,
       :title,
+      :rank,
       :overview,
       :description,
       :sustainability,
