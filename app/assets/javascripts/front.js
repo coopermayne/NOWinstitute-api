@@ -26,7 +26,8 @@ $(document).on('turbolinks:load', function(){
 
   loadLazyCss()
 
-  var slides = $('.slideshow-image')
+  var slides = $('.slideshow-image-and-title')
+
   var lastSlideIndex = slides.length-1
   var currentVisId = 0
   var slideShowSpeed = 2500

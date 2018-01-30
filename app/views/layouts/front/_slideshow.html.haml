@@ -1,7 +1,10 @@
 - @slides.each_with_index do |slide, i|
   - image = slide.image.name
-  .slideshow-wrapper
-    %img.slideshow-image{ class: ('show' if i==0),
-      src: image.url,
+  .slideshow-wrapper.slideshow-image-and-title{ class: ('show' if i==0)}
+    %img.slideshow-image{ src: image.url,
       srcset: "#{image.mobile.url} 500w, #{image.url} 1000w", 
       sizes: "(max-width: 380px) 80vw, 100vw" }
+
+    .slide-title
+      %h1= slide.title
+
