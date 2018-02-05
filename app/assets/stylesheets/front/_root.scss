@@ -69,6 +69,10 @@
   height: 200%;
 }
 
+.slideshow-image-and-title {
+  display: none;
+}
+
 .slide-title {
   @include respond-to('medium')
   {
