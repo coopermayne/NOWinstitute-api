@@ -1,7 +1,9 @@
 module ApplicationHelper
 
   def slugify(input)
-    if input.is_a? Person
+    if input.is_a? NewsItem
+      return "/news/#{input.id}-#{input.para_name}"
+    elsif input.is_a? Person
       return "/about/people/#{input.id}-#{input.para_name}"
     else
       return "/#{input.section.title.downcase}/#{input.id}-#{input.para_title}"
