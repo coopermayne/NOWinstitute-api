@@ -16,5 +16,5 @@
         %img.lazy{ data: {src: news_item.index_image.name.index.url}} 
         .news-content
           .news-date= news_item.start_date && news_item.start_date.strftime("%b %d, %Y")
-          .project-title= news_item.title
+          .project-title= news_item.title.titleize
           .project-overview.markdown= markdown(news_item.overview)
