@@ -1,1 +1,10 @@
 - meta title: 'News'
+
+
+.index-container
+  -@news_items.each do |news_item|
+    .news-item
+      %img.lazy{ data: {src: news_item.index_image.name.index.url}} 
+      .news-content
+        .project-title= news_item.title
+        .project-overview= news_item.overview
