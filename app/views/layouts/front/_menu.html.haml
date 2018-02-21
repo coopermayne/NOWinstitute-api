@@ -1,8 +1,8 @@
-#hamburger{class: ('hide' unless @projects||@people|| /contact/.match(request.fullpath))}
+#hamburger{class: ('hide' unless @projects||@people||@news_items|| /contact/.match(request.fullpath))}
   %h1{href: '#'}= "NOW/#{ /\w*$/.match(request.fullpath) }"
   -# sub = @people ? 'people' : (@projects && @projects.first.section.title.downcase)
 
-.menu-directive{class: ( 'contracted-menu' if @projects || @people || /contact/.match(request.fullpath))}
+.menu-directive{class: ( 'contracted-menu' if @projects || @people || @news_items || /contact/.match(request.fullpath))}
   %ul.menu-directive-wrapper{ class: ( 'white-menu' if @white_menu ) }
     //- Build each big menu item and subsections
     - @menu[:sections].each do |bigMenuItem|
