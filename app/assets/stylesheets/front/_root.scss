@@ -21,6 +21,7 @@
 }
 
 .index-container {
+  width: 100%;
   margin-top: 0.5rem;
   display: flex;
   flex-flow: row;
@@ -58,7 +59,13 @@
   }
 
   .news-item {
-		border-bottom: 1px solid #e6e6e6;
+    &:hover {
+      .project-title {
+        text-decoration: underline;
+      }
+    }
+
+		border-top: 1px solid #e6e6e6;
     width: 100%;
     padding-right: 1rem;
     padding-top: 2rem;
@@ -72,23 +79,64 @@
   }
 
   .news-content {
-    width: 100%;
     margin-left: 170px;
   }
 
   .project-title{
     font-style: italic;
   }
+
+  .project-overview {
+    margin-top: 1rem;
+  }
+}
+
+.news-hero {
   &:hover {
     .project-title {
       text-decoration: underline;
     }
   }
+  width: 100%;
+  padding-bottom: 2rem;
+  margin-top: -2rem;
+}
 
-  .project-overview {
-    margin-top: 1rem;
+.hero-image {
+
+  @include respond-to( 'medium' )
+  {
+    height: 35vh;
+  }
+  @include respond-to( 'large' )
+  {
+    height: 45vh;
   }
 
+  position: relative;
+  height: auto;
+  height: 30vh;
+
+	align-items: center;
+	align-content: center;
+	justify-content: center;
+
+	overflow: hidden;
+	margin-left: 0;
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+
+  .project-title {
+    font-size: 3.5rem;
+    color: white;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    background: rgba(0,0,0,.3);
+  }
 }
 
 .slideshow-wrapper {
