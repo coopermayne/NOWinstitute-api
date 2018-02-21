@@ -36,4 +36,11 @@
                 .sorting-option-title-wrapper{ class:('selected' if sortingOption[:url] && request.fullpath.match(/#{Regexp.escape(sortingOption[:url])}$/)) }
                   %a.sorting-option-title{ href: sortingOption[:url] }= sortingOption[:title]
 
+        - if request.fullpath['news'] && request.fullpath[bigMenuItem[:url]]
+          .sorting-options
+            - bigMenuItem[:sorting].each do |sortingOption|
+              .sorting-option-wrapper
+                .sorting-option-title-wrapper{ class:('selected' if sortingOption[:url] && request.fullpath.match(/#{Regexp.escape(sortingOption[:url])}$/)) }
+                  %a.sorting-option-title{ href: sortingOption[:url] }= sortingOption[:title]
+
 .magic-x{class: 'hide', data: {action: 'collapse menu'} }
