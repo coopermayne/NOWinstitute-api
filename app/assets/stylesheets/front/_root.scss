@@ -120,8 +120,17 @@
 	background-size: cover;
 	background-repeat: no-repeat;
 
-  .project-title {
-    font-size: 3.5rem;
+  .project-title-and-content {
+    .project-title {
+      font-size: 3.5rem;
+    }
+    .project-overview {
+      margin-top: 0;
+      p, a {
+        
+        color: white;
+      }
+    }
     color: white;
     position: absolute;
     width: 100%;
