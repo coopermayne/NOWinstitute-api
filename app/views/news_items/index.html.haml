@@ -8,10 +8,11 @@
         .hero-image.responsive-background{ style: "background-image:url(#{news_item.primary_image.name.index.url});",
                                 data: { desktop: news_item.primary_image.name.url,
                                         mobile: news_item.primary_image.name.index.url }}
-          .project-title.clickable= news_item.title
+          .project-title= news_item.title
     -else
       .news-item 
         %img.lazy{ data: {src: news_item.index_image.name.index.url}} 
         .news-content
-          .project-title.clickable= news_item.title
+          .news-date= news_item.start_date && news_item.start_date.strftime("%b %d, %Y")
+          .project-title= news_item.title
           .project-overview= news_item.overview
