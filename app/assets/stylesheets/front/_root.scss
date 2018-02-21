@@ -102,11 +102,7 @@
 
   @include respond-to( 'medium' )
   {
-    height: 35vh;
-  }
-  @include respond-to( 'large' )
-  {
-    height: 45vh;
+    height: 55vh;
   }
 
   position: relative;
