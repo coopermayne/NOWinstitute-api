@@ -36,6 +36,9 @@ class NewsItem < ActiveRecord::Base
 
 
   attr_accessor :address
+  validates_presence_of :start_date
+  validates_presence_of :news_type
+  validates_presence_of :title
 
   belongs_to :news_type
 

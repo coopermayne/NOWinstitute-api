@@ -42,9 +42,9 @@ class NewsItemsController < ApplicationController
 
 
     if @news_type
-      @news_items = NewsItem.all.select{|pr| pr.news_type ==  @news_type }
+      @news_items = NewsItem.all.select{|pr| pr.news_type ==  @news_type }.sort_by(&:start_date)
     else
-      @news_items = NewsItem.all
+      @news_items = NewsItem.all.sort_by(&:start_date)
     end
 
     @menu = FrontHelper.build_menu

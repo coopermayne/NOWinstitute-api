@@ -3,7 +3,8 @@
 		<tr>
 			<th>title</th>
       <th>has image</th>
-      <th>newsbox</th>
+      <th>hero</th>
+			<th>type</th>
 			<th>created</th>
 			<th>&nbsp;</th>
 			<th>&nbsp;</th>
@@ -15,6 +16,7 @@
 			<td><%= link_to news_item.title, admin_news_item_path(news_item) %></td>
       <td><%= news_item.primary_image ? "#{fa_icon "check 1x"}".html_safe : "false" %>
       <td><%= news_item.in_news_box ? "#{fa_icon "check 1x"}".html_safe : "false" %>
+			<td><%= news_item.news_type.title %></td>
 			<td><%= news_item.created_at.strftime('%x') %></td>
       <td><%= link_to "#{fa_icon "pencil"}".html_safe, admin_news_item_path(news_item) %></td>
       <td><%= link_to "#{fa_icon "trash"}".html_safe, admin_news_item_path(news_item), data:  { method: "delete", confirm:  "Are you sure you want to delete this?" } %></td>

@@ -17,12 +17,9 @@
 
             <%= f.input :title %>
             <%= f.input :news_type_id, collection: NewsType.all, prompt: "select a section" %>
-            <%= f.input :in_news_box %>
+            <%= f.input :in_news_box, label: 'Hero' %>
 
         <div class="row">
-          <div class="col-md-6">
-            <%= f.input :description, rows: "20" %>
-          </div>
           <div class="col-md-6">
             <%= f.input :overview, rows: "20" %>
           </div>

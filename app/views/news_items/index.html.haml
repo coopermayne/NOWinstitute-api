@@ -2,19 +2,20 @@
 
 
 .index-container
-  -@news_items.each_with_index do |news_item, idx|
-    -if idx==0
-      .news-hero
-        .hero-image.responsive-background{ style: "background-image:url(#{news_item.primary_image.name.index.url});",
-                                data: { desktop: news_item.primary_image.name.url,
-                                        mobile: news_item.primary_image.name.index.url }}
-          .project-title-and-content
-            .project-title= news_item.title.titleize
-            .project-overview.markdown= markdown(news_item.overview)
-    -else
-      .news-item 
+  -hero_news_item = @news_items.select{|ni| ni.in_news_box == true}.first
+  -if hero_news_item
+    .news-hero
+      .hero-image.responsive-background{ style: "background-image:url(#{hero_news_item.primary_image.name.index.url});",
+                              data: { desktop: hero_news_item.primary_image.name.url,
+                                      mobile: hero_news_item.primary_image.name.index.url }}
+        .project-title-and-content
+          .project-title= hero_news_item.title.titleize
+          .project-overview.markdown= markdown(hero_news_item.overview)
+  -@news_items.reject{|ni| ni.in_news_box==true}.each do |news_item|
+    .news-item 
+      -if news_item.index_image
         %img.lazy{ data: {src: news_item.index_image.name.index.url}} 
-        .news-content
-          .news-date= news_item.start_date && news_item.start_date.strftime("%b %d, %Y")
-          .project-title= news_item.title.titleize
-          .project-overview.markdown= markdown(news_item.overview)
+      .news-content
+        .news-date= news_item.start_date && news_item.start_date.strftime("%b %d, %Y")
+        .project-title= news_item.title.titleize
+        .project-overview.markdown= markdown(news_item.overview)
