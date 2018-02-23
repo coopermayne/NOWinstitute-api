@@ -64,11 +64,9 @@ module FrontHelper
       ]
     }, 
 
-    {
-      title: 'News',
-      target: '_blank',
-			url: 'http://www.aud.ucla.edu/programs/m_arch_ii_degree_1/studios/mayne/category/events/',
-			sorting: []
+    #permanent
+    #{
+      #title: 'News',
       #url: '/news',
       #sorting: [
         #{
@@ -80,6 +78,14 @@ module FrontHelper
           #url: "/news?events"
         #}
       #]
+    #}
+
+    #temporary
+    {
+      title: 'News',
+      target: '_blank',
+			url: 'http://www.aud.ucla.edu/programs/m_arch_ii_degree_1/studios/mayne/category/events/',
+			sorting: []
     }
     ]
 
