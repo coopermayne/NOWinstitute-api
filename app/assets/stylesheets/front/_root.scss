@@ -235,3 +235,14 @@
 .clickable {
   cursor: pointer;
 }
+
+.black-and-white-hover-effect {
+  transition: filter .5s ease-in-out;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%)
+}
+
+.black-and-white-hover-effect:hover {
+  -webkit-filter: grayscale(0%);
+  filter: grayscale(0%);
+}

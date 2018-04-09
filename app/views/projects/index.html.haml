@@ -1,7 +1,15 @@
 - meta title: @section.title
 
-.index-container
-  -@projects.each do |project|
-    %a.box{href: slugify(project), data: { title: project.title } }
-      %img.lazy{ data: {src: project.index_image.name.index.url}} 
-      .project-title= project.title
+-if @projects.first.section.title=='Projects'
+  .index-container
+    -@projects.each do |project|
+      %a.box{href: slugify(project), data: { title: project.title } }
+        %img.lazy.black-and-white-hover-effect{ data: {src: project.index_image.name.index.url}} 
+
+-else
+  .index-container
+    -@projects.each do |project|
+      %a.box{href: slugify(project), data: { title: project.title } }
+        %img.lazy{ data: {src: project.index_image.name.index.url}} 
+        -if project.section.title!='Projects'
+          .project-title= project.title
