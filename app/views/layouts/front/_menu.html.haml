@@ -1,5 +1,5 @@
 #hamburger{class: ('hide' unless @projects||@people||@news_items|| /contact/.match(request.fullpath))}
-  %h1{href: '#'}= "NOW/#{ /\w*$/.match(request.fullpath) }"
+  %h1{href: '#'}= "NOW/#{ /\w*$/.match(request.fullpath) } +"
   -# sub = @people ? 'people' : (@projects && @projects.first.section.title.downcase)
 
 .menu-directive{class: ( 'contracted-menu' if @projects || @people || @news_items || /contact/.match(request.fullpath))}
